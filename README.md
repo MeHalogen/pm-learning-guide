@@ -1,7 +1,10 @@
 # 🚀 MeHalogen's Product Management Roadmap (PM)
 ![Status](https://img.shields.io/badge/Status-Interactive_Portal_Ready-success?style=for-the-badge&logo=github)
+[![Website](https://img.shields.io/badge/Website-Live_on_Vercel-blue?style=for-the-badge&logo=vercel)](https://productmanagerlearning.vercel.app/)
 ![Focus](https://img.shields.io/badge/Focus-Strategy%20%7C%20Tech%20%7C%20Analytics%20%7C%20Design-indigo?style=for-the-badge)
 ![Audience](https://img.shields.io/badge/Audience-APM%20to%20Senior%20PM-orange?style=for-the-badge)
+
+✨ **Live Interactive Portal**: [productmanagerlearning.vercel.app](https://productmanagerlearning.vercel.app/)
 
 The definitive, best-in-class curriculum and practical playbook to mastering Product Management. Learn how modern digital software products are discovered, designed, built, prioritized, analyzed, and shipped at scale. 
 
