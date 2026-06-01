@@ -1,6 +1,4 @@
-# 🚀 Awesome Product Management Roadmap (PM)
-
-[![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
+# 🚀 MeHalogen's Product Management Roadmap (PM)
 ![Status](https://img.shields.io/badge/Status-Interactive_Portal_Ready-success?style=for-the-badge&logo=github)
 ![Focus](https://img.shields.io/badge/Focus-Strategy%20%7C%20Tech%20%7C%20Analytics%20%7C%20Design-indigo?style=for-the-badge)
 ![Audience](https://img.shields.io/badge/Audience-APM%20to%20Senior%20PM-orange?style=for-the-badge)
