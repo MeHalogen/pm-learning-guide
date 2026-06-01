@@ -1,0 +1,2988 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PM &amp; Software Development Guide MCQ Test Portal — Challenge your knowledge across 3 interactive MCQ sets.">
+  <title>PM &amp; Software Dev MCQ Portal — Halonic Learning</title>
+
+  <!-- Google Fonts matching main guide -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       HALONIC MCQ DESIGN SYSTEM
+       ========================================================================== */
+    :root {
+      /* Typography */
+      --font-heading: 'Outfit', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      /* Colors - Dark Mode (default) */
+      --bg-primary: #070913;
+      --bg-secondary: #0d1224;
+      --bg-tertiary: #141a33;
+      --bg-card: rgba(13, 18, 36, 0.7);
+      --bg-card-hover: rgba(20, 26, 51, 0.85);
+
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+
+      --border-color: rgba(255, 255, 255, 0.06);
+      --border-color-hover: rgba(255, 255, 255, 0.12);
+
+      --accent-gradient: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
+      --accent-start: #6366f1;
+      --accent-end: #06b6d4;
+      --accent-solid: #6366f1;
+
+      --success: #10b981;
+      --success-bg: rgba(16, 185, 129, 0.1);
+      --warning: #f59e0b;
+      --error: #ef4444;
+      --error-bg: rgba(239, 68, 68, 0.1);
+      --info: #3b82f6;
+
+      /* Spacing */
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --radius-xl: 18px;
+      --radius-full: 9999px;
+
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+      --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.15);
+      --shadow-glow-hover: 0 0 30px rgba(99, 102, 241, 0.25);
+
+      --ease: cubic-bezier(0.4, 0, 0.2, 1);
+      --duration-fast: 150ms;
+      --duration-normal: 250ms;
+      --duration-slow: 400ms;
+
+      --header-height: 64px;
+      --progress-height: 4px;
+      --content-max-width: 900px;
+    }
+
+    /* Light Mode Variables */
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #f1f5f9;
+      --bg-tertiary: #e2e8f0;
+      --bg-card: rgba(255, 255, 255, 0.8);
+      --bg-card-hover: rgba(255, 255, 255, 0.95);
+
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+
+      --border-color: rgba(0, 0, 0, 0.08);
+      --border-color-hover: rgba(0, 0, 0, 0.15);
+
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+      --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.1);
+      --shadow-glow-hover: 0 0 30px rgba(99, 102, 241, 0.18);
+      
+      --success-bg: rgba(16, 185, 129, 0.08);
+      --error-bg: rgba(239, 68, 68, 0.08);
+    }
+
+    /* ---- Resets & Basics ---- */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background-color var(--duration-slow) var(--ease),
+                  color var(--duration-slow) var(--ease);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--text-muted);
+      border-radius: var(--radius-full);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--text-secondary);
+    }
+
+    /* ---- Typography ---- */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+
+    .gradient-text {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    p {
+      color: var(--text-secondary);
+    }
+
+    /* ---- Structure ---- */
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: var(--progress-height);
+      background: var(--accent-gradient);
+      z-index: 1001;
+      transition: width var(--duration-normal) var(--ease);
+      box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+    }
+
+    header {
+      position: fixed;
+      top: var(--progress-height);
+      left: 0;
+      right: 0;
+      height: var(--header-height);
+      background: rgba(7, 9, 19, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 var(--space-6);
+      padding-left: 2rem;
+      padding-right: 2rem;
+      z-index: 999;
+      transition: background-color var(--duration-slow) var(--ease);
+    }
+
+    [data-theme="light"] header {
+      background: rgba(248, 250, 252, 0.85);
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+    }
+
+    .header-logo-icon {
+      font-size: 1.5rem;
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      background: var(--accent-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+
+    .header-logo-text h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0;
+    }
+    .header-logo-text span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 20px;
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all var(--duration-fast) var(--ease);
+      border: 1px solid transparent;
+      outline: none;
+      white-space: nowrap;
+    }
+
+    .btn-secondary {
+      background: var(--bg-card);
+      border-color: var(--border-color);
+      color: var(--text-primary);
+    }
+    .btn-secondary:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-color-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--accent-gradient);
+      color: #fff;
+      box-shadow: var(--shadow-sm);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .btn-outline-success {
+      background: transparent;
+      border-color: var(--success);
+      color: var(--success);
+    }
+    .btn-outline-success:hover {
+      background: var(--success);
+      color: #fff;
+    }
+
+    .theme-toggle {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--duration-fast) var(--ease);
+      font-size: 1.125rem;
+    }
+    .theme-toggle:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-color-hover);
+      color: var(--text-primary);
+    }
+
+    /* ---- Main Wrapper ---- */
+    main {
+      padding-top: calc(var(--header-height) + var(--progress-height) + 2rem);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--content-max-width);
+      padding: 24px;
+      flex: 1;
+    }
+
+    /* ---- Views ---- */
+    .view {
+      display: none;
+      animation: fadeInUp 0.4s var(--ease) both;
+    }
+
+    .view.active {
+      display: block;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ---- DASHBOARD VIEW ---- */
+    .welcome-hero {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding: 3rem var(--space-6);
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-md);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .welcome-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background: rgba(99, 102, 241, 0.1);
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      border-radius: var(--radius-full);
+      color: var(--accent-start);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    .welcome-hero h1 {
+      font-size: 2.25rem;
+      margin-bottom: 12px;
+    }
+
+    .welcome-hero p {
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .stats-summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 500px;
+      margin: 24px auto 0;
+      border-top: 1px solid var(--border-color);
+      padding-top: 24px;
+    }
+
+    .stat-box {
+      text-align: center;
+    }
+    .stat-num {
+      font-family: var(--font-heading);
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--accent-start);
+    }
+    .stat-lbl {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    /* Sets Grid */
+    .sets-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 3rem;
+    }
+
+    .set-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      transition: all var(--duration-normal) var(--ease);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 280px;
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+    }
+
+    .set-card:hover {
+      border-color: var(--border-color-hover);
+      box-shadow: var(--shadow-glow);
+      transform: translateY(-3px);
+    }
+
+    .set-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      width: fit-content;
+      margin-bottom: 16px;
+      color: var(--accent-start);
+    }
+
+    .set-card h2 {
+      font-size: 1.35rem;
+      margin-bottom: 8px;
+    }
+    .set-card p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .set-footer {
+      border-top: 1px solid var(--border-color);
+      padding-top: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .set-score-info {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .set-score-info strong {
+      color: var(--text-primary);
+    }
+
+    /* ---- EXAM VIEW ---- */
+    .exam-layout {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .exam-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .exam-main {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .exam-header-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .exam-title-info h2 {
+      font-size: 1.15rem;
+    }
+    .exam-title-info span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .exam-nav-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .question-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .question-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chapter-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent-start);
+      background: rgba(99, 102, 241, 0.08);
+      border: 1px solid rgba(99, 102, 241, 0.15);
+      padding: 4px 10px;
+      border-radius: var(--radius-md);
+    }
+
+    .question-num-tag {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .question-text {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.45;
+      color: var(--text-primary);
+    }
+
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .option-btn {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      transition: all var(--duration-fast) var(--ease);
+      text-align: left;
+      width: 100%;
+      outline: none;
+    }
+
+    .option-btn:hover {
+      border-color: var(--accent-start);
+      background: var(--bg-tertiary);
+      transform: translateX(4px);
+    }
+
+    .option-btn.selected {
+      border-color: var(--accent-solid);
+      background: rgba(99, 102, 241, 0.08);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .option-letter {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.85rem;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--bg-tertiary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+      transition: all var(--duration-fast) var(--ease);
+    }
+
+    .option-btn:hover .option-letter {
+      color: var(--accent-start);
+      border-color: var(--accent-start);
+    }
+
+    .option-btn.selected .option-letter {
+      background: var(--accent-solid);
+      color: #fff;
+      border-color: var(--accent-solid);
+    }
+
+    .option-text {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      transition: color var(--duration-fast) var(--ease);
+    }
+
+    .option-btn.selected .option-text {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .exam-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    /* Navigator Sidebar */
+    .exam-sidebar {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      height: fit-content;
+      position: sticky;
+      top: calc(var(--header-height) + 2rem);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .sidebar-title h3 {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    .bubbles-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+    }
+
+    .bubble {
+      aspect-ratio: 1;
+      width: 100%;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      background: var(--bg-secondary);
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--duration-fast) var(--ease);
+      outline: none;
+    }
+
+    .bubble:hover {
+      border-color: var(--text-secondary);
+      color: var(--text-primary);
+    }
+
+    .bubble.active {
+      border-color: var(--accent-solid);
+      background: rgba(99, 102, 241, 0.1);
+      color: var(--accent-start);
+      box-shadow: 0 0 8px rgba(99, 102, 241, 0.3);
+    }
+
+    .bubble.answered {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      border-color: var(--border-color-hover);
+    }
+
+    .keyboard-shortcuts-helper {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-color);
+      padding-top: 16px;
+      line-height: 1.5;
+    }
+    .keyboard-shortcuts-helper code {
+      font-family: var(--font-mono);
+      background: var(--bg-secondary);
+      padding: 1px 4px;
+      border-radius: var(--radius-sm);
+      font-size: 0.7rem;
+      color: var(--accent-end);
+    }
+
+    /* ---- RESULTS VIEW ---- */
+    .results-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 48px;
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 3rem;
+      position: relative;
+    }
+
+    /* Circular Dial */
+    .dial-container {
+      position: relative;
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .dial-svg {
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+    }
+
+    .dial-bg {
+      fill: none;
+      stroke: var(--bg-tertiary);
+      stroke-width: 10;
+    }
+
+    .dial-fill {
+      fill: none;
+      stroke: url(#score-grad);
+      stroke-width: 10;
+      stroke-linecap: round;
+      transition: stroke-dasharray 1s ease-out;
+    }
+
+    .dial-text {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .dial-score {
+      font-family: var(--font-heading);
+      font-size: 2.25rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .dial-total {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .results-card h2 {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .achievement-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 700;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      color: var(--success);
+      margin: 8px auto 20px;
+      width: fit-content;
+    }
+
+    .results-card p.feedback-text {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      line-height: 1.5;
+    }
+
+    .results-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    @media (max-width: 480px) {
+      .results-actions {
+        flex-direction: column;
+      }
+    }
+
+    /* Confetti Canvas */
+    #confetti-canvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1002;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    /* ---- REVIEW PANEL VIEW ---- */
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 16px;
+    }
+
+    .review-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-bottom: 3rem;
+    }
+
+    .review-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .review-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .review-option {
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--bg-secondary);
+      font-size: 0.85rem;
+    }
+
+    .review-option.correct {
+      border-color: var(--success);
+      background: var(--success-bg);
+      color: var(--text-primary);
+    }
+
+    .review-option.incorrect {
+      border-color: var(--error);
+      background: var(--error-bg);
+      color: var(--text-primary);
+    }
+
+    .review-option-indicator {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      border: 1px solid var(--border-color);
+      background: var(--bg-tertiary);
+    }
+
+    .review-option.correct .review-option-indicator {
+      background: var(--success);
+      border-color: var(--success);
+      color: #fff;
+    }
+
+    .review-option.incorrect .review-option-indicator {
+      background: var(--error);
+      border-color: var(--error);
+      color: #fff;
+    }
+
+    .explanation-box {
+      background: rgba(99, 102, 241, 0.05);
+      border-left: 3px solid var(--accent-start);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-top: 8px;
+    }
+    .explanation-box strong {
+      color: var(--accent-start);
+      display: block;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+
+    .float-top-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--accent-gradient);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      cursor: pointer;
+      box-shadow: var(--shadow-lg), var(--shadow-glow);
+      z-index: 998;
+      transition: all var(--duration-fast) var(--ease);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .float-top-btn.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .float-top-btn:hover {
+      transform: translateY(-3px);
+    }
+
+    /* ---- FOOTER ---- */
+    footer {
+      border-top: 1px solid var(--border-color);
+      width: 100%;
+      padding: 24px 0;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: auto;
+    }
+    footer a {
+      color: var(--text-secondary);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Progress Bar -->
+  <div id="progress-bar" role="progressbar"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="header-logo" onclick="app.showDashboard()">
+      <div class="header-logo-icon">📘</div>
+      <div class="header-logo-text">
+        <h3>PM Guide Portal</h3>
+        <span>Halonic Learning Test Client</span>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
+    </div>
+  </header>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Main Container -->
+  <main>
+    <div class="container">
+
+      <!-- ==========================================
+           1. DASHBOARD VIEW
+           ========================================== -->
+      <section id="view-dashboard" class="view active">
+        <div class="welcome-hero">
+          <div class="hero-badge">🎓 Production Ready MCQ Exam</div>
+          <h1>PM &amp; Software Dev <span class="gradient-text">Testing Suite</span></h1>
+          <p>Challenge your understanding of the 13-chapter guide and glossary. Three unlocked sets of 30 randomized MCQs with detailed reviews and achievement rankings.</p>
+          
+          <div class="stats-summary">
+            <div class="stat-box">
+              <div class="stat-num" id="stat-completed-sets">0/3</div>
+              <div class="stat-lbl">Sets Done</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num">90</div>
+              <div class="stat-lbl">Questions</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num" id="stat-avg-score">--%</div>
+              <div class="stat-lbl">Avg Score</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sets-grid">
+          <!-- Set 1 Card -->
+          <div class="set-card" onclick="app.startSet(1)">
+            <div>
+              <div class="set-badge">Set 01</div>
+              <h2>Agile Foundations &amp; Roles</h2>
+              <p>Explore software types, Waterfall vs Agile, the Scrum ceremonies, core stakeholder roles, AWS cloud basics, and PRDs.</p>
+            </div>
+            <div class="set-footer">
+              <div class="set-score-info" id="set-1-score">Best Score: <strong>Not Taken</strong></div>
+              <button class="btn btn-primary" style="padding: 8px 16px; font-size: 0.8rem;">Start Test</button>
+            </div>
+          </div>
+
+          <!-- Set 2 Card -->
+          <div class="set-card" onclick="app.startSet(2)">
+            <div>
+              <div class="set-badge">Set 02</div>
+              <h2>Product Strategy &amp; Growth</h2>
+              <p>Prioritize with MoSCoW &amp; RICE, dissect Gherkin requirements, analyze product analytics (LTV/CAC/DAU), and investigate early growth loops.</p>
+            </div>
+            <div class="set-footer">
+              <div class="set-score-info" id="set-2-score">Best Score: <strong>Not Taken</strong></div>
+              <button class="btn btn-primary" style="padding: 8px 16px; font-size: 0.8rem;">Start Test</button>
+            </div>
+          </div>
+
+          <!-- Set 3 Card -->
+          <div class="set-card" onclick="app.startSet(3)">
+            <div>
+              <div class="set-badge">Set 03</div>
+              <h2>Bugs, Interviews &amp; Glossary</h2>
+              <p>Solve bug prioritization puzzles, review cases studies (Airbnb, Netflix, Uber, Zoom), prepare for Fermi interview questions, and test glossary terms.</p>
+            </div>
+            <div class="set-footer">
+              <div class="set-score-info" id="set-3-score">Best Score: <strong>Not Taken</strong></div>
+              <button class="btn btn-primary" style="padding: 8px 16px; font-size: 0.8rem;">Start Test</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           2. ACTIVE EXAM VIEW
+           ========================================== -->
+      <section id="view-exam" class="view">
+        <div class="exam-layout">
+          <!-- Main Question Panel -->
+          <div class="exam-main">
+            <div class="exam-header-card">
+              <div class="exam-title-info">
+                <h2 id="exam-set-title">Active MCQ Set</h2>
+                <span>Single Correct MCQ &bull; 5 Options &bull; 1 Mark Each</span>
+              </div>
+              <button class="btn btn-secondary btn-sm" onclick="app.confirmQuit()">Quit Set</button>
+            </div>
+
+            <div class="question-card">
+              <div class="question-meta">
+                <div class="chapter-tag" id="q-chapter">Chapter Name</div>
+                <div class="question-num-tag" id="q-number">Question 1 of 30</div>
+              </div>
+              <div class="question-text" id="q-text">Loading question text...</div>
+              
+              <div class="options-list" id="options-container">
+                <!-- Rendered dynamically -->
+              </div>
+            </div>
+
+            <div class="exam-controls">
+              <button class="btn btn-secondary" id="btn-prev" onclick="app.prevQuestion()">&larr; Previous</button>
+              <button class="btn btn-primary" id="btn-next" onclick="app.nextQuestion()">Next &rarr;</button>
+            </div>
+          </div>
+
+          <!-- Sidebar Navigator -->
+          <aside class="exam-sidebar">
+            <div class="sidebar-title">
+              <h3>Navigator</h3>
+            </div>
+            <div class="bubbles-grid" id="bubbles-container">
+              <!-- Grid of 1-30 bubbles rendered dynamically -->
+            </div>
+            <div class="keyboard-shortcuts-helper">
+              <strong>💡 Pro Tip: Keyboard Mode</strong>
+              <p style="margin-top: 4px; font-size: 0.7rem; color: var(--text-muted);">
+                Press <code>1</code> - <code>5</code> or <code>A</code> - <code>E</code> to select. Use <code>&larr;</code> / <code>&rarr;</code> to navigate. Press <code>Enter</code> for Next.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           3. RESULTS & RANKING VIEW
+           ========================================== -->
+      <section id="view-results" class="view">
+        <div class="results-card">
+          <!-- Dial SVG -->
+          <div class="dial-container">
+            <svg class="dial-svg">
+              <defs>
+                <linearGradient id="score-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#6366f1" />
+                  <stop offset="100%" stop-color="#06b6d4" />
+                </linearGradient>
+              </defs>
+              <circle class="dial-bg" cx="90" cy="90" r="75"></circle>
+              <circle class="dial-fill" id="dial-fill-arc" cx="90" cy="90" r="75" stroke-dasharray="471.2" stroke-dashoffset="471.2"></circle>
+            </svg>
+            <div class="dial-text">
+              <span class="dial-score" id="results-score">0</span>
+              <span class="dial-total">out of 30</span>
+            </div>
+          </div>
+
+          <h2 id="results-header">Congratulations!</h2>
+          <div class="achievement-badge" id="results-badge">PM Practitioner</div>
+          <p class="feedback-text" id="results-feedback">Loading feedback and analysis...</p>
+
+          <div class="results-actions">
+            <button class="btn btn-secondary" onclick="app.showDashboard()">Portal Home</button>
+            <button class="btn btn-outline-success" onclick="app.showReview()">Review Answers</button>
+            <button class="btn btn-primary" id="results-retry-btn" onclick="app.retryActiveSet()">Retake Set</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           4. DETAILED REVIEW VIEW
+           ========================================== -->
+      <section id="view-review" class="view">
+        <div class="review-header">
+          <div>
+            <h1 class="gradient-text">Detailed Exam Review</h1>
+            <p>Study incorrect choices and master key concepts with step-by-step explanations.</p>
+          </div>
+          <button class="btn btn-secondary" onclick="app.showDashboard()">Return Home</button>
+        </div>
+
+        <div class="review-list" id="review-list-container">
+          <!-- Dynamically populated with Q-card review -->
+        </div>
+
+        <div style="display:flex; justify-content:center; margin-bottom: 4rem;">
+          <button class="btn btn-primary" onclick="app.showDashboard()">Back to Portal Home</button>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Scroll-to-Top Float Button -->
+  <button class="float-top-btn" id="float-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Scroll to top">▲</button>
+
+  <footer>
+    <p>&copy; 2026 Halonic Learning Systems. All sets are fully unlocked for test-takers.</p>
+    <p style="margin-top: 6px; font-size: 0.75rem;"><a href="#" onclick="event.preventDefault(); app.clearHistory();">Reset Portal High Scores</a></p>
+  </footer>
+
+  <!-- ==========================================
+       JAVASCRIPT APP CLIENT & DATABASE
+       ========================================== -->
+  <script>
+    // ---- 90 Question Complete MCQ Database (3 Sets of 30 Questions) ----
+    const questionsDatabase = {
+      set1: [
+        {
+          id: 1,
+          chapter: "Chapter 1: What Is a Software Product",
+          question: "What is the key distinction of a Business-to-Business-to-Consumer (B2B2C) software product?",
+          options: [
+            "It sells directly to individual consumers for personal use without corporate interaction.",
+            "It is built exclusively for internal enterprise resource planning and employee management.",
+            "It is sold to businesses who then use the platform infrastructure to serve their own consumers.",
+            "It refers to offline utility programs distributed with pre-installed operating systems.",
+            "It represents open-source codebases developed entirely by local student volunteers."
+          ],
+          correct: 2,
+          explanation: "B2B2C stands for Business-to-Business-to-Consumer. In this model, a company sells its software to other businesses, who in turn use it to service or sell to individual end consumers. A prime example is Shopify (which helps merchants sell to their customers) or Stripe."
+        },
+        {
+          id: 2,
+          chapter: "Chapter 2: SDLC",
+          question: "Which of the following is the linear and sequential model of software development where each phase must be fully completed before the next begins?",
+          options: [
+            "Spiral Model",
+            "Waterfall Model",
+            "Agile Model",
+            "Kanban Model",
+            "Iterative Prototyping"
+          ],
+          correct: 1,
+          explanation: "The Waterfall model is a linear, sequential approach where each phase of the SDLC (Planning, Design, Development, Testing, Deployment, Maintenance) flows strictly downwards to the next. You must complete a phase before starting the next, with little to no opportunity to look back."
+        },
+        {
+          id: 3,
+          chapter: "Chapter 3: Agile & Scrum",
+          question: "Which of the following is NOT one of the 4 core values established in the Agile Manifesto?",
+          options: [
+            "Working software over comprehensive documentation",
+            "Responding to change over following a plan",
+            "Individuals and interactions over processes and tools",
+            "Extensive contract negotiations over collaborative relationships",
+            "Customer collaboration over contract negotiation"
+          ],
+          correct: 3,
+          explanation: "The Agile Manifesto explicitly prioritizes 'Customer collaboration over contract negotiation.' Extensive contract negotiations represent the rigid, traditional mindset, making Option D the correct answer (since it is NOT a value)."
+        },
+        {
+          id: 4,
+          chapter: "Chapter 3: Agile & Scrum",
+          question: "In the Scrum framework, who is primarily responsible for managing the Product Backlog, prioritizing customer requirements, and deciding 'WHAT' to build?",
+          options: [
+            "Scrum Master",
+            "Engineering Manager",
+            "DevOps Engineer",
+            "Product Owner",
+            "Agile Coach"
+          ],
+          correct: 3,
+          explanation: "The Product Owner (PO) is the voice of the customer within the Scrum team. The PO owns the Product Backlog, prioritizing its items (features, bugs, enhancements) to maximize product value and determine the roadmap of WHAT is built."
+        },
+        {
+          id: 5,
+          chapter: "Chapter 5: How a Feature Is Born",
+          question: "What does the abbreviation 'PRD' stand for in modern product management?",
+          options: [
+            "Program Resource Directory",
+            "Product Requirements Document",
+            "Project Risk Assessment",
+            "Prototype Release Diagram",
+            "Performance Review Dashboard"
+          ],
+          correct: 1,
+          explanation: "PRD stands for Product Requirements Document. It serves as a shared source of truth, describing a feature's purpose, scope, target audience, specific functional requirements, user flows, and success metrics."
+        },
+        {
+          id: 6,
+          chapter: "Chapter 6: Product Management Deep Dive",
+          question: "In the RICE prioritization framework, how is the ultimate priority score calculated?",
+          options: [
+            "Reach + Impact + Confidence - Effort",
+            "(Reach × Impact × Effort) / Confidence",
+            "(Reach × Impact × Confidence) / Effort",
+            "Reach × Impact × Confidence × Effort",
+            "(Reach × Effort) / (Impact × Confidence)"
+          ],
+          correct: 2,
+          explanation: "The RICE Scoring formula is calculated as: (Reach × Impact × Confidence) / Effort. This represents the absolute business value (Reach × Impact × Confidence) divided by the development cost (Effort), giving a standardized, data-driven score."
+        },
+        {
+          id: 7,
+          chapter: "Chapter 7: Requirements & Stories",
+          question: "A standard Agile User Story written in a backlog typically follows which template?",
+          options: [
+            "Given [context], When [action], Then [outcome]",
+            "As a [type of user], I want [some goal], so that [some reason]",
+            "If [system state], execute [action], else [fallback protocol]",
+            "Who [person], What [activity], When [timeframe]",
+            "To [achieve value], we must [build feature] because of [urgency]"
+          ],
+          correct: 1,
+          explanation: "A standard user story is always user-centric and typically follows the format: 'As a [type of user], I want [some goal], so that [some reason].' This clearly defines the WHO, WHAT, and WHY."
+        },
+        {
+          id: 8,
+          chapter: "Chapter 8: Bugs",
+          question: "What is the typical sequence of statuses in a standard bug tracking life cycle?",
+          options: [
+            "Open &rarr; Assigned &rarr; New &rarr; Fixed &rarr; Retest &rarr; Closed",
+            "New &rarr; Open &rarr; Assigned &rarr; Fixed &rarr; Closed &rarr; Retest",
+            "New &rarr; Assigned &rarr; Open &rarr; Fixed &rarr; Retest &rarr; Closed",
+            "Assigned &rarr; Open &rarr; Fixed &rarr; Retest &rarr; New &rarr; Closed",
+            "New &rarr; Fixed &rarr; Assigned &rarr; Open &rarr; Retest &rarr; Closed"
+          ],
+          correct: 2,
+          explanation: "The correct sequence is: New (bug reported) &rarr; Assigned (assigned to a developer) &rarr; Open (developer starts investigating) &rarr; Fixed (code updated) &rarr; Retest (QA verifies the fix) &rarr; Closed (verified and closed)."
+        },
+        {
+          id: 9,
+          chapter: "Chapter 9: Product Analytics",
+          question: "What does the metric 'Churn Rate' measure in SaaS product analytics?",
+          options: [
+            "The percentage of users who upgrade to a premium subscription plan.",
+            "The percentage of active users who log into the application daily.",
+            "The speed at which developers complete tasks in a 2-week sprint.",
+            "The percentage of customers who stop using a product over a given timeframe.",
+            "The ratio of customer acquisition cost (CAC) to customer lifetime value (LTV)."
+          ],
+          correct: 3,
+          explanation: "Churn Rate measures the rate at which customers leave or cancel their subscription to your product over a specific timeframe. Lowering churn is critical for achieving sustainable SaaS compounding growth."
+        },
+        {
+          id: 10,
+          chapter: "Chapter 10: Tools of the Trade",
+          question: "Which of the following software tools is primarily used by UX/UI Designers to create wireframes, mockups, and clickable, interactive product prototypes?",
+          options: [
+            "Jira",
+            "Figma",
+            "Postman",
+            "Amplitude",
+            "Confluence"
+          ],
+          correct: 1,
+          explanation: "Figma is the industry-standard collaborative design and prototyping tool. It allows designers to create everything from low-fidelity wireframes to high-fidelity, interactive, vector-based screen designs and mockups."
+        },
+        {
+          id: 11,
+          chapter: "Chapter 11: Retention & Growth",
+          question: "What are the four successive stages of Nir Eyal's 'Hook Model' in correct order?",
+          options: [
+            "Trigger, Reward, Action, Investment",
+            "Trigger, Action, Variable Reward, Investment",
+            "Action, Trigger, Variable Reward, Retention",
+            "Problem, Trigger, Habit, Reward",
+            "Investment, Variable Reward, Trigger, Churn"
+          ],
+          correct: 1,
+          explanation: "The Hook Model comprises four distinct steps to build habit-forming product loops: 1) Trigger (the cue to act), 2) Action (the simple behavior performed), 3) Variable Reward (the satisfying, unpredictable payoff), and 4) Investment (putting value back into the product to trigger the next loop)."
+        },
+        {
+          id: 12,
+          chapter: "Chapter 12: Case Studies",
+          question: "What major business model transition did Netflix successfully execute to establish its global market dominance?",
+          options: [
+            "Transitioning from a B2C social network to a B2B SaaS video hosting platform.",
+            "Transitioning from a DVD rental-by-mail service to a digital streaming subscription platform.",
+            "Moving from a premium subscription service to a 100% ad-supported free model.",
+            "Pivoting from a video content company to an e-commerce grocery storefront.",
+            "Shifting from local brick-and-mortar cinema franchises to mobile game publishing."
+          ],
+          correct: 1,
+          explanation: "Netflix famously shifted from a DVD rental-by-mail service to an online subscription streaming service in 2007, recognizing the future of broadband infrastructure and cloud deployment. This let them scale globally without handling physical logistics."
+        },
+        {
+          id: 13,
+          chapter: "Chapter 13: Preparing for the Role",
+          question: "When preparing for behavioral PM interviews, what structured methodology is highly recommended to answer situational questions effectively?",
+          options: [
+            "RICE framework",
+            "SWOT analysis",
+            "STAR method (Situation, Task, Action, Result)",
+            "Gherkin syntax (Given-When-Then)",
+            "Kano Model"
+          ],
+          correct: 2,
+          explanation: "The STAR method (Situation, Task, Action, Result) is highly effective for structured answers to behavioral questions. It ensures you clearly lay out the context, your specific responsibilities, what actions you drove, and the quantifiable results."
+        },
+        {
+          id: 14,
+          chapter: "Glossary: 50+ Key Terms",
+          question: "What does 'MVP' stand for in software product management?",
+          options: [
+            "Most Valuable Programmer",
+            "Minimum Viable Product",
+            "Main Version Prototype",
+            "Market Value Pricing",
+            "Managed Vertical Process"
+          ],
+          correct: 1,
+          explanation: "MVP stands for Minimum Viable Product. It refers to the absolute earliest version of a product that has just enough features to solve a core problem for early adopters, allowing the team to collect validated feedback and iterate rapidly."
+        },
+        {
+          id: 15,
+          chapter: "Chapter 1: What Is a Software Product",
+          question: "The best, most viable software products sit at the absolute intersection of which three critical dimensions?",
+          options: [
+            "High cost, complex codebases, and massive PR campaigns",
+            "User desirability, technical feasibility, and business viability",
+            "Low salaries, rapid deadlines, and outsourced agencies",
+            "Minimal requirements, zero QA testing, and immediate deployments",
+            "Patented algorithms, cloud-agnostic architectures, and deep AI networks"
+          ],
+          correct: 1,
+          explanation: "Successful products must satisfy three pillars: Desirability (do users want this?), Feasibility (can we technically build this with our tech stack?), and Viability (does it make business sense / can we monetize it?)."
+        },
+        {
+          id: 16,
+          chapter: "Chapter 2: SDLC",
+          question: "Releasing a finished feature to a small segment of users (e.g., 5%) first to monitor system performance and crash logs before rolling it out to everyone is known as a:",
+          options: [
+            "Waterfall Release",
+            "Direct Cutover",
+            "Dark Launch",
+            "Canary Release",
+            "Silo Deployment"
+          ],
+          correct: 3,
+          explanation: "A Canary Release is a technique where new code is deployed to a tiny subset of users first. Named after the canary in a coal mine, it acts as an early warning system. If any crashes or bugs occur, developers can roll back the release before it affects the wider population."
+        },
+        {
+          id: 17,
+          chapter: "Chapter 3: Agile & Scrum",
+          question: "What is the standard duration and structure of a Scrum 'Daily Standup'?",
+          options: [
+            "1 hour, where each developer conducts deep reviews of their codebases.",
+            "15 minutes, where each team member shares what they did yesterday, what they will do today, and any blockers.",
+            "30 minutes, where the Product Owner walks through bug reports and reassigns tickets.",
+            "5 minutes, where the Scrum Master gives a top-down motivational project update.",
+            "2 hours, where client stakeholders demo progress and give performance reviews."
+          ],
+          correct: 1,
+          explanation: "The Daily Standup is a daily 15-minute, time-boxed meeting. Each developer briefly outlines their progress since yesterday, their target for today, and notes any blocking issues. Keeping it short (standing up) prevents it from devolving into deep architectural debates."
+        },
+        {
+          id: 18,
+          chapter: "Chapter 4: Team Roles",
+          question: "What is the core operational distinction between a Product Manager (PM) and a Project Manager?",
+          options: [
+            "A PM writes client-side code, while a Project Manager designs Figma prototypes.",
+            "A PM decides WHAT features to build, while a Project Manager coordinates schedules to ensure they are built ON TIME.",
+            "A PM handles databases, while a Project Manager oversees frontend graphics.",
+            "A PM is responsible for employee salaries, while a Project Manager manages advertising sales.",
+            "A PM works only inside Waterfall projects, while a Project Manager works strictly inside Agile sprints."
+          ],
+          correct: 1,
+          explanation: "A Product Manager owns the 'What' and 'Why'—focusing on product strategy, priorities, and user value. A Project Manager owns the 'When' and 'How much'—focusing on resource allocation, timeline execution, budgets, and operational coordination."
+        },
+        {
+          id: 19,
+          chapter: "Chapter 5: How a Feature Is Born",
+          question: "In the lifecycle of a feature, what is the primary focus of the 'Product Discovery' phase?",
+          options: [
+            "Writing production-ready React code and setting up backend APIs.",
+            "Manually auditing production databases for user crash errors.",
+            "Figuring out what customer problem to solve and validating if the proposed solution will actually work.",
+            "Deploying email marketing campaigns and purchasing ads on Google.",
+            "Configuring Jenkins CI/CD pipelines and scaling virtual machine clusters."
+          ],
+          correct: 2,
+          explanation: "Product Discovery is the research and validation phase where the team explores user pains, tests low-fidelity prototypes, and evaluates technical/business risks BEFORE committing expensive engineering resources to write production code."
+        },
+        {
+          id: 20,
+          chapter: "Chapter 6: Product Management Deep Dive",
+          question: "In the MoSCoW prioritization framework, what does the letter 'W' stand for?",
+          options: [
+            "Worst feature (to avoid)",
+            "Wishlist (things to look at next year)",
+            "Won't Have (this time)",
+            "Work in Progress",
+            "Weekly Sprint Target"
+          ],
+          correct: 2,
+          explanation: "MoSCoW stands for: Must Have, Should Have, Could Have, and Won't Have (this time). The 'W' represents features that are explicitly deprioritized for the current release scope, helping prevent scope creep."
+        },
+        {
+          id: 21,
+          chapter: "Chapter 7: Requirements & Stories",
+          question: "Gherkin syntax, heavily used to write automated acceptance criteria, organizes test cases using which structure?",
+          options: [
+            "If &rarr; Then &rarr; Else",
+            "Given &rarr; When &rarr; Then",
+            "As a &rarr; I want &rarr; So that",
+            "Setup &rarr; Run &rarr; Verify",
+            "Input &rarr; Process &rarr; Output"
+          ],
+          correct: 1,
+          explanation: "Gherkin syntax organizes acceptance criteria into a clear sequential flow: Given (pre-condition / initial state), When (the user action), and Then (the expected result / assertion)."
+        },
+        {
+          id: 22,
+          chapter: "Chapter 8: Bugs",
+          question: "Which of the following statements correctly defines the difference between a bug's Severity and its Priority?",
+          options: [
+            "Severity is defined by the designers; Priority is defined by the developers.",
+            "Severity measures technical impact on the system; Priority measures urgency for the business.",
+            "Severity represents monetization metrics; Priority represents coding complexity.",
+            "Severity is applied to backend bugs; Priority is applied only to frontend layouts.",
+            "Severity is a metric in Waterfall; Priority is a metric in Agile."
+          ],
+          correct: 1,
+          explanation: "Severity measures the technical impact of a bug (e.g., does it cause a system crash, data loss, or is it just visual?). Priority measures business urgency (e.g., when does this need to be fixed, often influenced by release dates and affected customer segments)."
+        },
+        {
+          id: 23,
+          chapter: "Chapter 9: Product Analytics",
+          question: "If a SaaS app begins a month with 10,000 active users and 500 of those users cancel their subscriptions during that month, what is the monthly Churn Rate?",
+          options: [
+            "2%",
+            "5%",
+            "10%",
+            "20%",
+            "50%"
+          ],
+          correct: 1,
+          explanation: "Churn Rate formula is: (Users Churned during period) / (Total active users at start of period). Thus: 500 / 10,000 = 0.05, which is equal to 5%."
+        },
+        {
+          id: 24,
+          chapter: "Chapter 10: Tools of the Trade",
+          question: "Which tool would a Product Manager utilize to query databases directly to analyze user metrics and generate visual dashboards?",
+          options: [
+            "Figma",
+            "Miro",
+            "Git",
+            "Metabase",
+            "Postman"
+          ],
+          correct: 3,
+          explanation: "Metabase (and similar BI tools like Tableau or Looker) allows PMs to query databases directly using SQL or visual filters, enabling them to build data dashboards, trace metrics, and monitor user events."
+        },
+        {
+          id: 25,
+          chapter: "Chapter 11: Retention & Growth",
+          question: "In the Hook Model, what is the core purpose of the final 'Investment' phase?",
+          options: [
+            "Demanding payment from the user immediately after signup.",
+            "Concealing corporate advertisements inside the main news feed.",
+            "Prompting the user to put data, personal effort, or social capital back into the product to trigger the next loop.",
+            "Devoting capital to cloud server upgrades and CI/CD automation.",
+            "Deploying viral referral loops through forced contact invitations."
+          ],
+          correct: 2,
+          explanation: "The Investment phase occurs when the user puts something back into the product—such as filling out a profile, importing contacts, or uploading data. This investment increases the product's value to the user and primes the system to fire the next trigger, starting the habit loop again."
+        },
+        {
+          id: 26,
+          chapter: "Chapter 12: Case Studies",
+          question: "What technical growth hack famously accelerated Airbnb's early user acquisition?",
+          options: [
+            "Spamming telephone networks with automated cold-calls.",
+            "Integrating with Craigslist to automatically cross-post listing advertisements.",
+            "Offering free housing to tech executives in Silicon Valley.",
+            "Creating a mock review platform to hijack search traffic.",
+            "Rebuilding their backend in low-level Assembly for rapid search times."
+          ],
+          correct: 1,
+          explanation: "In its early days, Airbnb built a clever integration that allowed hosts to automatically cross-post their rental listings to Craigslist with a single click. This tapped into an established competitor's massive user base, driving huge organic referral traffic back to Airbnb."
+        },
+        {
+          id: 27,
+          chapter: "Chapter 13: Preparing for the Role",
+          question: "In PM interviews, 'Fermi estimation' questions (e.g., 'How many gas stations exist in Delhi?') are primarily used to assess which capability?",
+          options: [
+            "Speed in programming low-level database scripts.",
+            "Structured logical reasoning and estimation under high uncertainty.",
+            "Memory of historical statistics and demographic tables.",
+            "Graphic design dexterity using vectors and Figma.",
+            "Ability to write automated QA Selenium scripts."
+          ],
+          correct: 1,
+          explanation: "Fermi questions test your structured problem-solving. Interviewers do not care about the exact number; they want to see if you can break down a highly ambiguous estimation problem into logical components, state reasonable assumptions, and calculate a realistic order-of-magnitude estimate."
+        },
+        {
+          id: 28,
+          chapter: "Glossary: 50+ Key Terms",
+          question: "What does the abbreviation 'API' stand for in software systems?",
+          options: [
+            "Automated Product Integration",
+            "Application Programming Interface",
+            "Agile Project Indicator",
+            "Advanced Programming Instruction",
+            "Analytical Performance Index"
+          ],
+          correct: 1,
+          explanation: "API stands for Application Programming Interface. It is a set of rules and protocols that allows different software applications to talk to each other (e.g., the frontend requesting data from the backend server)."
+        },
+        {
+          id: 29,
+          chapter: "Chapter 1: What Is a Software Product",
+          question: "Which of the following is a primary business advantage of the Software-as-a-Service (SaaS) model?",
+          options: [
+            "It runs locally on physical machines without requiring internet access.",
+            "It provides highly predictable recurring subscription revenue and instant updates to all active users.",
+            "It eliminates all host-side cloud server maintenance requirements.",
+            "It bypasses security compliance audits automatically.",
+            "It allows applications to run entirely without writing backend databases."
+          ],
+          correct: 1,
+          explanation: "For companies, SaaS is highly lucrative because it replaces volatile one-time software sales with predictable, recurring subscription revenue (MRR/ARR), while allowing developers to instantly push hotfixes and updates to the cloud without user intervention."
+        },
+        {
+          id: 30,
+          chapter: "Chapter 2: SDLC",
+          question: "During which phase of the Software Development Life Cycle (SDLC) does the team define system architectures, design database schemas, and create high-fidelity UI mockups?",
+          options: [
+            "Planning",
+            "Design",
+            "Development",
+            "Testing",
+            "Maintenance"
+          ],
+          correct: 1,
+          explanation: "The Design phase of the SDLC is dedicated to working out HOW the product will be constructed technically and visually. This includes system architecture patterns, database design, visual design layouts, wireframes, and API documentation."
+        }
+      ],
+      set2: [
+        {
+          id: 31,
+          chapter: "Chapter 1: What Is a Software Product",
+          question: "Which of the following describes an 'Internal Tool' type of software product?",
+          options: [
+            "A mobile app sold directly to consumers in the Google Play Store.",
+            "A public web application designed to run viral marketing campaigns.",
+            "A product built for use within the same company to solve operational bottlenecks and automate workflows.",
+            "An offline spreadsheet template distributed via email newsletters.",
+            "A third-party payment processing system built for merchant checkout."
+          ],
+          correct: 2,
+          explanation: "Internal Tools are software products developed inside a company specifically for its own employees or operations (e.g., HR portals, customer support dashboards, data admin panels). They are not sold to outside markets but are critical for efficiency."
+        },
+        {
+          id: 32,
+          chapter: "Chapter 2: SDLC",
+          question: "In sequential Waterfall development, what is a primary risk that frequently leads to late-stage project failures?",
+          options: [
+            "Releasing working features too frequently, confusing users.",
+            "Discovering critical design flaws only during late-stage Testing, making them extremely expensive to remediate.",
+            "High user collaboration distracting the development team during planning.",
+            "Forcing developers to work in highly rigid two-week Scrum sprints.",
+            "Writing insufficient documentation before starting code."
+          ],
+          correct: 1,
+          explanation: "Because Waterfall is linear, testing occurs only after the entire development phase is complete. If a fundamental architectural flaw is discovered during this late phase, fixing it requires rewriting massive blocks of code, which can destroy budgets and timelines."
+        },
+        {
+          id: 33,
+          chapter: "Chapter 3: Agile & Scrum",
+          question: "Which Scrum ceremony occurs at the end of a sprint where the team demonstrates the working increment to stakeholders and gathers immediate feedback?",
+          options: [
+            "Sprint Planning",
+            "Daily Standup",
+            "Sprint Review",
+            "Sprint Retrospective",
+            "Backlog Refinement"
+          ],
+          correct: 2,
+          explanation: "The Sprint Review is a demo session held on the last day of the sprint. The development team shows off the functional software built during the sprint to stakeholders (such as clients, PMs, and executives) to gather feedback for future backlog priorities."
+        },
+        {
+          id: 34,
+          chapter: "Chapter 4: Team Roles",
+          question: "Using the guide's restaurant analogy, if the Frontend is the Dining Area and the Backend is the Kitchen, what does the Waiter represent?",
+          options: [
+            "The customer ordering food",
+            "The pantry where database ingredients are stored",
+            "The menu showing available options",
+            "The API that carries requests from the Dining Area and returns backend responses",
+            "The cashier processing bills"
+          ],
+          correct: 3,
+          explanation: "In the restaurant analogy, the API (Application Programming Interface) acts as the Waiter. The waiter takes the customer's order (the client's request), delivers it to the kitchen (the backend server) for preparation, and then brings the finished dish (the server's response) back to the table."
+        },
+        {
+          id: 35,
+          chapter: "Chapter 5: How a Feature Is Born",
+          question: "Which of the following best defines a 'Product Roadmap'?",
+          options: [
+            "A comprehensive script of code used by developers to compile databases.",
+            "A high-level visual summary that maps out the strategic vision and direction of a product over time.",
+            "A schematic diagram showing the location of cloud database instances.",
+            "A detailed document detailing every unresolved bug in JIRA.",
+            "A budget ledger tracking department salaries and hardware assets."
+          ],
+          correct: 1,
+          explanation: "A Product Roadmap is a strategic document that visually charts the product's direction and features over a timeline (e.g., quarterly). It aligns the team, executives, and customers on the high-level roadmap and feature priorities."
+        },
+        {
+          id: 36,
+          chapter: "Chapter 6: Product Management Deep Dive",
+          question: "In the Kano Model of feature prioritization, what are the three main classifications of customer needs?",
+          options: [
+            "High value, Medium value, Low value",
+            "Must-haves (Basic), Performance (Linear), and Delighters (Excitement)",
+            "Frontend elements, Backend elements, Cloud assets",
+            "Reach variables, Impact values, Confidence metrics",
+            "Quick wins, Major projects, Skip features"
+          ],
+          correct: 1,
+          explanation: "The Kano Model classifies features based on how they affect customer satisfaction: 1) Must-haves (basic requirements that must be present, e.g., login), 2) Performance features (satisfaction increases linearly with quality, e.g., search speed), and 3) Delighters (unexpected excitement features, e.g., custom animations)."
+        },
+        {
+          id: 37,
+          chapter: "Chapter 7: Requirements & Stories",
+          question: "In Gherkin requirement syntax, what does the keyword 'Given' specifically establish?",
+          options: [
+            "The final assert outcome of the test.",
+            "The action driven by the user.",
+            "The initial system state, context, or pre-condition before the action occurs.",
+            "The target persona executing the story.",
+            "The priority ranking of the requirement."
+          ],
+          correct: 2,
+          explanation: "The 'Given' keyword is used to establish the context or state of the system before the user interacts with it (e.g., 'Given the user is logged in and has an empty shopping cart')."
+        },
+        {
+          id: 38,
+          chapter: "Chapter 8: Bugs",
+          question: "A catastrophic bug that instantly crashes the application database upon boot, preventing all users from logging in, is classified as:",
+          options: [
+            "Low Severity, Low Priority",
+            "High Severity, High Priority",
+            "High Severity, Low Priority",
+            "Low Severity, High Priority",
+            "Medium Severity, Medium Priority"
+          ],
+          correct: 1,
+          explanation: "This bug is High Severity (it completely breaks the core software functionality with a system-wide crash) and High Priority (it must be resolved immediately by the business because it locks out 100% of customers)."
+        },
+        {
+          id: 39,
+          chapter: "Chapter 9: Product Analytics",
+          question: "In SaaS metrics, what does 'Lifetime Value (LTV)' represent?",
+          options: [
+            "The total time a developer takes to complete a product story.",
+            "The total net revenue a single customer is projected to generate for a business throughout their entire relationship.",
+            "The speed of server API responses in high-traffic scenarios.",
+            "The hardware lifespan of a physical server instance in a data center.",
+            "The total timeline from a startup's seed funding to its IPO launch."
+          ],
+          correct: 1,
+          explanation: "LTV represents Customer Lifetime Value—the total gross revenue or net profit a business expects to earn from a single customer over the entire duration of their relationship with the product."
+        },
+        {
+          id: 40,
+          chapter: "Chapter 10: Tools of the Trade",
+          question: "Which of the following tools is a popular API client that allows developers and PMs to test, structure, and debug backend endpoints directly?",
+          options: [
+            "Confluence",
+            "Metabase",
+            "Figma",
+            "Postman",
+            "Miro"
+          ],
+          correct: 3,
+          explanation: "Postman is a highly popular API client. It allows users to send REST or GraphQL requests (GET, POST, etc.) directly to backend server endpoints to verify responses and debug integration logic without needing to build a frontend interface first."
+        },
+        {
+          id: 41,
+          chapter: "Chapter 11: Retention & Growth",
+          question: "What is a 'Growth Loop' in product design?",
+          options: [
+            "A traditional advertising funnel where you buy ads to capture leads once.",
+            "A self-reinforcing, closed system where the inputs or actions of existing active users automatically generate new users.",
+            "A database infinity loop bug that causes server memory leak crashes.",
+            "A term describing the period in a company's lifecycle where it burns cash.",
+            "A retraining boot camp program designed to onboard junior product managers."
+          ],
+          correct: 1,
+          explanation: "Growth Loops are self-sustaining engines. Unlike traditional linear funnels (where you pay to get a user and they drop off), a growth loop is designed so that when an active user interacts with the app (e.g., sharing a document), it naturally invites or acquires new users, fueling exponential organic growth."
+        },
+        {
+          id: 42,
+          chapter: "Chapter 12: Case Studies",
+          question: "Which key product focus enabled Zoom to successfully outcompete massive, entrenched giants like Cisco Webex and Skype in the video conferencing space?",
+          options: [
+            "Relying on elaborate social networking gamification elements.",
+            "Prioritizing absolute reliability, one-click friction-free joins, and extreme video quality.",
+            "Forcing all participants to register with phone numbers and home addresses.",
+            "Bundling physical camera hardware units with paid subscriptions.",
+            "Structuring virtual 3D gaming lobbies inside active video conferences."
+          ],
+          correct: 1,
+          explanation: "Zoom won by focusing on 'friction-free meetings.' While competitors required complex software downloads, accounts, or browser plugins, Zoom made joining a meeting as simple as clicking a single link, backed by extremely robust video-compression tech that worked on slow connections."
+        },
+        {
+          id: 43,
+          chapter: "Chapter 13: Preparing for the Role",
+          question: "In a PM job interview, a question such as 'Estimate the total number of smart TVs in Delhi' is an example of a:",
+          options: [
+            "Product Design question",
+            "Estimation (Fermi) question",
+            "Behavioral question",
+            "Business Strategy question",
+            "Technical systems architecture test"
+          ],
+          correct: 1,
+          explanation: "This is a classic Fermi estimation question. PM interviewers use these to evaluate your quantitative logic, structured thinking, comfort with ambiguity, and ability to draft a logical mathematical estimation model from scratch."
+        },
+        {
+          id: 44,
+          chapter: "Glossary: 50+ Key Terms",
+          question: "What does 'CAC' stand for in business analytics?",
+          options: [
+            "Customer Acquisition Cost",
+            "Cloud Access Control",
+            "Computer Aided Coding",
+            "Customer Account Credit",
+            "Centralized Analytics Core"
+          ],
+          correct: 0,
+          explanation: "CAC stands for Customer Acquisition Cost. It is the average total marketing, sales, and promotional cost required to acquire a single new paying customer. A key SaaS health metric is maintaining an LTV that is at least 3x higher than CAC."
+        },
+        {
+          id: 45,
+          chapter: "Chapter 1: What Is a Software Product",
+          question: "What is the primary concern of the 'Business (Why)' side of software product development?",
+          options: [
+            "Writing responsive CSS grids, optimizing databases, and deploying docker clusters.",
+            "Validating market demand, pricing models, competitor moves, and product-market fit.",
+            "Authoring selenium testing scripts, catching bugs, and writing API mockups.",
+            "Configuring virtual private clouds and managing physical server hardware.",
+            "Hiring human resource representatives and organizing office spaces."
+          ],
+          correct: 1,
+          explanation: "The business side focus is on commercial viability: Why should we build this feature? Does a market exist? How will we monetize it? What is the competitive landscape? Will it improve our business metrics like retention or revenue?"
+        },
+        {
+          id: 46,
+          chapter: "Chapter 2: SDLC",
+          question: "During which phase of the SDLC does the team verify that the code functions correctly, conducts User Acceptance Testing (UAT), and documents bugs?",
+          options: [
+            "Design",
+            "Development",
+            "Testing",
+            "Deployment",
+            "Planning"
+          ],
+          correct: 2,
+          explanation: "The Testing phase is where QA engineers, developers, and sometimes beta users verify that the product behaves exactly as specified in the requirements. They run unit, integration, system, and regression tests to identify and track bugs before code is deployed."
+        },
+        {
+          id: 47,
+          chapter: "Chapter 3: Agile & Scrum",
+          question: "Which of the following best describes the Scrum 'Product Backlog'?",
+          options: [
+            "A roster listing all engineering team members who are currently on leave.",
+            "A static vault storing deleted code snippets and old wireframes.",
+            "A dynamic, prioritized master to-do list of all features, bugs, tasks, and enhancements that need to be built.",
+            "An architectural diagram tracing relational tables in PostgreSQL.",
+            "An executive spreadsheet recording server crash incidents."
+          ],
+          correct: 2,
+          explanation: "The Product Backlog is a living, prioritized catalog owned by the Product Owner. It houses everything the team might need to deliver (stories, bug fixes, tech debt, etc.). Items at the top are detailed and ready for the next sprint, while lower items are high-level ideas."
+        },
+        {
+          id: 48,
+          chapter: "Chapter 4: Team Roles",
+          question: "Which Amazon Web Services (AWS) offering acts as an infinite 'filing cabinet' in the cloud to store static assets like images, videos, and PDFs?",
+          options: [
+            "EC2",
+            "RDS",
+            "Lambda",
+            "S3 (Simple Storage Service)",
+            "CloudFront"
+          ],
+          correct: 3,
+          explanation: "AWS S3 stands for Simple Storage Service. It is an object storage service designed to store and retrieve any amount of data (like images, video uploads, user documents, and backups) with extremely high reliability and scale—essentially an infinite cloud filing cabinet."
+        },
+        {
+          id: 49,
+          chapter: "Chapter 5: How a Feature Is Born",
+          question: "In the feature lifecycle, what is the core focus of 'Product Delivery'?",
+          options: [
+            "Conducting market interviews to identify user complaints.",
+            "Building, testing, QA auditing, and deploying the validated feature safely to users.",
+            "Drafting service level agreements and billing corporate SaaS clients.",
+            "Conducting offline physical logistics and shipping hardware products.",
+            "Configuring company emails and coordinating office supplies."
+          ],
+          correct: 1,
+          explanation: "While Product Discovery focuses on validating WHAT features to build, Product Delivery is all about executing, coding, testing, and shipping that validated feature into production with high quality, speed, and safety."
+        },
+        {
+          id: 50,
+          chapter: "Chapter 6: Product Management Deep Dive",
+          question: "On an Impact-Effort prioritization matrix, a feature that delivers high user value but requires minimal development effort is classified as a:",
+          options: [
+            "Major Project",
+            "Quick Win",
+            "Fill-in",
+            "Thankless Task (Avoid)",
+            "Strategic Bet"
+          ],
+          correct: 1,
+          explanation: "High Impact + Low Effort features are categorized as 'Quick Wins.' These should be prioritized first because they provide massive customer value rapidly with very little engineering cost."
+        },
+        {
+          id: 51,
+          chapter: "Chapter 7: Requirements & Stories",
+          question: "In a standard User Story template, why is the final 'so that [some reason]' clause considered highly critical?",
+          options: [
+            "It defines the exact programming language developers must write in.",
+            "It explains the underlying business value or user motivation behind the requested feature.",
+            "It details the QA automated script instructions.",
+            "It specifies the maximum hosting budget for the release.",
+            "It maps out the backend server route parameters."
+          ],
+          correct: 1,
+          explanation: "The 'so that...' clause provides the rationale and business context. Without it, developers might build a feature that meets technical specs but fails to address the user's actual motivation or business goal. It answers the critical question: What value does this deliver?"
+        },
+        {
+          id: 52,
+          chapter: "Chapter 8: Bugs",
+          question: "If a bug is classified as 'High Severity, Low Priority,' what does this usually imply?",
+          options: [
+            "It crashes the entire system immediately, but only under an extremely rare edge case that real users almost never hit.",
+            "It is a minor typo on the splash screen that must be hotfixed within 2 hours.",
+            "It represents a major database error affecting 100% of paying users, but we will ignore it.",
+            "It refers to a new feature request that we will develop next sprint.",
+            "The bug has already been fixed but the tester forgot to close it in JIRA."
+          ],
+          correct: 0,
+          explanation: "High Severity means it has a catastrophic technical impact (e.g., crashing the app). Low Priority means it is not urgent for the business to fix immediately. This combination is common for bugs that crash the system but only in rare, obscure environments or edge cases that affect almost zero users."
+        },
+        {
+          id: 53,
+          chapter: "Chapter 9: Product Analytics",
+          question: "What does the ratio 'DAU/MAU' measure in SaaS product growth?",
+          options: [
+            "Developer sprint velocity and code lines completed.",
+            "Marketing conversion rates on email push alerts.",
+            "Daily Active Users divided by Monthly Active Users, representing user engagement and product 'stickiness.'",
+            "Database storage performance and read/write response speed.",
+            "Customer acquisition costs divided by advertiser impressions."
+          ],
+          correct: 2,
+          explanation: "DAU/MAU is the ultimate measure of product 'stickiness'—how often users return. A high ratio (e.g., 50%) means half of your monthly users log in every single day (highly engaging, like WhatsApp), while a low ratio (e.g., 5%) means users log in rarely."
+        },
+        {
+          id: 54,
+          chapter: "Chapter 10: Tools of the Trade",
+          question: "Which of the following is a highly popular collaborative whiteboarding tool used by PMs and designers for brain-storming sessions, user flows, and mind mapping?",
+          options: [
+            "Jira",
+            "Confluence",
+            "Postman",
+            "Miro",
+            "Amplitude"
+          ],
+          correct: 3,
+          explanation: "Miro is a collaborative online whiteboarding platform. It is widely used by cross-functional teams for brainstorming, drawing user journey maps, designing flowcharts, and running remote sprint workshops."
+        },
+        {
+          id: 55,
+          chapter: "Chapter 11: Retention & Growth",
+          question: "In habit-forming product design, what represents the first phase of the Hook Model—prompting users to take action via external cues like notifications or internal cues like boredom?",
+          options: [
+            "Reward",
+            "Trigger",
+            "Investment",
+            "Variable Reward",
+            "Retention Hook"
+          ],
+          correct: 1,
+          explanation: "A Trigger is the spark plug of the habit loop. It can be External (e.g., a push notification, email, or button) or Internal (e.g., an emotional state like loneliness, boredom, or habit), prompting the user to perform the next step: the Action."
+        },
+        {
+          id: 56,
+          chapter: "Chapter 11: Retention & Growth",
+          question: "Which business model famously allowed Zoom to capture market share, letting anyone host meetings under 40 minutes for free while charging for premium administrative controls?",
+          options: [
+            "Direct Corporate Sales",
+            "100% Ad-Supported model",
+            "Freemium model",
+            "Pay-per-minute model",
+            "Open-source donation model"
+          ],
+          correct: 2,
+          explanation: "Zoom adopted the 'Freemium' model. They gave away their core value proposition (hosting reliable video calls) for free with a mild friction point (40-minute limit). This drove massive viral adoption, and they monetized by charging businesses for premium controls, longer calls, and webinar tools."
+        },
+        {
+          id: 57,
+          chapter: "Chapter 13: Preparing for the Role",
+          question: "During a 'Product Design' PM interview, what is the interviewer primarily looking for?",
+          options: [
+            "Your technical ability to write responsive HTML/CSS structures.",
+            "Your user empathy, structured problem-solving, and ability to design a user-centric solution.",
+            "Your knowledge of SQL queries and backend indexing strategies.",
+            "Your raw mental calculation speed on market capitalization tables.",
+            "Your certified skills in accounting and corporate bookkeeping."
+          ],
+          correct: 1,
+          explanation: "Product Design PM interviews evaluate your user empathy and product design instincts. The interviewer wants to see if you can define a target persona, articulate their specific pain points, brainstorm creative solutions, prioritize them, and define success metrics."
+        },
+        {
+          id: 58,
+          chapter: "Glossary: 50+ Key Terms",
+          question: "What does 'SaaS' stand for in software business architecture?",
+          options: [
+            "System and Application Software",
+            "Software as a Service",
+            "Software and Analytics Solution",
+            "Sales and Advertising Strategy",
+            "Standardized Agile Allocation System"
+          ],
+          correct: 1,
+          explanation: "SaaS stands for Software as a Service. It is a software distribution model where a cloud provider hosts applications and makes them available to end customers over the internet, typically via a web browser and a monthly subscription plan."
+        },
+        {
+          id: 59,
+          chapter: "Chapter 1: What Is a Software Product",
+          question: "What is the primary concern of the 'Technology (How)' side of software product development?",
+          options: [
+            "Acquisition costs, subscription levels, and branding guidelines.",
+            "Tech stack selection, system architecture, database design, and scalability.",
+            "Customer interviews, copywriting, and marketing launch materials.",
+            "Hiring recruiters and negotiating office rent lease contracts.",
+            "Managing sales pipelines and signing corporate contracts."
+          ],
+          correct: 1,
+          explanation: "The technology side focuses on technical feasibility and architecture: What technologies will we use? How will the frontend talk to the backend? Is the database schema optimized? Can the system scale to handle millions of requests safely?"
+        },
+        {
+          id: 60,
+          chapter: "Chapter 2: SDLC",
+          question: "In Waterfall software development, when do customer stakeholders finally see and interact with the working application?",
+          options: [
+            "Every two weeks during the sprint review sessions.",
+            "During the initial Planning and requirement collection phase.",
+            "At the very end of the entire development and testing cycle.",
+            "When the developers are designing the system architecture.",
+            "At the start of the Development phase."
+          ],
+          correct: 2,
+          explanation: "In a traditional Waterfall project, the product is built as one massive, sequential release. This means customers only see and interact with the actual working software at the very end of the cycle, raising the risk that the finished product might not meet their needs."
+        }
+      ],
+      set3: [
+        {
+          id: 61,
+          chapter: "Chapter 1: What Is a Software Product",
+          question: "A Business-to-Business (B2B) software product is specifically one that:",
+          options: [
+            "Sells directly to individual consumer retail markets.",
+            "Sells directly to other businesses and companies to help them run operations.",
+            "Provides municipal utilities strictly to local government agencies.",
+            "Facilitates consumer-to-consumer auction and marketplace sales.",
+            "Connects backend code compilers to remote robotic automation lines."
+          ],
+          correct: 1,
+          explanation: "B2B software is built and sold to other businesses (e.g., Salesforce, Slack, JIRA). These products help companies manage workflows, collaborate, automate tasks, or analyze data, rather than targeting everyday consumers."
+        },
+        {
+          id: 62,
+          chapter: "Chapter 2: SDLC",
+          question: "In the SDLC, the 'Maintenance' phase is dedicated to what activities?",
+          options: [
+            "Laying physical foundation structures for on-premise server machines.",
+            "Fixing bugs, launching patches, updating security dependencies, and optimizing code performance post-launch.",
+            "Drafting initial UI mockups and user flows before writing any code.",
+            "Running early exploratory research interviews to find market demands.",
+            "Rolling back 100% of production code to restart planning from scratch."
+          ],
+          correct: 1,
+          explanation: "Software is never 'done' after release. The Maintenance phase is the longest phase of the SDLC, dedicated to fixing user-reported bugs, updating library dependencies, releasing incremental upgrades, and optimizing code performance as traffic grows."
+        },
+        {
+          id: 63,
+          chapter: "Chapter 3: Agile & Scrum",
+          question: "What is the core focus of the Scrum 'Sprint Retrospective'?",
+          options: [
+            "Demonstrating completed features to client stakeholders and the CEO.",
+            "A team-only meeting to reflect honestly on the sprint—discussing what went well, what didn't, and identifying action items to improve.",
+            "An estimation workshop where developers assign JIRA story points.",
+            "A daily standup meeting that runs for 4 hours to review git commits.",
+            "A public marketing press release detailing upcoming launch plans."
+          ],
+          correct: 1,
+          explanation: "The Sprint Retrospective is the team's internal continuous improvement engine. Held at the end of every sprint, the team reflects on their processes, tools, and team dynamics, agreeing on concrete improvements for the next sprint."
+        },
+        {
+          id: 64,
+          chapter: "Chapter 4: Team Roles",
+          question: "Under the restaurant analogy, if the Frontend is the Dining Area, and the API is the Waiter, what represents the 'Database'?",
+          options: [
+            "The chef preparing recipes in the kitchen.",
+            "The pantry where ingredients (data) are stored and retrieved.",
+            "The physical menu presenting meal options.",
+            "The table where client diners sit.",
+            "The chef's recipe instruction card."
+          ],
+          correct: 1,
+          explanation: "In our restaurant analogy, the Database represents the Pantry. The pantry is the structured repository where all raw ingredients (user data, files, records) are stored, waiting for the kitchen backend to retrieve and cook them into a response."
+        },
+        {
+          id: 65,
+          chapter: "Chapter 5: How a Feature Is Born",
+          question: "Which of the following activities occurs during the 'Product Delivery' phase of the feature lifecycle?",
+          options: [
+            "Conducting research surveys to identify user complaints.",
+            "Writing requirements in a PRD and mapping user flows in Figma.",
+            "Coding, testing, performing code reviews, and releasing code via CI/CD pipelines.",
+            "Planning high-level product roadmaps for the next three fiscal years.",
+            "Configuring paid social media campaigns to attract beta testers."
+          ],
+          correct: 2,
+          explanation: "Product Delivery is the execution phase. Once a feature's requirements are validated in discovery, the engineering team takes over to write frontend/backend code, run QA tests, conduct code reviews, and deploy the code to production."
+        },
+        {
+          id: 66,
+          chapter: "Chapter 6: Product Management Deep Dive",
+          question: "On an Impact-Effort prioritization matrix, a feature that requires high engineering effort but delivers low customer impact is categorized as a:",
+          options: [
+            "Quick Win (Do first)",
+            "Major Project (Plan carefully)",
+            "Fill-in (Maybe later)",
+            "Thankless Task (Avoid / Skip)",
+            "Strategic Bet"
+          ],
+          correct: 3,
+          explanation: "Features that require massive development effort but yield low customer impact are 'Thankless Tasks' (or 'Money Pits') and should be avoided or skipped, as they waste valuable engineering resources."
+        },
+        {
+          id: 67,
+          chapter: "Chapter 7: Requirements & Stories",
+          question: "Which Gherkin keyword is used to chain multiple conditions together inside a single Given, When, or Then block?",
+          options: [
+            "Then",
+            "When",
+            "And",
+            "Given",
+            "But"
+          ],
+          correct: 2,
+          explanation: "In Gherkin syntax, the 'And' keyword is used to chain multiple conditions or assertions together without repeating 'Given,' 'When,' or 'Then' (e.g., 'Given the user is logged in, And they have an active coupon...')."
+        },
+        {
+          id: 68,
+          chapter: "Chapter 8: Bugs",
+          question: "A minor visual bug, such as a slightly misaligned button or a typographical error that does not break any app functionality, is classified as:",
+          options: [
+            "High Severity, High Priority",
+            "Low Severity, Low Priority",
+            "High Severity, Low Priority",
+            "Low Severity, High Priority",
+            "Medium Severity, Medium Priority"
+          ],
+          correct: 1,
+          explanation: "This is Low Severity (it has zero impact on core software functionality; users can still use the app) and Low Priority (it is a minor aesthetic issue that can be scheduled for resolution in a later sprint without rushing)."
+        },
+        {
+          id: 69,
+          chapter: "Chapter 9: Product Analytics",
+          question: "What does the metric 'CAC' (Customer Acquisition Cost) measure?",
+          options: [
+            "The cost to rent virtual servers in an AWS compute facility.",
+            "The average recurring subscription fee paid by a single active user.",
+            "The total marketing and sales expenditure required to acquire one new customer.",
+            "The average salary required to hire a Senior Software Developer.",
+            "The processing fee charged by third-party payment gateways."
+          ],
+          correct: 2,
+          explanation: "Customer Acquisition Cost (CAC) is the total amount of money spent on marketing, sales, and related operations divided by the number of new customers acquired during that period. It measures the financial efficiency of your growth engine."
+        },
+        {
+          id: 70,
+          chapter: "Chapter 10: Tools of the Trade",
+          question: "Which of the following is the industry-standard version control system used by developers to track code changes, manage branches, and coordinate pull requests?",
+          options: [
+            "Jira",
+            "Git",
+            "Postman",
+            "Miro",
+            "Amplitude"
+          ],
+          correct: 1,
+          explanation: "Git is a distributed version control system. It allows developers to track modifications to source code files, create isolated development branches, and coordinate merges through pull requests, protecting the master production codebase."
+        },
+        {
+          id: 71,
+          chapter: "Chapter 11: Retention & Growth",
+          question: "In Nir Eyal's Hook Model, what represents a 'Variable Reward'?",
+          options: [
+            "A stable, guaranteed monthly paycheck paid to active developers.",
+            "An unpredictable, highly engaging feedback loop (e.g., infinite scrolls, social likes, random drops) that keeps users hooked.",
+            "A financial investment in safe government bonds.",
+            "The predictable discounts applied to annual subscription renewals.",
+            "A cashback coupon emailed to inactive users."
+          ],
+          correct: 1,
+          explanation: "A Variable Reward is a satisfying, yet unpredictable payoff. The human brain craves novelty and predictability breeds boredom. The classic examples are social media infinite scrolls or casino slot machines—you never know what you'll get next, which keeps you returning."
+        },
+        {
+          id: 72,
+          chapter: "Chapter 12: Case Studies",
+          question: "What major software business model pivot helped Adobe achieve explosive growth and enterprise value in the 2010s?",
+          options: [
+            "Shifting from selling physical boxed software (Creative Suite) to an online SaaS subscription (Creative Cloud).",
+            "Shifting from B2B software sales to manufacturing physical consumer cameras.",
+            "Transforming their products into a social media network for visual artists.",
+            "Offering all products for free and making money through banner advertisements.",
+            "Replacing their engineering staff entirely with low-level AI engines."
+          ],
+          correct: 0,
+          explanation: "Adobe famously shifted from selling perpetual boxed licenses of Photoshop/Illustrator for massive upfront fees to a monthly SaaS subscription model (Creative Cloud). This lowered the barrier to entry, drove massive volume, and generated predictable, recurring SaaS revenue."
+        },
+        {
+          id: 73,
+          chapter: "Chapter 13: Preparing for the Role",
+          question: "When writing behavioral interview responses using the STAR method, the 'Result' section should ideally focus on:",
+          options: [
+            "A complete listing of all programming libraries used.",
+            "Concrete, quantifiable data or metrics demonstrating the positive impact of your actions.",
+            "An explanation of why your manager's original plan was flawed.",
+            "A chart tracing the department's overhead expenses.",
+            "A summary of competitive failures in the market."
+          ],
+          correct: 1,
+          explanation: "The 'Result' is the most critical part of your STAR answer. It should present clear, quantifiable impact metrics (e.g., 'increased conversion by 12%,' 'reduced load time by 300ms,' or 'shipped on-time, resulting in $50K ARR') to prove the success of your actions."
+        },
+        {
+          id: 74,
+          chapter: "Glossary: 50+ Key Terms",
+          question: "What does the business acronym 'LTV' stand for?",
+          options: [
+            "Load Time Velocity",
+            "Lifetime Value",
+            "Localized Testing Verification",
+            "Linear Task Vector",
+            "Lead Transition Volume"
+          ],
+          correct: 1,
+          explanation: "LTV stands for Lifetime Value. It represents the total revenue or net profit a business expects to earn from a single customer throughout the entire duration of their relationship with the company."
+        },
+        {
+          id: 75,
+          chapter: "Chapter 1: What Is a Software Product",
+          question: "What does 'B2C' stand for in software product models?",
+          options: [
+            "Business-to-Consumer",
+            "Business-to-Business",
+            "Buyer-to-Customer",
+            "Business-to-Company",
+            "Backend-to-Client"
+          ],
+          correct: 0,
+          explanation: "B2C stands for Business-to-Consumer. In this model, the software company sells its products directly to individual everyday consumers for personal use (e.g., Spotify, Netflix, Instagram)."
+        },
+        {
+          id: 76,
+          chapter: "Chapter 2: SDLC",
+          question: "In Agile software engineering, why are product releases made in small, frequent increments rather than one massive deployment?",
+          options: [
+            "To avoid writing any product specifications or code documentation.",
+            "To gather user feedback early and often, reduce delivery risk, and pivot quickly based on market changes.",
+            "To ensure developers work over-time and complete features faster.",
+            "To confuse competitors about the real product vision.",
+            "To minimize host server bandwidth."
+          ],
+          correct: 1,
+          explanation: "Agile prioritizes iterative development. Shipping small, working parts of the product frequently allows the team to validate assumptions with real users, gather immediate feedback, and adapt requirements dynamically before wasting capital on building the wrong product."
+        },
+        {
+          id: 77,
+          chapter: "Chapter 3: Agile & Scrum",
+          question: "On a visual Kanban board, Work-In-Progress (WIP) Limits are utilized to:",
+          options: [
+            "Force developers to multi-task and work on 10 tickets at once.",
+            "Limit active tasks in a column to prevent bottlenecks and focus the team on completing current work.",
+            "Cap the maximum monthly salary a developer can earn.",
+            "Automatically archive QA bug reports.",
+            "Enforce a 15-minute time cap on standup meetings."
+          ],
+          correct: 1,
+          explanation: "WIP (Work-In-Progress) Limits specify the maximum number of cards allowed in a column at one time. By preventing team members from starting new cards until existing ones are moved to 'Done,' WIP limits highlight bottlenecks and encourage collaboration."
+        },
+        {
+          id: 78,
+          chapter: "Chapter 4: Team Roles",
+          question: "Which AWS offering is a 'serverless' compute service that runs code only when triggered by events, charging only for active execution time?",
+          options: [
+            "EC2",
+            "S3",
+            "RDS",
+            "Lambda",
+            "CloudFront"
+          ],
+          correct: 3,
+          explanation: "AWS Lambda is a serverless compute service. It lets you run code blocks without provisioning or managing virtual servers. The code only runs when triggered by an event (like an API call), and you only pay for the exact compute time used in milliseconds."
+        },
+        {
+          id: 79,
+          chapter: "Chapter 5: How a Feature Is Born",
+          question: "In feature engineering, what is the primary purpose of a Product Requirements Document (PRD)?",
+          options: [
+            "To track developer attendance and calculate sprint velocity.",
+            "To serve as a shared source of truth defining a feature's purpose, functional requirements, user flows, and success metrics.",
+            "To list company financial capital margins and investments.",
+            "To display code changes and coordinate repository branches.",
+            "To serve as advertising material for consumer marketing campaigns."
+          ],
+          correct: 1,
+          explanation: "A PRD is the primary document owned by the PM that outlines WHAT to build and WHY. It coordinates design, engineering, and QA teams, acting as a shared source of truth for the feature's requirements and scope."
+        },
+        {
+          id: 80,
+          chapter: "Chapter 6: Product Management Deep Dive",
+          question: "In the MoSCoW prioritisation model, a feature that is highly valuable but not strictly essential for the product to function (e.g., order tracking) is classified as a:",
+          options: [
+            "Must Have",
+            "Should Have",
+            "Could Have",
+            "Won't Have (this time)",
+            "Wishlist"
+          ],
+          correct: 1,
+          explanation: "Should Haves are high-value features that are important but not critical for the product to function. In our food delivery example, order tracking is a Should Have—the food will still be ordered and delivered without it, but it greatly improves user satisfaction."
+        },
+        {
+          id: 81,
+          chapter: "Chapter 7: Requirements & Stories",
+          question: "In a standard User Story template ('As a..., I want..., so that...'), what does the 'I want...' clause specifically define?",
+          options: [
+            "The target customer persona or actor.",
+            "The specific goal, feature, or action the user wants to achieve.",
+            "The business KPIs that will be optimized.",
+            "The financial budget cap for the release.",
+            "The automated QA testing assertion."
+          ],
+          correct: 1,
+          explanation: "The 'I want [some goal]' clause defines the feature, capability, or action the user needs. It specifies the actual product functionality from the user's point of view."
+        },
+        {
+          id: 82,
+          chapter: "Chapter 8: Bugs",
+          question: "If a bug is a minor layout misalignment on a pricing page, but must be fixed immediately because of an upcoming public product launch, how is it classified?",
+          options: [
+            "High Severity, High Priority",
+            "Low Severity, High Priority",
+            "High Severity, Low Priority",
+            "Low Severity, Low Priority",
+            "Critical Severity, Low Priority"
+          ],
+          correct: 1,
+          explanation: "This bug is Low Severity (it is a minor visual alignment issue that does not break the checkout code technically) but High Priority (the business must fix it immediately because showing a broken layout to thousands of press launch viewers would damage credibility)."
+        },
+        {
+          id: 83,
+          chapter: "Chapter 9: Product Analytics",
+          question: "What does the Net Promoter Score (NPS) measure in product management?",
+          options: [
+            "The net revenue growth of a SaaS product over a fiscal quarter.",
+            "User loyalty, brand sentiment, and their willingness to recommend the product to others.",
+            "The percentage of active users who experience system crashes.",
+            "The average page load speeds of global landing sites.",
+            "The subscription conversion rate on promotional email alerts."
+          ],
+          correct: 1,
+          explanation: "Net Promoter Score (NPS) measures customer loyalty and satisfaction by asking a single question: 'On a scale of 0 to 10, how likely are you to recommend our product to a friend?' It divides users into Promoters (9-10), Passives (7-8), and Detractors (0-6)."
+        },
+        {
+          id: 84,
+          chapter: "Chapter 10: Tools of the Trade",
+          question: "Which of the following tools is a popular product analytics platform used by PMs to track user events, trace flows, and analyze funnel retention curves?",
+          options: [
+            "Metabase",
+            "Metamask",
+            "Mixpanel",
+            "Figma",
+            "Postman"
+          ],
+          correct: 2,
+          explanation: "Mixpanel (along with Amplitude) is a dedicated product analytics platform. It tracks granular user events (e.g., button clicks, video plays) rather than just page views, allowing PMs to analyze user flows, drop-off funnels, and retention rates."
+        },
+        {
+          id: 85,
+          chapter: "Chapter 11: Retention & Growth",
+          question: "In habit loop design, what is the 'Action' phase of the Hook Model?",
+          options: [
+            "The engineering team deploying code fixes to production.",
+            "The user performing a simple behavior in anticipation of a reward (e.g., clicking a notification or typing a search).",
+            "The marketing team launching advertising campaigns to attract users.",
+            "The customer entering their credit card to pay the subscription invoice.",
+            "The database server indexing relational tables."
+          ],
+          correct: 1,
+          explanation: "The Action is the behavior done in anticipation of a reward. It is designed to be as simple as possible (e.g., tapping a notification, clicking play, or searching a term) because friction reduces the likelihood of habit formation."
+        },
+        {
+          id: 86,
+          chapter: "Chapter 12: Case Studies",
+          question: "What classic corporate case study illustrates the severe risk of failing to pivot and ignoring digital software transitions, leading to bankruptcy while Netflix flourished?",
+          options: [
+            "Blockbuster",
+            "Kodak",
+            "Yahoo",
+            "Nokia",
+            "Sears"
+          ],
+          correct: 0,
+          explanation: "Blockbuster is the textbook case of failing to pivot. They ignored Netflix's digital streaming and subscription mail-order threat until it was too late, holding onto their expensive brick-and-mortar retail stores until bankruptcy."
+        },
+        {
+          id: 87,
+          chapter: "Chapter 13: Preparing for the Role",
+          question: "During a PM job interview, what is the primary goal of the 'Behavioral' interview session?",
+          options: [
+            "Testing your speed in writing precise algorithmic sorting systems.",
+            "Assessing your past experiences, leadership skills, emotional intelligence, collaboration, and cultural fit.",
+            "Evaluating your ability to calculate high-velocity market sizing models.",
+            "Testing your proficiency in compiling CSS grid parameters.",
+            "Auditing your certifications in bookkeeping and database security."
+          ],
+          correct: 1,
+          explanation: "Behavioral interviews assess your soft skills and leadership traits. By asking situational questions (e.g., 'Tell me about a time you had a conflict with an engineer'), they evaluate your collaboration, empathy, problem-solving, and resilience."
+        },
+        {
+          id: 88,
+          chapter: "Glossary: 50+ Key Terms",
+          question: "What does the abbreviation 'KPI' stand for in strategic planning?",
+          options: [
+            "Key Performance Indicator",
+            "Kanban Process Integration",
+            "Kernel Programming Interface",
+            "Knowledge Performance Index",
+            "Key Product Insight"
+          ],
+          correct: 0,
+          explanation: "KPI stands for Key Performance Indicator. It is a quantifiable metric used to evaluate the success of an organization, employee, feature, or campaign in meeting strategic performance targets (e.g., reducing churn, growing signups)."
+        },
+        {
+          id: 89,
+          chapter: "Chapter 1: What Is a Software Product",
+          question: "What is the core business model of the SaaS (Software-as-a-Service) framework?",
+          options: [
+            "Installing software locally via a physical license disc bought once.",
+            "Renting computational hardware machines from a local warehouse.",
+            "Accessing software hosted on remote servers via the internet, typically paid through a recurring subscription.",
+            "Displaying static advertisements on physical billboards.",
+            "Donating open-source libraries without forming a commercial entity."
+          ],
+          correct: 2,
+          explanation: "The core of SaaS is cloud-based licensing. Instead of buying a software license once and owning that specific build, users pay a recurring monthly or annual subscription fee to access the software hosted in the cloud, always getting the latest features."
+        },
+        {
+          id: 90,
+          chapter: "Chapter 2: SDLC",
+          question: "What does the abbreviation 'UAT' stand for in the testing phase of the SDLC?",
+          options: [
+            "Unit Acceptance Testing",
+            "User Acceptance Testing",
+            "Unified Architecture Transition",
+            "User Analytics Tracking",
+            "Utility Automated Toolkit"
+          ],
+          correct: 1,
+          explanation: "UAT stands for User Acceptance Testing. It is the final phase of the testing cycle before deployment, where real business users or target consumers test the software in real-world scenarios to verify it meets their business needs."
+        }
+      ]
+    };
+
+    // ---- Main Application State Client ----
+    class MCQApp {
+      constructor() {
+        this.currentView = 'view-dashboard';
+        this.activeSetNum = null;
+        this.activeQuestions = [];
+        this.currentQuestionIdx = 0;
+        this.userAnswers = {}; // Map of question index -> selected option value (0-4)
+        
+        // Load high scores history
+        this.history = JSON.parse(localStorage.getItem('pm-mcq-history')) || {
+          1: null,
+          2: null,
+          3: null
+        };
+
+        // Cache DOM elements
+        this.themeToggle = document.getElementById('theme-toggle');
+        this.progressBar = document.getElementById('progress-bar');
+        this.confettiCanvas = document.getElementById('confetti-canvas');
+        this.floatTopBtn = document.getElementById('float-top');
+
+        this.init();
+      }
+
+      init() {
+        this.initTheme();
+        this.updateDashboardStats();
+        this.initKeyboardNav();
+        
+        // Listen to scroll to show/hide float top button
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 400) {
+            this.floatTopBtn.classList.add('visible');
+          } else {
+            this.floatTopBtn.classList.remove('visible');
+          }
+        });
+      }
+
+      // ---- Theme Methods ----
+      initTheme() {
+        let savedTheme = localStorage.getItem('pm-theme') || 'dark';
+        this.applyTheme(savedTheme);
+
+        this.themeToggle.addEventListener('click', () => {
+          const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+          this.applyTheme(newTheme);
+        });
+      }
+
+      applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        this.themeToggle.textContent = theme === 'dark' ? '🌙' : '☀️';
+        localStorage.setItem('pm-theme', theme);
+      }
+
+      // ---- Routing / View Transitions ----
+      switchView(viewId) {
+        document.getElementById(this.currentView).classList.remove('active');
+        document.getElementById(viewId).classList.add('active');
+        this.currentView = viewId;
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      }
+
+      showDashboard() {
+        this.activeSetNum = null;
+        this.updateDashboardStats();
+        this.progressBar.style.width = '0%';
+        this.switchView('view-dashboard');
+      }
+
+      updateDashboardStats() {
+        let completed = 0;
+        let totalScoreSum = 0;
+        let setsTaken = 0;
+
+        for (let s = 1; s <= 3; s++) {
+          const score = this.history[s];
+          const scoreEl = document.getElementById(`set-${s}-score`);
+          
+          if (score !== null) {
+            completed++;
+            setsTaken++;
+            totalScoreSum += (score / 30) * 100;
+            scoreEl.innerHTML = `Best Score: <strong style="color: var(--success);">${score} / 30</strong> (${Math.round((score / 30) * 100)}%)`;
+          } else {
+            scoreEl.innerHTML = `Best Score: <strong>Not Taken</strong>`;
+          }
+        }
+
+        document.getElementById('stat-completed-sets').textContent = `${completed}/3`;
+        
+        const avgScoreEl = document.getElementById('stat-avg-score');
+        if (setsTaken > 0) {
+          avgScoreEl.textContent = `${Math.round(totalScoreSum / setsTaken)}%`;
+        } else {
+          avgScoreEl.textContent = '--%';
+        }
+      }
+
+      clearHistory() {
+        if (confirm("Are you sure you want to reset all portal high scores? This will wipe your history.")) {
+          this.history = { 1: null, 2: null, 3: null };
+          localStorage.setItem('pm-mcq-history', JSON.stringify(this.history));
+          this.updateDashboardStats();
+        }
+      }
+
+      // ---- Exam Loop ----
+      startSet(setNum) {
+        this.activeSetNum = setNum;
+        this.activeQuestions = questionsDatabase[`set${setNum}`];
+        this.currentQuestionIdx = 0;
+        this.userAnswers = {};
+        
+        document.getElementById('exam-set-title').textContent = `Set 0${setNum} - MCQ Examination`;
+        
+        this.renderNavigator();
+        this.loadQuestion(0);
+        this.switchView('view-exam');
+      }
+
+      retryActiveSet() {
+        if (this.activeSetNum) {
+          this.startSet(this.activeSetNum);
+        }
+      }
+
+      loadQuestion(idx) {
+        this.currentQuestionIdx = idx;
+        const q = this.activeQuestions[idx];
+
+        // Update progress bar
+        const pct = ((idx + 1) / 30) * 100;
+        this.progressBar.style.width = `${pct}%`;
+
+        // Render meta & text
+        document.getElementById('q-chapter').textContent = q.chapter;
+        document.getElementById('q-number').textContent = `Question ${idx + 1} of 30`;
+        document.getElementById('q-text').textContent = q.question;
+
+        // Render options list
+        const container = document.getElementById('options-container');
+        container.innerHTML = '';
+        
+        const alphabet = ['A', 'B', 'C', 'D', 'E'];
+        
+        q.options.forEach((optText, optIdx) => {
+          const btn = document.createElement('button');
+          btn.className = 'option-btn';
+          if (this.userAnswers[idx] === optIdx) {
+            btn.classList.add('selected');
+          }
+
+          btn.onclick = () => this.selectOption(optIdx);
+
+          btn.innerHTML = `
+            <div class="option-letter">${alphabet[optIdx]}</div>
+            <div class="option-text">${optText}</div>
+          `;
+          container.appendChild(btn);
+        });
+
+        // Navigation button labels
+        const nextBtn = document.getElementById('btn-next');
+        if (idx === 29) {
+          nextBtn.innerHTML = 'Submit Set ✓';
+          nextBtn.classList.remove('btn-primary');
+          nextBtn.classList.add('btn-outline-success');
+        } else {
+          nextBtn.innerHTML = 'Next &rarr;';
+          nextBtn.classList.remove('btn-outline-success');
+          nextBtn.classList.add('btn-primary');
+        }
+
+        document.getElementById('btn-prev').disabled = (idx === 0);
+
+        this.updateNavigatorActive();
+      }
+
+      selectOption(optIdx) {
+        this.userAnswers[this.currentQuestionIdx] = optIdx;
+        
+        // Re-render options to show select highlight
+        const btns = document.querySelectorAll('.option-btn');
+        btns.forEach((btn, idx) => {
+          if (idx === optIdx) {
+            btn.classList.add('selected');
+          } else {
+            btn.classList.remove('selected');
+          }
+        });
+
+        // Highlight navigator bubble
+        const bubble = document.getElementById(`bubble-${this.currentQuestionIdx}`);
+        bubble.classList.add('answered');
+      }
+
+      nextQuestion() {
+        if (this.currentQuestionIdx === 29) {
+          this.submitSet();
+        } else {
+          this.loadQuestion(this.currentQuestionIdx + 1);
+        }
+      }
+
+      prevQuestion() {
+        if (this.currentQuestionIdx > 0) {
+          this.loadQuestion(this.currentQuestionIdx - 1);
+        }
+      }
+
+      renderNavigator() {
+        const container = document.getElementById('bubbles-container');
+        container.innerHTML = '';
+
+        for (let i = 0; i < 30; i++) {
+          const btn = document.createElement('button');
+          btn.className = 'bubble';
+          btn.id = `bubble-${i}`;
+          btn.textContent = i + 1;
+          btn.onclick = () => this.loadQuestion(i);
+          container.appendChild(btn);
+        }
+      }
+
+      updateNavigatorActive() {
+        for (let i = 0; i < 30; i++) {
+          const bubble = document.getElementById(`bubble-${i}`);
+          if (i === this.currentQuestionIdx) {
+            bubble.classList.add('active');
+          } else {
+            bubble.classList.remove('active');
+          }
+        }
+      }
+
+      // Keyboard support
+      initKeyboardNav() {
+        document.addEventListener('keydown', (e) => {
+          if (this.currentView !== 'view-exam') return;
+
+          // Prevent defaults for quiz nav keys
+          if (e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.key === 'Enter') {
+            e.preventDefault();
+          }
+
+          // Options A-E or 1-5 selection
+          const key = e.key.toUpperCase();
+          if (key === 'A' || key === '1') this.selectOption(0);
+          else if (key === 'B' || key === '2') this.selectOption(1);
+          else if (key === 'C' || key === '3') this.selectOption(2);
+          else if (key === 'D' || key === '4') this.selectOption(3);
+          else if (key === 'E' || key === '5') this.selectOption(4);
+          
+          // Navigation
+          else if (e.key === 'ArrowLeft') this.prevQuestion();
+          else if (e.key === 'ArrowRight') this.nextQuestion();
+          
+          // Enter submits or moves next
+          else if (e.key === 'Enter') {
+            this.nextQuestion();
+          }
+        });
+      }
+
+      confirmQuit() {
+        if (confirm("Are you sure you want to quit the exam? Your current progress in this set will be lost.")) {
+          this.showDashboard();
+        }
+      }
+
+      submitSet() {
+        // Check if all questions are answered
+        const answeredCount = Object.keys(this.userAnswers).length;
+        if (answeredCount < 30) {
+          if (!confirm(`Warning: You have only answered ${answeredCount} out of 30 questions. Are you sure you want to submit your set? Unanswered questions get 0 marks.`)) {
+            return;
+          }
+        }
+
+        // Calculate score
+        let score = 0;
+        this.activeQuestions.forEach((q, idx) => {
+          if (this.userAnswers[idx] === q.correct) {
+            score++;
+          }
+        });
+
+        // Save Score if best
+        const prevBest = this.history[this.activeSetNum];
+        if (prevBest === null || score > prevBest) {
+          this.history[this.activeSetNum] = score;
+          localStorage.setItem('pm-mcq-history', JSON.stringify(this.history));
+        }
+
+        // Show Results Screen
+        this.showResults(score);
+      }
+
+      // ---- Results Screen & Scoring ----
+      showResults(score) {
+        document.getElementById('results-score').textContent = score;
+
+        // Dial Arc progress animation
+        const circleArc = document.getElementById('dial-fill-arc');
+        const circumference = 2 * Math.PI * 75; // ~471.2
+        const progressOffset = circumference - (score / 30) * circumference;
+        
+        // Reset stroke-dashoffset first to re-trigger transition
+        circleArc.style.strokeDashoffset = circumference;
+        setTimeout(() => {
+          circleArc.style.strokeDashoffset = progressOffset;
+        }, 50);
+
+        // Grade Title & Badge details
+        const badge = document.getElementById('results-badge');
+        const header = document.getElementById('results-header');
+        const feedback = document.getElementById('results-feedback');
+        
+        let badgeTxt = '';
+        let badgeColor = '';
+        let badgeBorder = '';
+        let badgeBg = '';
+        let headerTxt = '';
+        let feedbackTxt = '';
+
+        const pct = Math.round((score / 30) * 100);
+
+        if (score === 30) {
+          badgeTxt = '🏆 Product Director';
+          badgeColor = 'var(--success)';
+          badgeBg = 'rgba(16, 185, 129, 0.1)';
+          badgeBorder = '1px solid rgba(16, 185, 129, 0.2)';
+          headerTxt = 'Flawless Execution!';
+          feedbackTxt = "You got a perfect 100% score! You have completely mastered the Product Management & Software Development guide. Ready to lead engineering sprint ceremonies.";
+          this.triggerConfetti();
+        } else if (score >= 25) {
+          badgeTxt = '⭐ Senior Product Manager';
+          badgeColor = 'var(--success)';
+          badgeBg = 'rgba(16, 185, 129, 0.1)';
+          badgeBorder = '1px solid rgba(16, 185, 129, 0.2)';
+          headerTxt = 'Outstanding Score!';
+          feedbackTxt = `You scored an exceptional ${pct}%! You have an extremely solid understanding of product priorities, requirements writing, analytics, and software design frameworks.`;
+          this.triggerConfetti();
+        } else if (score >= 20) {
+          badgeTxt = '🌱 Associate PM';
+          badgeColor = 'var(--info)';
+          badgeBg = 'rgba(59, 130, 246, 0.1)';
+          badgeBorder = '1px solid rgba(59, 130, 246, 0.2)';
+          headerTxt = 'Great Work!';
+          feedbackTxt = `You passed with ${pct}%. A very good foundation. Review some of your incorrect answers to elevate your understanding from an APM to a Senior PM role!`;
+        } else if (score >= 15) {
+          badgeTxt = '🎓 Product Analyst Intern';
+          badgeColor = 'var(--warning)';
+          badgeBg = 'rgba(245, 158, 11, 0.1)';
+          badgeBorder = '1px solid rgba(245, 158, 11, 0.2)';
+          headerTxt = 'Passed';
+          feedbackTxt = `You scored ${pct}%. You possess a fair introductory grasp of PM concepts, but we recommend checking the detailed answers review to cement your learning.`;
+        } else {
+          badgeTxt = '📚 Learning Mode';
+          badgeColor = 'var(--error)';
+          badgeBg = 'rgba(239, 68, 68, 0.1)';
+          badgeBorder = '1px solid rgba(239, 68, 68, 0.2)';
+          headerTxt = 'Keep Learning';
+          feedbackTxt = `You got ${pct}%. Reviewing the guide's chapters, glossary terms, and examining the detailed explanations in the review panel will help boost your score.`;
+        }
+
+        badge.textContent = badgeTxt;
+        badge.style.color = badgeColor;
+        badge.style.background = badgeBg;
+        badge.style.border = badgeBorder;
+        header.textContent = headerTxt;
+        feedback.textContent = feedbackTxt;
+
+        this.progressBar.style.width = '0%';
+        this.switchView('view-results');
+      }
+
+      // ---- Detailed Review View ----
+      showReview() {
+        const container = document.getElementById('review-list-container');
+        container.innerHTML = '';
+
+        const alphabet = ['A', 'B', 'C', 'D', 'E'];
+
+        this.activeQuestions.forEach((q, qIdx) => {
+          const card = document.createElement('div');
+          card.className = 'review-card';
+
+          const chosen = this.userAnswers[qIdx];
+          const isCorrect = (chosen === q.correct);
+
+          // Card meta & text
+          let cardMetaHTML = `
+            <div class="review-meta">
+              <div class="chapter-tag">${q.chapter}</div>
+              <div class="question-num-tag" style="color: ${isCorrect ? 'var(--success)' : 'var(--error)'}; font-weight: 600;">
+                Question ${qIdx + 1} &bull; ${isCorrect ? 'Correct (+1)' : 'Incorrect (0)'}
+              </div>
+            </div>
+          `;
+
+          let cardTextHTML = `<div class="question-text">${q.question}</div>`;
+
+          // Rendering options list with highlights
+          let optionsHTML = '<div class="options-list">';
+          q.options.forEach((optText, optIdx) => {
+            let optClass = 'review-option';
+            if (optIdx === q.correct) {
+              optClass += ' correct';
+            } else if (optIdx === chosen && !isCorrect) {
+              optClass += ' incorrect';
+            }
+
+            optionsHTML += `
+              <div class="${optClass}">
+                <div class="review-option-indicator">${alphabet[optIdx]}</div>
+                <div class="option-text">${optText}</div>
+              </div>
+            `;
+          });
+          optionsHTML += '</div>';
+
+          // Explanation
+          let explanationHTML = `
+            <div class="explanation-box">
+              <strong>💡 Chapter Explanation</strong>
+              ${q.explanation}
+            </div>
+          `;
+
+          card.innerHTML = cardMetaHTML + cardTextHTML + optionsHTML + explanationHTML;
+          container.appendChild(card);
+        });
+
+        this.switchView('view-review');
+      }
+
+      // ---- Confetti Engine ----
+      triggerConfetti() {
+        const canvas = this.confettiCanvas;
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const colors = ['#6366f1', '#06b6d4', '#10b981', '#f59e0b', '#3b82f6', '#ec4899'];
+        const particles = [];
+
+        class Particle {
+          constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height - canvas.height;
+            this.r = Math.random() * 6 + 4;
+            this.d = Math.random() * canvas.height;
+            this.color = colors[Math.floor(Math.random() * colors.length)];
+            this.tilt = Math.random() * 10 - 5;
+            this.tiltAngleIncremental = Math.random() * 0.07 + 0.02;
+            this.tiltAngle = 0;
+            this.speedY = Math.random() * 3 + 2;
+          }
+
+          draw() {
+            ctx.beginPath();
+            ctx.lineWidth = this.r / 2;
+            ctx.strokeStyle = this.color;
+            ctx.moveTo(this.x + this.tilt + this.r / 2, this.y);
+            ctx.lineTo(this.x + this.tilt, this.y + this.tilt + this.r / 2);
+            ctx.stroke();
+          }
+
+          update() {
+            this.tiltAngle += this.tiltAngleIncremental;
+            this.y += this.speedY;
+            this.tilt = Math.sin(this.tiltAngle - (this.x / 5)) * 12;
+            return this.y < canvas.height;
+          }
+        }
+
+        for (let i = 0; i < 150; i++) {
+          particles.push(new Particle());
+        }
+
+        let animationFrameId;
+
+        const animate = () => {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          let active = false;
+
+          particles.forEach((p) => {
+            p.draw();
+            if (p.update()) {
+              active = true;
+            }
+          });
+
+          if (active && this.currentView === 'view-results') {
+            animationFrameId = requestAnimationFrame(animate);
+          } else {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+          }
+        };
+
+        animate();
+
+        // Handle resize
+        window.addEventListener('resize', () => {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+        });
+
+        // Auto cancel after 5 seconds to conserve CPU
+        setTimeout(() => {
+          cancelAnimationFrame(animationFrameId);
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }, 5000);
+      }
+    }
+
+    // Initialize the app client
+    const app = new MCQApp();
+  </script>
+</body>
+</html>

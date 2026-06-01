@@ -1,0 +1,2580 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A comprehensive interactive guide to Product Management & Software Development — covering SDLC, Agile, team roles, feature lifecycle, analytics, and job preparation.">
+  <meta name="keywords" content="Product Management, Software Development, SDLC, Agile, Scrum, Product Analyst, Internship Guide">
+  <meta name="author" content="Halonic Learning">
+  <meta property="og:title" content="PM & Software Development Guide — Halonic Learning">
+  <meta property="og:description" content="Master product management and software development with this interactive 13-chapter guide.">
+  <meta property="og:type" content="website">
+  <title>PM &amp; Software Dev Guide — Halonic Learning</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <!-- Progress Bar -->
+  <div id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- Sidebar -->
+  <aside id="sidebar" role="navigation" aria-label="Chapter Navigation">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">
+        <div class="sidebar-logo-icon">📘</div>
+        <div class="sidebar-logo-text">
+          <h3>PM &amp; Dev Guide</h3>
+          <span>Interactive Learning</span>
+        </div>
+      </div>
+    </div>
+    <div class="sidebar-progress">
+      <div class="sidebar-progress-label">
+        <span>Progress</span>
+        <span id="progress-pct">0%</span>
+      </div>
+      <div class="sidebar-progress-bar">
+        <div class="sidebar-progress-fill" id="sidebar-progress-fill"></div>
+      </div>
+    </div>
+    <nav class="sidebar-nav" id="sidebar-nav">
+      <div class="nav-section-label">Getting Started</div>
+      <a href="#hero" class="nav-item active" data-chapter="hero">
+        <span class="nav-icon">🏠</span>
+        <span class="nav-label">Welcome</span>
+      </a>
+      <div class="nav-section-label">Chapters</div>
+      <a href="#ch1" class="nav-item" data-chapter="ch1">
+        <span class="nav-icon">💡</span>
+        <span class="nav-label">1. What Is a Software Product</span>
+        <span class="nav-time">5 min</span>
+        <span class="nav-check" data-ch="ch1"></span>
+      </a>
+      <a href="#ch2" class="nav-item" data-chapter="ch2">
+        <span class="nav-icon">🔄</span>
+        <span class="nav-label">2. SDLC</span>
+        <span class="nav-time">6 min</span>
+        <span class="nav-check" data-ch="ch2"></span>
+      </a>
+      <a href="#ch3" class="nav-item" data-chapter="ch3">
+        <span class="nav-icon">🏃</span>
+        <span class="nav-label">3. Agile &amp; Scrum</span>
+        <span class="nav-time">8 min</span>
+        <span class="nav-check" data-ch="ch3"></span>
+      </a>
+      <a href="#ch4" class="nav-item" data-chapter="ch4">
+        <span class="nav-icon">👥</span>
+        <span class="nav-label">4. Team Roles</span>
+        <span class="nav-time">12 min</span>
+        <span class="nav-check" data-ch="ch4"></span>
+      </a>
+      <a href="#ch5" class="nav-item" data-chapter="ch5">
+        <span class="nav-icon">🚀</span>
+        <span class="nav-label">5. Feature Lifecycle</span>
+        <span class="nav-time">10 min</span>
+        <span class="nav-check" data-ch="ch5"></span>
+      </a>
+      <a href="#ch6" class="nav-item" data-chapter="ch6">
+        <span class="nav-icon">🎯</span>
+        <span class="nav-label">6. Product Management</span>
+        <span class="nav-time">10 min</span>
+        <span class="nav-check" data-ch="ch6"></span>
+      </a>
+      <a href="#ch7" class="nav-item" data-chapter="ch7">
+        <span class="nav-icon">📝</span>
+        <span class="nav-label">7. Requirements &amp; Stories</span>
+        <span class="nav-time">8 min</span>
+        <span class="nav-check" data-ch="ch7"></span>
+      </a>
+      <a href="#ch8" class="nav-item" data-chapter="ch8">
+        <span class="nav-icon">🐛</span>
+        <span class="nav-label">8. Bugs</span>
+        <span class="nav-time">7 min</span>
+        <span class="nav-check" data-ch="ch8"></span>
+      </a>
+      <a href="#ch9" class="nav-item" data-chapter="ch9">
+        <span class="nav-icon">📊</span>
+        <span class="nav-label">9. Product Analytics</span>
+        <span class="nav-time">9 min</span>
+        <span class="nav-check" data-ch="ch9"></span>
+      </a>
+      <a href="#ch10" class="nav-item" data-chapter="ch10">
+        <span class="nav-icon">🛠️</span>
+        <span class="nav-label">10. Tools of the Trade</span>
+        <span class="nav-time">6 min</span>
+        <span class="nav-check" data-ch="ch10"></span>
+      </a>
+      <a href="#ch11" class="nav-item" data-chapter="ch11">
+        <span class="nav-icon">📈</span>
+        <span class="nav-label">11. Retention &amp; Growth</span>
+        <span class="nav-time">9 min</span>
+        <span class="nav-check" data-ch="ch11"></span>
+      </a>
+      <a href="#ch12" class="nav-item" data-chapter="ch12">
+        <span class="nav-icon">📚</span>
+        <span class="nav-label">12. Case Studies</span>
+        <span class="nav-time">8 min</span>
+        <span class="nav-check" data-ch="ch12"></span>
+      </a>
+      <a href="#ch13" class="nav-item" data-chapter="ch13">
+        <span class="nav-icon">🎓</span>
+        <span class="nav-label">13. Job Preparation</span>
+        <span class="nav-time">10 min</span>
+        <span class="nav-check" data-ch="ch13"></span>
+      </a>
+      <div class="nav-section-label">Reference</div>
+      <a href="#glossary" class="nav-item" data-chapter="glossary">
+        <span class="nav-icon">📖</span>
+        <span class="nav-label">Glossary</span>
+        <span class="nav-time">4 min</span>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Sidebar Overlay (mobile) -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- Mobile Menu Button -->
+  <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation">☰</button>
+
+  <!-- Sticky Header -->
+  <header id="sticky-header">
+    <span class="current-chapter" id="current-chapter-label"></span>
+    <div class="header-actions">
+      <div class="search-container">
+        <span class="search-icon">🔍</span>
+        <input type="text" class="search-input" id="search-input" placeholder="Search topics…" aria-label="Search topics">
+        <div class="search-results" id="search-results"></div>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <div class="content-wrapper">
+
+      <!-- ═══════════ HERO ═══════════ -->
+      <section id="hero" class="chapter hero" data-title="Welcome">
+        <div class="hero-badge">✨ Interactive Learning Guide — 2025 Edition</div>
+        <h1><span class="gradient-text">Product Management<br>&amp; Software Development</span></h1>
+        <p>Your comprehensive, hands-on guide to understanding how modern software products are built, managed, and shipped — from idea to impact.</p>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="stat-value">13</div>
+            <div class="stat-label">Chapters</div>
+          </div>
+          <div class="hero-stat">
+            <div class="stat-value">~100</div>
+            <div class="stat-label">Minutes</div>
+          </div>
+          <div class="hero-stat">
+            <div class="stat-value">4</div>
+            <div class="stat-label">Case Studies</div>
+          </div>
+          <div class="hero-stat">
+            <div class="stat-value">50+</div>
+            <div class="stat-label">Key Terms</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════ CHAPTER 1 ═══════════ -->
+      <section id="ch1" class="chapter" data-title="Chapter 1 — What Is a Software Product">
+        <div class="chapter-header">
+          <div class="chapter-label">Chapter 1 <span class="reading-time">· 5 min read</span></div>
+          <h2 class="chapter-title gradient-text">The Big Picture — What Even Is a Software Product?</h2>
+          <p class="chapter-subtitle">Think of software as a lemonade stand — but digital. Instead of selling drinks, you're solving problems with code.</p>
+        </div>
+
+        <div class="subsection">
+          <h3>💡 Software = Solving Problems Digitally</h3>
+          <p>At its core, every piece of software exists to solve a problem. Instagram solves the problem of sharing visual moments. Google Maps solves the problem of navigation. Notion solves the problem of scattered notes and tasks. When you think about software products this way, everything becomes clearer.</p>
+          <p>Software is simply <strong>a set of instructions that tells a computer what to do</strong> to solve a specific human problem. The "product" part means it's packaged, distributed, and used by real people — not just a script running on someone's laptop.</p>
+        </div>
+
+        <div class="subsection">
+          <h3>🌍 Real-World Examples</h3>
+          <div class="card-grid">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">📸</div>
+                <h4>Instagram</h4>
+              </div>
+              <p>Solves: sharing visual moments with friends. Started as a photo-sharing app, evolved into a social commerce platform with Reels, Stories, and Shopping.</p>
+            </div>
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">🍕</div>
+                <h4>Zomato</h4>
+              </div>
+              <p>Solves: finding restaurants, reading reviews, ordering food. Connects hungry people with restaurants and delivery partners in real-time.</p>
+            </div>
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">💳</div>
+                <h4>Google Pay</h4>
+              </div>
+              <p>Solves: sending money without cash. Makes payments as simple as sending a text message using UPI infrastructure.</p>
+            </div>
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">📓</div>
+                <h4>Notion</h4>
+              </div>
+              <p>Solves: scattered notes, docs, and project management. An all-in-one workspace that replaces dozens of tools.</p>
+            </div>
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">🎵</div>
+                <h4>Spotify</h4>
+              </div>
+              <p>Solves: discovering and listening to music. Personalizes your experience with algorithmic playlists like Discover Weekly.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>🔁 Why Companies Build Software</h3>
+          <p>The journey of every software product follows a predictable cycle:</p>
+          <div class="flow-diagram">
+            <div class="flow-node accent">Problem</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node">Idea</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node">Build</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node">Launch</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node">Learn</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node accent">Improve</div>
+          </div>
+          <p>A company spots a problem in the real world (<em>"People can't easily split dinner bills"</em>). They come up with an idea (<em>"A bill-splitting app"</em>). They build it, launch it, learn from real users, and improve — over and over. This cycle never ends.</p>
+        </div>
+
+        <div class="subsection">
+          <h3>🏢 Business World vs. Technology World</h3>
+          <div class="tabs" data-tabs>
+            <div class="tab-list" role="tablist">
+              <button class="tab-btn active" role="tab" data-tab="biz">Business (WHY)</button>
+              <button class="tab-btn" role="tab" data-tab="tech">Technology (HOW)</button>
+            </div>
+            <div class="tab-panel active" id="tab-biz" data-tab-panel="biz">
+              <p>The business side asks <strong>"Why should we build this?"</strong></p>
+              <ul>
+                <li><strong>Market Opportunity:</strong> Is there demand? Will people pay?</li>
+                <li><strong>Revenue Model:</strong> Subscriptions? Ads? Freemium?</li>
+                <li><strong>Competition:</strong> Who else solves this problem?</li>
+                <li><strong>User Research:</strong> What do real people actually need?</li>
+                <li><strong>Business Metrics:</strong> DAU, MRR, churn rate, LTV</li>
+              </ul>
+            </div>
+            <div class="tab-panel" id="tab-tech" data-tab-panel="tech">
+              <p>The technology side asks <strong>"How do we build this?"</strong></p>
+              <ul>
+                <li><strong>Architecture:</strong> Monolith vs. microservices</li>
+                <li><strong>Tech Stack:</strong> React, Node.js, PostgreSQL, AWS</li>
+                <li><strong>Scalability:</strong> Can it handle 1 million users?</li>
+                <li><strong>Security:</strong> Encryption, auth, data protection</li>
+                <li><strong>Performance:</strong> Load times under 2 seconds</li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout callout-important">
+            <span class="callout-icon">💡</span>
+            <div class="callout-content">
+              <p class="callout-title">Key Insight</p>
+              <p>The best products sit at the intersection of business viability and technical feasibility. A brilliant idea that can't be built is useless. A technically impressive product that nobody wants is equally useless.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>📦 Types of Software Products</h3>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr><th>Type</th><th>What It Means</th><th>Examples</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>B2C</strong></td><td>Business-to-Consumer. Company sells directly to everyday people.</td><td>Instagram, Netflix, Spotify, Zomato</td></tr>
+                <tr><td><strong>B2B</strong></td><td>Business-to-Business. Company sells to other companies.</td><td>Salesforce, Slack, Jira, AWS</td></tr>
+                <tr><td><strong>B2B2C</strong></td><td>Company sells to businesses who serve consumers.</td><td>Shopify (helps businesses sell to people), Stripe</td></tr>
+                <tr><td><strong>Internal Tools</strong></td><td>Software built for use within the same company.</td><td>HR portals, internal dashboards, admin panels</td></tr>
+                <tr><td><strong>SaaS</strong></td><td>Software-as-a-Service. Pay a subscription to use it online.</td><td>Notion, Figma, Zoom, Canva</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>☁️ SaaS: The Netflix Model of Software</h3>
+          <p>Remember when you had to buy a DVD to watch a movie? Now you pay Netflix ₹199/month and stream everything. <strong>SaaS works exactly the same way for software.</strong></p>
+          <p>Instead of buying Microsoft Office for ₹15,000 once, you pay ₹500/month for Microsoft 365 and always get the latest version, cloud sync, and collaboration features.</p>
+          <div class="callout callout-tip">
+            <span class="callout-icon">💡</span>
+            <div class="callout-content">
+              <p class="callout-title">Why SaaS dominates</p>
+              <p><strong>For users:</strong> Lower upfront cost, always up-to-date, accessible anywhere.<br>
+              <strong>For companies:</strong> Predictable recurring revenue, easier updates, better user analytics.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quiz for Chapter 1 -->
+        <div class="quiz" data-quiz="ch1">
+          <div class="quiz-header">
+            <span class="emoji-icon">🧠</span>
+            <h4>Knowledge Check — Chapter 1</h4>
+          </div>
+          <div class="quiz-question" data-correct="2">
+            <p class="question-text">1. Which type of software product does Shopify represent?</p>
+            <div class="quiz-options">
+              <div class="quiz-option" data-value="0"><span class="option-radio"></span>B2C — It sells directly to consumers</div>
+              <div class="quiz-option" data-value="1"><span class="option-radio"></span>B2B — It sells to businesses only</div>
+              <div class="quiz-option" data-value="2"><span class="option-radio"></span>B2B2C — It helps businesses sell to consumers</div>
+              <div class="quiz-option" data-value="3"><span class="option-radio"></span>Internal Tool — It's used within Shopify only</div>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <div class="quiz-question" data-correct="1">
+            <p class="question-text">2. What does SaaS stand for?</p>
+            <div class="quiz-options">
+              <div class="quiz-option" data-value="0"><span class="option-radio"></span>Software and Application Services</div>
+              <div class="quiz-option" data-value="1"><span class="option-radio"></span>Software as a Service</div>
+              <div class="quiz-option" data-value="2"><span class="option-radio"></span>System as a Solution</div>
+              <div class="quiz-option" data-value="3"><span class="option-radio"></span>Subscription and Application Software</div>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <div class="quiz-question" data-correct="0">
+            <p class="question-text">3. In the software product cycle, what comes after "Launch"?</p>
+            <div class="quiz-options">
+              <div class="quiz-option" data-value="0"><span class="option-radio"></span>Learn — gather feedback from real users</div>
+              <div class="quiz-option" data-value="1"><span class="option-radio"></span>Build — rewrite from scratch</div>
+              <div class="quiz-option" data-value="2"><span class="option-radio"></span>Ideate — think of a new product</div>
+              <div class="quiz-option" data-value="3"><span class="option-radio"></span>Sell — monetize immediately</div>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════ CHAPTER 2 ═══════════ -->
+      <section id="ch2" class="chapter" data-title="Chapter 2 — SDLC">
+        <div class="chapter-header">
+          <div class="chapter-label">Chapter 2 <span class="reading-time">· 6 min read</span></div>
+          <h2 class="chapter-title gradient-text">The Software Development Life Cycle (SDLC)</h2>
+          <p class="chapter-subtitle">Building software is like building a house — you need a plan, materials, skilled workers, and quality checks at every stage.</p>
+        </div>
+
+        <div class="subsection">
+          <h3>🏗️ The Building a House Analogy</h3>
+          <p>Imagine you want to build a house. You wouldn't just start stacking bricks randomly. You'd first figure out what kind of house you want (planning), draw blueprints (design), hire workers and build (development), inspect for safety (testing), hand over the keys (deployment), and then maintain it over time (maintenance). Software follows the exact same process.</p>
+        </div>
+
+        <div class="subsection">
+          <h3>🔄 The 6 Phases of SDLC</h3>
+          <div class="flow-diagram">
+            <div class="flow-node accent">1. Planning</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node">2. Design</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node">3. Development</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node">4. Testing</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node">5. Deployment</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node accent">6. Maintenance</div>
+          </div>
+
+          <div class="accordion" data-accordion>
+            <div class="accordion-header">
+              <h4>📋 Phase 1: Planning</h4>
+              <span class="accordion-icon">▼</span>
+            </div>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                <p>This is where you ask: <strong>What are we building, and why?</strong></p>
+                <ul>
+                  <li>Define the problem you're solving</li>
+                  <li>Identify target users and their needs</li>
+                  <li>Set project scope, timeline, and budget</li>
+                  <li>Assess feasibility — can we actually build this?</li>
+                  <li>Identify risks and mitigation strategies</li>
+                </ul>
+                <p><strong>Output:</strong> Project plan, requirements document, feasibility report.</p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion" data-accordion>
+            <div class="accordion-header">
+              <h4>🎨 Phase 2: Design</h4>
+              <span class="accordion-icon">▼</span>
+            </div>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                <p>Now we decide <strong>how it should look and work.</strong></p>
+                <ul>
+                  <li><strong>System Architecture:</strong> How different parts of the software connect</li>
+                  <li><strong>Database Design:</strong> How data is stored and organized</li>
+                  <li><strong>UI/UX Design:</strong> Wireframes, mockups, user flows</li>
+                  <li><strong>API Design:</strong> How the frontend talks to the backend</li>
+                  <li><strong>Technology Selection:</strong> Which frameworks, languages, cloud services</li>
+                </ul>
+                <p><strong>Output:</strong> Design documents, wireframes, prototypes, architecture diagrams.</p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion" data-accordion>
+            <div class="accordion-header">
+              <h4>💻 Phase 3: Development</h4>
+              <span class="accordion-icon">▼</span>
+            </div>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                <p>This is where <strong>code gets written.</strong> Developers turn the designs into a working product.</p>
+                <ul>
+                  <li>Frontend developers build the user interface</li>
+                  <li>Backend developers build server logic, APIs, and database connections</li>
+                  <li>Code reviews ensure quality and consistency</li>
+                  <li>Version control (Git) tracks all changes</li>
+                  <li>Daily standups keep the team synchronized</li>
+                </ul>
+                <p><strong>Output:</strong> Working code, code documentation, pull requests.</p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion" data-accordion>
+            <div class="accordion-header">
+              <h4>🧪 Phase 4: Testing</h4>
+              <span class="accordion-icon">▼</span>
+            </div>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                <p><strong>Does it work correctly?</strong> Testing catches bugs before users do.</p>
+                <ul>
+                  <li><strong>Unit Testing:</strong> Testing individual functions/components</li>
+                  <li><strong>Integration Testing:</strong> Testing how parts work together</li>
+                  <li><strong>System Testing:</strong> Testing the entire application end-to-end</li>
+                  <li><strong>UAT (User Acceptance Testing):</strong> Real users verify it meets their needs</li>
+                  <li><strong>Performance Testing:</strong> Can it handle heavy traffic?</li>
+                </ul>
+                <p><strong>Output:</strong> Test reports, bug reports, sign-off for deployment.</p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion" data-accordion>
+            <div class="accordion-header">
+              <h4>🚀 Phase 5: Deployment</h4>
+              <span class="accordion-icon">▼</span>
+            </div>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                <p><strong>Time to go live!</strong> The software is released to real users.</p>
+                <ul>
+                  <li><strong>Staging Environment:</strong> Final testing in a production-like setup</li>
+                  <li><strong>Canary Release:</strong> Roll out to 5% of users first</li>
+                  <li><strong>Full Release:</strong> If canary looks good, release to everyone</li>
+                  <li><strong>Monitoring:</strong> Watch for errors, crashes, performance issues</li>
+                  <li><strong>Rollback Plan:</strong> If something breaks, revert quickly</li>
+                </ul>
+                <p><strong>Output:</strong> Live product, deployment logs, monitoring dashboards.</p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion" data-accordion>
+            <div class="accordion-header">
+              <h4>🔧 Phase 6: Maintenance</h4>
+              <span class="accordion-icon">▼</span>
+            </div>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                <p><strong>Software is never "done."</strong> You keep improving it.</p>
+                <ul>
+                  <li>Fix bugs reported by users</li>
+                  <li>Release new features based on feedback</li>
+                  <li>Update dependencies and security patches</li>
+                  <li>Optimize performance as usage grows</li>
+                  <li>Monitor analytics to spot new opportunities</li>
+                </ul>
+                <p><strong>Output:</strong> Patches, updates, new feature releases, performance reports.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>🎵 Real Example: Spotify's Sleep Timer</h3>
+          <p>Let's trace the Sleep Timer feature through the SDLC:</p>
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>Phase</th><th>What Happened</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Planning</strong></td><td>Users requested a way to stop music after falling asleep. PM validated demand through surveys and support tickets. Business case: reduces battery complaints, improves satisfaction.</td></tr>
+                <tr><td><strong>Design</strong></td><td>UX team designed a timer interface accessible from the Now Playing screen. Options: 5, 10, 15, 30, 45, 60 min, or end of track. Gentle fade-out animation.</td></tr>
+                <tr><td><strong>Development</strong></td><td>Frontend: Timer UI component, countdown display. Backend: Timer service that sends a stop-playback command. Edge cases: What if user switches songs mid-timer?</td></tr>
+                <tr><td><strong>Testing</strong></td><td>Tested timer accuracy, fade-out smoothness, behavior when app is backgrounded, battery impact, interaction with car/speaker modes.</td></tr>
+                <tr><td><strong>Deployment</strong></td><td>Rolled out to 5% of users via feature flag. Monitored crash rates and user engagement. After 2 weeks of positive data, released to all users.</td></tr>
+                <tr><td><strong>Maintenance</strong></td><td>Added "end of episode" option for podcasts based on user feedback. Fixed edge case where timer reset after Bluetooth reconnection.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>🆚 Waterfall vs. Agile</h3>
+          <div class="tabs" data-tabs>
+            <div class="tab-list" role="tablist">
+              <button class="tab-btn active" role="tab" data-tab="waterfall">Waterfall</button>
+              <button class="tab-btn" role="tab" data-tab="agile">Agile</button>
+              <button class="tab-btn" role="tab" data-tab="compare">Comparison</button>
+            </div>
+            <div class="tab-panel active" id="tab-waterfall" data-tab-panel="waterfall">
+              <h4>Waterfall Model</h4>
+              <p>Like a waterfall, each phase flows <strong>down to the next</strong>. You complete one phase entirely before starting the next. No going back.</p>
+              <div class="flow-diagram">
+                <div class="flow-node">Requirements</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-node">Design</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-node">Development</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-node">Testing</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-node">Deployment</div>
+              </div>
+              <p><strong>Best for:</strong> Projects with fixed, well-known requirements (e.g., government contracts, embedded systems, medical devices).</p>
+              <p><strong>Drawback:</strong> If you discover a problem late, it's extremely expensive to fix. Users don't see the product until the very end.</p>
+            </div>
+            <div class="tab-panel" id="tab-agile" data-tab-panel="agile">
+              <h4>Agile Model</h4>
+              <p>Instead of one big waterfall, Agile works in <strong>small, repeated cycles</strong> called sprints (usually 2 weeks). Each sprint delivers a working piece of the product.</p>
+              <div class="flow-diagram">
+                <div class="flow-node accent">Plan</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-node">Build</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-node">Test</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-node">Review</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-node accent">Repeat</div>
+              </div>
+              <p><strong>Best for:</strong> Products where requirements evolve (e.g., mobile apps, SaaS products, startups).</p>
+              <p><strong>Advantage:</strong> Get user feedback early and often. Adapt to changing market needs. Deliver value continuously.</p>
+            </div>
+            <div class="tab-panel" id="tab-compare" data-tab-panel="compare">
+              <div class="table-wrapper">
+                <table>
+                  <thead><tr><th>Aspect</th><th>Waterfall</th><th>Agile</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Approach</strong></td><td>Linear, sequential</td><td>Iterative, incremental</td></tr>
+                    <tr><td><strong>Flexibility</strong></td><td>Rigid — changes are costly</td><td>Flexible — embraces change</td></tr>
+                    <tr><td><strong>User Feedback</strong></td><td>At the end</td><td>Every 2 weeks</td></tr>
+                    <tr><td><strong>Delivery</strong></td><td>One big release</td><td>Frequent small releases</td></tr>
+                    <tr><td><strong>Risk</strong></td><td>High — problems found late</td><td>Low — problems found early</td></tr>
+                    <tr><td><strong>Documentation</strong></td><td>Heavy documentation</td><td>Working software over docs</td></tr>
+                    <tr><td><strong>Team Structure</strong></td><td>Siloed departments</td><td>Cross-functional teams</td></tr>
+                    <tr><td><strong>Best For</strong></td><td>Fixed requirements</td><td>Evolving products</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════ CHAPTER 3 ═══════════ -->
+      <section id="ch3" class="chapter" data-title="Chapter 3 — Agile & Scrum">
+        <div class="chapter-header">
+          <div class="chapter-label">Chapter 3 <span class="reading-time">· 8 min read</span></div>
+          <h2 class="chapter-title gradient-text">Agile &amp; Scrum — Working in Sprints</h2>
+          <p class="chapter-subtitle">Agile is the philosophy. Scrum is the playbook. Together, they power how most modern tech teams ship products.</p>
+        </div>
+
+        <div class="subsection">
+          <h3>📜 The 4 Agile Values</h3>
+          <p>The Agile Manifesto (2001) established four core values. These aren't rules — they're priorities:</p>
+          <div class="card-grid">
+            <div class="card">
+              <h4>👥 Individuals &amp; Interactions</h4>
+              <p><strong>Over processes and tools.</strong> A great team using sticky notes beats a bad team using Jira. Collaboration and communication matter more than fancy tools.</p>
+            </div>
+            <div class="card">
+              <h4>💻 Working Software</h4>
+              <p><strong>Over comprehensive documentation.</strong> A working prototype is worth more than a 50-page specification document. Ship code, not PDFs.</p>
+            </div>
+            <div class="card">
+              <h4>🤝 Customer Collaboration</h4>
+              <p><strong>Over contract negotiation.</strong> Work with your customers continuously. Don't just agree on requirements upfront and disappear for 6 months.</p>
+            </div>
+            <div class="card">
+              <h4>🔀 Responding to Change</h4>
+              <p><strong>Over following a plan.</strong> Plans are useful, but the market changes fast. Be ready to pivot. The best products emerge from adaptation.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>🏃 The Scrum Framework</h3>
+          <p>Scrum is the most popular Agile framework. Here's how it flows:</p>
+          <div class="flow-diagram">
+            <div class="flow-node accent">Product Backlog</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node">Sprint Planning</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node accent">Sprint (2 weeks)</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node">Sprint Review</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node">Retrospective</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node accent">Repeat ↺</div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>📋 Product Backlog — The Master To-Do List</h3>
+          <p>The Product Backlog is a prioritized list of everything the team could build. The Product Owner maintains it. Think of a food delivery app — here's what the backlog might look like:</p>
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>Priority</th><th>Item</th><th>Type</th><th>Effort</th></tr></thead>
+              <tbody>
+                <tr><td><span class="badge badge-error">P0</span></td><td>Fix payment failure on UPI</td><td>Bug</td><td>3 pts</td></tr>
+                <tr><td><span class="badge badge-error">P0</span></td><td>Add order tracking map</td><td>Feature</td><td>8 pts</td></tr>
+                <tr><td><span class="badge badge-warning">P1</span></td><td>Restaurant rating system</td><td>Feature</td><td>5 pts</td></tr>
+                <tr><td><span class="badge badge-warning">P1</span></td><td>Push notifications for offers</td><td>Feature</td><td>5 pts</td></tr>
+                <tr><td><span class="badge badge-info">P2</span></td><td>Dark mode support</td><td>Enhancement</td><td>3 pts</td></tr>
+                <tr><td><span class="badge badge-info">P2</span></td><td>Cuisine filter on search</td><td>Feature</td><td>3 pts</td></tr>
+                <tr><td><span class="badge badge-accent">P3</span></td><td>Animated loading screen</td><td>Enhancement</td><td>2 pts</td></tr>
+                <tr><td><span class="badge badge-accent">P3</span></td><td>Social sharing of orders</td><td>Feature</td><td>5 pts</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>⏱️ Sprint — A 2-Week Mini-Mission</h3>
+          <p>A Sprint is a time-boxed period (typically 2 weeks) where the team commits to completing a set of backlog items. During the sprint:</p>
+          <ul>
+            <li><strong>No new items are added</strong> (unless absolutely critical)</li>
+            <li>The team focuses entirely on the sprint goals</li>
+            <li>Daily standups keep everyone aligned</li>
+            <li>At the end, there's a working, potentially shippable product increment</li>
+          </ul>
+        </div>
+
+        <div class="subsection">
+          <h3>📅 Scrum Ceremonies</h3>
+          <div class="accordion" data-accordion>
+            <div class="accordion-header">
+              <h4>📋 Sprint Planning</h4>
+              <span class="accordion-icon">▼</span>
+            </div>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                <p><strong>When:</strong> Day 1 of the sprint. <strong>Duration:</strong> 2-4 hours. <strong>Who:</strong> Entire Scrum team.</p>
+                <p>The team selects items from the Product Backlog that they can realistically complete in 2 weeks. They break stories into tasks and estimate effort.</p>
+                <p><strong>Key questions:</strong></p>
+                <ul>
+                  <li>What can we deliver this sprint?</li>
+                  <li>How will we get it done?</li>
+                  <li>Are there any blockers or dependencies?</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion" data-accordion>
+            <div class="accordion-header">
+              <h4>☀️ Daily Standup (15 min)</h4>
+              <span class="accordion-icon">▼</span>
+            </div>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                <p>Every day, the team meets for 15 minutes (standing up to keep it short). Each person answers 3 questions:</p>
+                <div class="code-block">
+                  <span class="code-label">Standup Format</span>
+<span class="code-field">1.</span> What did I do <span class="code-keyword">yesterday</span>?
+<span class="code-field">2.</span> What will I do <span class="code-keyword">today</span>?
+<span class="code-field">3.</span> Any <span class="code-keyword">blockers</span>?
+                </div>
+                <p><strong>Example:</strong> <em>"Yesterday I finished the login API. Today I'll start the password reset flow. I'm blocked on the email service credentials — need DevOps to set that up."</em></p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion" data-accordion>
+            <div class="accordion-header">
+              <h4>🎬 Sprint Review / Demo</h4>
+              <span class="accordion-icon">▼</span>
+            </div>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                <p><strong>When:</strong> Last day of the sprint. <strong>Duration:</strong> 1-2 hours. <strong>Who:</strong> Team + stakeholders.</p>
+                <p>The team demos what they built. Stakeholders (product managers, executives, sometimes customers) provide feedback. This is where you show real, working software — not slides.</p>
+                <p><strong>Outcome:</strong> Feedback is captured and fed back into the Product Backlog for future sprints.</p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion" data-accordion>
+            <div class="accordion-header">
+              <h4>🔄 Sprint Retrospective</h4>
+              <span class="accordion-icon">▼</span>
+            </div>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                <p><strong>When:</strong> After the Sprint Review. <strong>Duration:</strong> 1-1.5 hours. <strong>Who:</strong> Team only (no stakeholders).</p>
+                <p>The team reflects honestly on the sprint:</p>
+                <ul>
+                  <li><strong>What went well?</strong> "Code reviews were faster this sprint"</li>
+                  <li><strong>What didn't go well?</strong> "We underestimated the payment integration"</li>
+                  <li><strong>What will we improve?</strong> "Add a spike task for unfamiliar tech before estimating"</li>
+                </ul>
+                <p>The retro is the team's continuous improvement engine. Without it, teams repeat the same mistakes.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>🎭 Scrum Roles</h3>
+          <div class="card-grid">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">🎯</div>
+                <h4>Product Owner</h4>
+              </div>
+              <p>The voice of the customer. Owns the Product Backlog. Decides <strong>what</strong> to build and in <strong>what order</strong>. Says "yes" or "no" to feature requests. Writes user stories and acceptance criteria.</p>
+            </div>
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">🛡️</div>
+                <h4>Scrum Master</h4>
+              </div>
+              <p>The team's coach. Removes blockers, facilitates ceremonies, protects the team from external distractions. Does NOT tell the team what to do — helps them be self-organizing.</p>
+            </div>
+            <div class="card">
+              <div class="card-header">
+                <div class="card-icon">⚡</div>
+                <h4>Development Team</h4>
+              </div>
+              <p>The cross-functional team that does the work: developers, designers, QA. Self-organizing — they decide <strong>how</strong> to accomplish the sprint goals. Typically 5-9 people.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>📊 Kanban Board — Visualizing Work</h3>
+          <p>A Kanban board is a visual tool that shows the status of every task. Here's what a typical sprint board looks like:</p>
+          <div class="kanban-board">
+            <div class="kanban-column">
+              <div class="kanban-column-title">📥 To Do <span class="count">3</span></div>
+              <div class="kanban-card">
+                <div class="kanban-tag feature">Feature</div>
+                <p>Design cuisine filter UI</p>
+              </div>
+              <div class="kanban-card">
+                <div class="kanban-tag feature">Feature</div>
+                <p>Build rating submission API</p>
+              </div>
+              <div class="kanban-card">
+                <div class="kanban-tag improvement">Improvement</div>
+                <p>Optimize image loading</p>
+              </div>
+            </div>
+            <div class="kanban-column">
+              <div class="kanban-column-title">🔨 In Progress <span class="count">2</span></div>
+              <div class="kanban-card">
+                <div class="kanban-tag feature">Feature</div>
+                <p>Implement order tracking map</p>
+              </div>
+              <div class="kanban-card">
+                <div class="kanban-tag bug">Bug</div>
+                <p>Fix UPI payment failure</p>
+              </div>
+            </div>
+            <div class="kanban-column">
+              <div class="kanban-column-title">🔍 In Review <span class="count">1</span></div>
+              <div class="kanban-card">
+                <div class="kanban-tag feature">Feature</div>
+                <p>Push notification system</p>
+              </div>
+            </div>
+            <div class="kanban-column">
+              <div class="kanban-column-title">✅ Done <span class="count">2</span></div>
+              <div class="kanban-card">
+                <div class="kanban-tag feature">Feature</div>
+                <p>Restaurant search filters</p>
+              </div>
+              <div class="kanban-card">
+                <div class="kanban-tag bug">Bug</div>
+                <p>Fix cart total rounding</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>📘 Agile Terminology Quick Reference</h3>
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>Term</th><th>Definition</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Sprint</strong></td><td>A time-boxed iteration, usually 2 weeks</td></tr>
+                <tr><td><strong>Backlog</strong></td><td>Prioritized list of all work items</td></tr>
+                <tr><td><strong>User Story</strong></td><td>A feature described from the user's perspective</td></tr>
+                <tr><td><strong>Story Points</strong></td><td>Relative estimate of effort (not hours)</td></tr>
+                <tr><td><strong>Velocity</strong></td><td>Average story points completed per sprint</td></tr>
+                <tr><td><strong>Epic</strong></td><td>A large body of work that spans multiple sprints</td></tr>
+                <tr><td><strong>Spike</strong></td><td>A research task to reduce uncertainty</td></tr>
+                <tr><td><strong>Burndown Chart</strong></td><td>Graph showing remaining work vs. time in a sprint</td></tr>
+                <tr><td><strong>Definition of Done</strong></td><td>Criteria that must be met for work to be "complete"</td></tr>
+                <tr><td><strong>Increment</strong></td><td>The sum of all completed backlog items in a sprint</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Quiz for Chapter 3 -->
+        <div class="quiz" data-quiz="ch3">
+          <div class="quiz-header">
+            <span class="emoji-icon">🧠</span>
+            <h4>Knowledge Check — Agile &amp; Scrum</h4>
+          </div>
+          <div class="quiz-question" data-correct="2">
+            <p class="question-text">1. Who maintains the Product Backlog?</p>
+            <div class="quiz-options">
+              <div class="quiz-option" data-value="0"><span class="option-radio"></span>Scrum Master</div>
+              <div class="quiz-option" data-value="1"><span class="option-radio"></span>Development Team</div>
+              <div class="quiz-option" data-value="2"><span class="option-radio"></span>Product Owner</div>
+              <div class="quiz-option" data-value="3"><span class="option-radio"></span>CEO</div>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <div class="quiz-question" data-correct="1">
+            <p class="question-text">2. What is the purpose of a Sprint Retrospective?</p>
+            <div class="quiz-options">
+              <div class="quiz-option" data-value="0"><span class="option-radio"></span>Demo the product to stakeholders</div>
+              <div class="quiz-option" data-value="1"><span class="option-radio"></span>Reflect on what went well and what to improve</div>
+              <div class="quiz-option" data-value="2"><span class="option-radio"></span>Select items from the backlog for the next sprint</div>
+              <div class="quiz-option" data-value="3"><span class="option-radio"></span>Write user stories</div>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <div class="quiz-question" data-correct="3">
+            <p class="question-text">3. What does "velocity" measure in Scrum?</p>
+            <div class="quiz-options">
+              <div class="quiz-option" data-value="0"><span class="option-radio"></span>How fast the code runs</div>
+              <div class="quiz-option" data-value="1"><span class="option-radio"></span>Number of bugs found per sprint</div>
+              <div class="quiz-option" data-value="2"><span class="option-radio"></span>Hours worked by the team</div>
+              <div class="quiz-option" data-value="3"><span class="option-radio"></span>Average story points completed per sprint</div>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════ CHAPTER 4 ═══════════ -->
+      <section id="ch4" class="chapter" data-title="Chapter 4 — Team Roles">
+        <div class="chapter-header">
+          <div class="chapter-label">Chapter 4 <span class="reading-time">· 12 min read</span></div>
+          <h2 class="chapter-title gradient-text">The People Who Build Products — Team Roles</h2>
+          <p class="chapter-subtitle">Every great product is built by a team of specialists. Here's who does what, and how they work together.</p>
+        </div>
+
+        <div class="subsection">
+          <h3>🎯 Product Manager (PM)</h3>
+          <div class="accordion" data-accordion>
+            <div class="accordion-header">
+              <h4>🧒 ELI5: What does a PM do?</h4>
+              <span class="accordion-icon">▼</span>
+            </div>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                <p>Imagine you're the director of a movie. You don't write the script, operate the camera, or act — but you make sure everyone is working together to create a great film. You decide what scenes to shoot, in what order, and make sure the final movie tells a compelling story. That's a Product Manager.</p>
+              </div>
+            </div>
+          </div>
+          <p><strong>Key Responsibilities:</strong></p>
+          <ul>
+            <li>Define the product vision and strategy</li>
+            <li>Prioritize features using data and customer feedback</li>
+            <li>Write Product Requirements Documents (PRDs)</li>
+            <li>Coordinate across engineering, design, marketing, and sales</li>
+            <li>Define success metrics and track them</li>
+            <li>Make trade-off decisions (scope vs. time vs. quality)</li>
+          </ul>
+          <p><strong>Tools:</strong> Jira, Confluence, Figma, Mixpanel, Amplitude, Notion, Slack, SQL</p>
+          <div class="callout callout-warning">
+            <span class="callout-icon">⚠️</span>
+            <div class="callout-content">
+              <p class="callout-title">PM ≠ Project Manager</p>
+              <p>A <strong>Product Manager</strong> decides WHAT to build. A <strong>Project Manager</strong> ensures it's built ON TIME. They're different roles! A Product Manager owns the product roadmap and strategy. A Project Manager owns timelines, budgets, and resource allocation.</p>
+            </div>
+          </div>
+          <h4>A Day in the Life of a PM</h4>
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>Time</th><th>Activity</th></tr></thead>
+              <tbody>
+                <tr><td>9:00 AM</td><td>Check analytics dashboards — any anomalies overnight?</td></tr>
+                <tr><td>9:30 AM</td><td>Daily standup with engineering team</td></tr>
+                <tr><td>10:00 AM</td><td>User research session — interview 3 beta users</td></tr>
+                <tr><td>11:30 AM</td><td>Write PRD for the next feature</td></tr>
+                <tr><td>1:00 PM</td><td>Lunch + review competitor updates</td></tr>
+                <tr><td>2:00 PM</td><td>Design review with UX team — provide feedback on mockups</td></tr>
+                <tr><td>3:00 PM</td><td>Sprint review meeting — demo progress to stakeholders</td></tr>
+                <tr><td>4:00 PM</td><td>Prioritize backlog for next sprint</td></tr>
+                <tr><td>5:00 PM</td><td>Sync with marketing on launch plan</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>🎨 UX/UI Designer</h3>
+          <div class="accordion" data-accordion>
+            <div class="accordion-header">
+              <h4>🧒 ELI5: What does a Designer do?</h4>
+              <span class="accordion-icon">▼</span>
+            </div>
+            <div class="accordion-body">
+              <div class="accordion-body-inner">
+                <p>Imagine you're designing a restaurant. UX (User Experience) is everything about the experience — is the menu easy to read? Are tables spaced comfortably? Can you find the restroom? UI (User Interface) is how it looks — the colors of the walls, the style of the furniture, the font on the menu. Both matter!</p>
+              </div>
+            </div>
+          </div>
+          <div class="tabs" data-tabs>
+            <div class="tab-list" role="tablist">
+              <button class="tab-btn active" role="tab" data-tab="ux">UX Design</button>
+              <button class="tab-btn" role="tab" data-tab="ui">UI Design</button>
+            </div>
+            <div class="tab-panel active" data-tab-panel="ux">
+              <p><strong>UX = How it works.</strong> Focuses on the overall feel and usability.</p>
+              <ul>
+                <li>User research and interviews</li>
+                <li>Personas and user journey mapping</li>
+                <li>Wireframing and prototyping</li>
+                <li>Usability testing</li>
+                <li>Information architecture</li>
+              </ul>
+            </div>
+            <div class="tab-panel" data-tab-panel="ui">
+              <p><strong>UI = How it looks.</strong> Focuses on visual design and brand identity.</p>
+              <ul>
+                <li>Color schemes and typography</li>
+                <li>Component design (buttons, inputs, cards)</li>
+                <li>Design systems and style guides</li>
+                <li>Icons and illustrations</li>
+                <li>Responsive layouts and animations</li>
+              </ul>
+            </div>
+          </div>
+          <p><strong>Tools:</strong> Figma, Adobe XD, Sketch, InVision, Miro, FigJam, Maze</p>
+        </div>
+
+        <div class="subsection">
+          <h3>🖥️ Frontend Developer</h3>
+          <p><strong>ELI5:</strong> The frontend developer builds everything you can see and interact with — buttons, menus, animations, forms. They turn design mockups into real, working interfaces.</p>
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>Technology</th><th>Purpose</th></tr></thead>
+              <tbody>
+                <tr><td><strong>HTML</strong></td><td>Structure — the skeleton of the page</td></tr>
+                <tr><td><strong>CSS</strong></td><td>Styling — colors, fonts, layouts, animations</td></tr>
+                <tr><td><strong>JavaScript</strong></td><td>Behavior — interactivity, form validation, dynamic content</td></tr>
+                <tr><td><strong>React / Vue / Angular</strong></td><td>Frameworks for building complex, reusable UI components</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><strong>Key Skills:</strong> Responsive design (mobile + desktop), performance optimization, accessibility (WCAG), cross-browser compatibility, state management.</p>
+        </div>
+
+        <div class="subsection">
+          <h3>⚙️ Backend Developer</h3>
+          <p><strong>ELI5:</strong> If the frontend is the dining area of a restaurant, the backend is the kitchen. You never see it, but it's where all the real work happens.</p>
+          <div class="card-grid">
+            <div class="card">
+              <div class="card-header"><div class="card-icon">🍽️</div><h4>Frontend = Dining Area</h4></div>
+              <p>What the customer sees. The menu, the tables, the decor. Makes the experience pleasant and usable.</p>
+            </div>
+            <div class="card">
+              <div class="card-header"><div class="card-icon">🍳</div><h4>Backend = Kitchen</h4></div>
+              <p>Where food is prepared. Handles the logic, data processing, and heavy lifting that powers the experience.</p>
+            </div>
+            <div class="card">
+              <div class="card-header"><div class="card-icon">🧑‍🍳</div><h4>API = Waiter</h4></div>
+              <p>Takes orders from the dining area to the kitchen and brings food back. The API is the communication layer.</p>
+            </div>
+            <div class="card">
+              <div class="card-header"><div class="card-icon">🥫</div><h4>Database = Pantry</h4></div>
+              <p>Where all ingredients (data) are stored. The kitchen retrieves what it needs to prepare each dish (response).</p>
+            </div>
+          </div>
+          <p><strong>Technologies:</strong> Node.js, Python, Java, Go, PostgreSQL, MongoDB, Redis, REST APIs, GraphQL</p>
+        </div>
+
+        <div class="subsection">
+          <h3>🔧 DevOps Engineer</h3>
+          <p><strong>ELI5:</strong> DevOps is like the road system for software. They build the highways (CI/CD pipelines) that let code travel from a developer's laptop to production servers smoothly and safely.</p>
+          <ul>
+            <li><strong>CI/CD Pipelines:</strong> Automated build → test → deploy workflows</li>
+            <li><strong>Infrastructure as Code:</strong> Define servers using code (Terraform, CloudFormation)</li>
+            <li><strong>Monitoring &amp; Alerting:</strong> Watch for system failures in real-time</li>
+            <li><strong>Uptime:</strong> Target 99.9% availability (that's only 8.7 hours of downtime per year!)</li>
+            <li><strong>Containerization:</strong> Docker and Kubernetes for consistent environments</li>
+          </ul>
+          <p><strong>Tools:</strong> Docker, Kubernetes, Jenkins, GitHub Actions, Terraform, AWS, Grafana, PagerDuty</p>
+        </div>
+
+        <div class="subsection">
+          <h3>☁️ Cloud Engineer</h3>
+          <div class="tabs" data-tabs>
+            <div class="tab-list" role="tablist">
+              <button class="tab-btn active" role="tab" data-tab="before-cloud">Before Cloud</button>
+              <button class="tab-btn" role="tab" data-tab="with-cloud">With Cloud</button>
+            </div>
+            <div class="tab-panel active" data-tab-panel="before-cloud">
+              <div class="table-wrapper">
+                <table>
+                  <thead><tr><th>Aspect</th><th>Before Cloud</th></tr></thead>
+                  <tbody>
+                    <tr><td>Servers</td><td>Buy physical servers, set up server rooms, manage cooling</td></tr>
+                    <tr><td>Scaling</td><td>Buy more servers weeks in advance, pray for no traffic spike</td></tr>
+                    <tr><td>Cost</td><td>Huge upfront capital expense ($50K+ per server)</td></tr>
+                    <tr><td>Maintenance</td><td>Hire a team to manage hardware 24/7</td></tr>
+                    <tr><td>Disaster Recovery</td><td>Build a second data center in another city</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="tab-panel" data-tab-panel="with-cloud">
+              <div class="table-wrapper">
+                <table>
+                  <thead><tr><th>Aspect</th><th>With Cloud</th></tr></thead>
+                  <tbody>
+                    <tr><td>Servers</td><td>Click a button, get a server in 60 seconds</td></tr>
+                    <tr><td>Scaling</td><td>Auto-scale based on traffic — handles 10 or 10M users</td></tr>
+                    <tr><td>Cost</td><td>Pay only for what you use (like electricity bills)</td></tr>
+                    <tr><td>Maintenance</td><td>Cloud provider handles hardware</td></tr>
+                    <tr><td>Disaster Recovery</td><td>Built-in multi-region replication with a few clicks</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <h4>Key AWS Services</h4>
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>Service</th><th>What It Does</th><th>Analogy</th></tr></thead>
+              <tbody>
+                <tr><td><strong>EC2</strong></td><td>Virtual servers</td><td>Renting computers in the sky</td></tr>
+                <tr><td><strong>S3</strong></td><td>File storage</td><td>Infinite filing cabinet</td></tr>
+                <tr><td><strong>RDS</strong></td><td>Managed databases</td><td>Database without the headache</td></tr>
+                <tr><td><strong>Lambda</strong></td><td>Serverless functions</td><td>Code that runs only when needed</td></tr>
+                <tr><td><strong>CloudFront</strong></td><td>Content delivery (CDN)</td><td>Caching content near users globally</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>🧪 QA Engineer</h3>
+          <p><strong>ELI5:</strong> The QA engineer is the quality inspector. Before any product goes out the door, they test every button, every flow, every edge case to make sure nothing is broken.</p>
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>Type of Testing</th><th>What It Tests</th><th>Example</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Unit Testing</strong></td><td>Individual functions or components</td><td>Does the calculateTotal() function return the right sum?</td></tr>
+                <tr><td><strong>Integration Testing</strong></td><td>How components work together</td><td>Does the cart update when you change item quantity?</td></tr>
+                <tr><td><strong>System Testing</strong></td><td>The entire application end-to-end</td><td>Can a user browse → add to cart → checkout → get confirmation?</td></tr>
+                <tr><td><strong>Regression Testing</strong></td><td>Old features still work after new code</td><td>After adding coupons, does the basic checkout still work?</td></tr>
+                <tr><td><strong>Performance Testing</strong></td><td>Speed and load handling</td><td>Does the page load under 3 seconds with 10K concurrent users?</td></tr>
+                <tr><td><strong>Security Testing</strong></td><td>Vulnerabilities and exploits</td><td>Can someone access another user's account via URL manipulation?</td></tr>
+                <tr><td><strong>UAT</strong></td><td>Meets real user needs</td><td>Do beta users find the checkout flow intuitive?</td></tr>
+                <tr><td><strong>Accessibility Testing</strong></td><td>Usable by people with disabilities</td><td>Can a screen reader navigate the product page?</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>📋 Technical Program Manager (TPM)</h3>
+          <p><strong>ELI5:</strong> If a PM is the movie director, the TPM is the executive producer. They manage the logistics — timelines, dependencies across teams, risk mitigation, and making sure 5 different teams are all aligned on a major project.</p>
+          <ul>
+            <li>Coordinates large, cross-team technical projects</li>
+            <li>Manages dependencies between frontend, backend, mobile, data teams</li>
+            <li>Creates project timelines and tracks milestones</li>
+            <li>Identifies and escalates risks early</li>
+            <li>Runs program-level standups and status updates</li>
+          </ul>
+          <p><strong>Tools:</strong> Jira, Asana, Confluence, Google Sheets, Slack, Microsoft Project</p>
+        </div>
+
+        <div class="subsection">
+          <h3>📊 Data / Product Analyst</h3>
+          <p><strong>ELI5:</strong> The analyst is the team's detective. They dig through data to find patterns, answer questions, and uncover insights that help the team make smarter decisions.</p>
+          <ul>
+            <li>Analyze user behavior and funnel performance</li>
+            <li>Build dashboards and reports</li>
+            <li>Run A/B test analysis</li>
+            <li>Define and track KPIs (Key Performance Indicators)</li>
+            <li>Identify trends, anomalies, and opportunities</li>
+          </ul>
+          <p><strong>Tools:</strong> SQL, Python/R, Tableau, Looker, Google Analytics, Mixpanel, Amplitude, Excel/Google Sheets</p>
+        </div>
+
+        <div class="subsection">
+          <h3>🤝 How Roles Work Together — Order Tracking Feature</h3>
+          <p>Let's trace how ALL these roles collaborate to build a "Live Order Tracking" feature for a food delivery app:</p>
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>Step</th><th>Role</th><th>Action</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td><strong>Product Manager</strong></td><td>Analyzes data — 40% of support calls are "Where is my order?" Writes PRD for order tracking.</td></tr>
+                <tr><td>2</td><td><strong>Data Analyst</strong></td><td>Provides data on support ticket volume, average delivery times, and peak hours.</td></tr>
+                <tr><td>3</td><td><strong>UX Designer</strong></td><td>Researches competitor solutions. Creates user journey map. Identifies pain points.</td></tr>
+                <tr><td>4</td><td><strong>UI Designer</strong></td><td>Designs the tracking screen — map view, delivery status timeline, ETA display.</td></tr>
+                <tr><td>5</td><td><strong>TPM</strong></td><td>Creates project plan. Identifies dependencies: need real-time GPS from delivery partners.</td></tr>
+                <tr><td>6</td><td><strong>Backend Developer</strong></td><td>Builds WebSocket server for real-time location updates. Creates tracking API.</td></tr>
+                <tr><td>7</td><td><strong>Frontend Developer</strong></td><td>Integrates Google Maps, builds tracking UI, implements real-time status updates.</td></tr>
+                <tr><td>8</td><td><strong>Cloud Engineer</strong></td><td>Sets up WebSocket infrastructure on AWS. Configures auto-scaling for peak hours.</td></tr>
+                <tr><td>9</td><td><strong>DevOps Engineer</strong></td><td>Creates CI/CD pipeline for the new services. Sets up monitoring and alerting.</td></tr>
+                <tr><td>10</td><td><strong>QA Engineer</strong></td><td>Tests tracking accuracy, edge cases (GPS failure, driver offline), performance under load.</td></tr>
+                <tr><td>11</td><td><strong>PM</strong></td><td>Reviews demo, provides feedback, approves for canary release.</td></tr>
+                <tr><td>12</td><td><strong>DevOps</strong></td><td>Deploys to 5% of users. Monitors error rates and performance.</td></tr>
+                <tr><td>13</td><td><strong>Data Analyst</strong></td><td>Measures impact — support calls dropped 35%! User satisfaction up 22%.</td></tr>
+                <tr><td>14</td><td><strong>PM</strong></td><td>Full rollout + adds "Share ETA with friend" to next sprint's backlog.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════ CHAPTER 5 ═══════════ -->
+      <section id="ch5" class="chapter" data-title="Chapter 5 — Feature Lifecycle">
+        <div class="chapter-header">
+          <div class="chapter-label">Chapter 5 <span class="reading-time">· 10 min read</span></div>
+          <h2 class="chapter-title gradient-text">How a Feature Is Born — From Idea to Impact</h2>
+          <p class="chapter-subtitle">Let's follow a "Save for Later" feature for an e-commerce app through every stage of its lifecycle.</p>
+        </div>
+
+        <div class="subsection">
+          <h3>🔎 Stage 1: Discovery — Where Ideas Come From</h3>
+          <p>Features don't appear out of thin air. They come from multiple sources:</p>
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>Source</th><th>Example</th></tr></thead>
+              <tbody>
+                <tr><td><strong>User Feedback</strong></td><td>"I wish I could save items and buy later" — from app store reviews</td></tr>
+                <tr><td><strong>Analytics Data</strong></td><td>60% of users add items to cart but don't buy immediately, then can't find them later</td></tr>
+                <tr><td><strong>Support Tickets</strong></td><td>"How do I find the product I was looking at yesterday?" — 200 tickets/week</td></tr>
+                <tr><td><strong>Competitor Analysis</strong></td><td>Amazon, Flipkart, Myntra all have Wishlist features — users expect it</td></tr>
+                <tr><td><strong>Business Strategy</strong></td><td>Increasing conversion rate is a key OKR this quarter</td></tr>
+                <tr><td><strong>Sales Team</strong></td><td>Enterprise clients requesting bulk wishlist/bookmark capabilities</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>✅ Stage 2: Validation — Is It Worth Building?</h3>
+          <p>Not every idea should be built. The PM evaluates using four criteria:</p>
+          <div class="card-grid">
+            <div class="card"><h4>📈 Impact</h4><p>How many users will benefit? Our data shows 60% of users struggle to find previously viewed items. High impact.</p></div>
+            <div class="card"><h4>⚡ Effort</h4><p>How long will it take to build? Estimated at 2 sprints (4 weeks) with current team. Medium effort.</p></div>
+            <div class="card"><h4>⏰ Urgency</h4><p>Is there a deadline or competitive pressure? Competitors all have it, and users are churning. High urgency.</p></div>
+            <div class="card"><h4>🎯 Alignment</h4><p>Does it align with company goals? Yes — key OKR is to increase conversion rate by 15%. Direct alignment.</p></div>
+          </div>
+          <div class="callout callout-tip">
+            <span class="callout-icon">✅</span>
+            <div class="callout-content">
+              <p class="callout-title">Verdict</p>
+              <p>High impact + Medium effort + High urgency + Strong alignment = <strong>Approved for development!</strong></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>📝 Stage 3: Requirements &amp; User Stories</h3>
+          <div class="code-block">
+            <span class="code-label">User Story</span>
+<span class="code-keyword">As a</span> <span class="code-string">shopper</span>,
+<span class="code-keyword">I want to</span> <span class="code-string">save items for later</span>,
+<span class="code-keyword">So that</span> <span class="code-string">I can easily find and purchase them when I'm ready</span>.
+          </div>
+          <p><strong>Acceptance Criteria:</strong></p>
+          <ul>
+            <li>✅ User can tap a heart icon on any product card to save it</li>
+            <li>✅ Saved items appear in a "Saved Items" section in the app</li>
+            <li>✅ User can remove items from saved list</li>
+            <li>✅ Saved list persists across sessions (stored server-side)</li>
+            <li>✅ "Move to Cart" button on each saved item</li>
+            <li>✅ Show a notification if a saved item goes on sale</li>
+            <li>✅ If a saved item goes out of stock, show visual indicator</li>
+          </ul>
+        </div>
+
+        <div class="subsection">
+          <h3>🎨 Stage 4: Design</h3>
+          <div class="flow-diagram">
+            <div class="flow-node">Wireframes</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node">Mockups</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node">Prototype</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node accent">User Testing</div>
+          </div>
+          <p>The design team considers edge cases:</p>
+          <ul>
+            <li>What if the saved list is empty? → Show a friendly empty state with suggestions</li>
+            <li>What if an item is removed from the catalog? → Show "No longer available" with similar items</li>
+            <li>What if user has 500 saved items? → Add pagination, sorting, and search within saved items</li>
+            <li>What about multiple variants? → Save the specific color/size the user was viewing</li>
+          </ul>
+        </div>
+
+        <div class="subsection">
+          <h3>🏗️ Stage 5: Technical Planning</h3>
+          <div class="code-block">
+            <span class="code-label">Technical Spec</span>
+<span class="code-comment">// Database Schema</span>
+<span class="code-keyword">Table:</span> <span class="code-string">saved_items</span>
+  - <span class="code-field">id</span>:         <span class="code-value">UUID (primary key)</span>
+  - <span class="code-field">user_id</span>:    <span class="code-value">UUID (foreign key → users)</span>
+  - <span class="code-field">product_id</span>: <span class="code-value">UUID (foreign key → products)</span>
+  - <span class="code-field">variant_id</span>: <span class="code-value">UUID (nullable)</span>
+  - <span class="code-field">saved_at</span>:   <span class="code-value">TIMESTAMP</span>
+  - <span class="code-field">notified</span>:   <span class="code-value">BOOLEAN (default false)</span>
+
+<span class="code-comment">// API Endpoints</span>
+<span class="code-keyword">POST</span>   <span class="code-string">/api/v1/saved-items</span>        <span class="code-comment">// Save an item</span>
+<span class="code-keyword">GET</span>    <span class="code-string">/api/v1/saved-items</span>        <span class="code-comment">// List saved items</span>
+<span class="code-keyword">DELETE</span> <span class="code-string">/api/v1/saved-items/:id</span>    <span class="code-comment">// Remove saved item</span>
+<span class="code-keyword">POST</span>   <span class="code-string">/api/v1/saved-items/:id/cart</span> <span class="code-comment">// Move to cart</span>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>📅 Stage 6: Sprint Planning</h3>
+          <div class="tabs" data-tabs>
+            <div class="tab-list" role="tablist">
+              <button class="tab-btn active" role="tab" data-tab="sprint1">Sprint 1</button>
+              <button class="tab-btn" role="tab" data-tab="sprint2">Sprint 2</button>
+            </div>
+            <div class="tab-panel active" data-tab-panel="sprint1">
+              <h4>Sprint 1 — Core Functionality</h4>
+              <ul>
+                <li>Create database schema and migrations (3 pts)</li>
+                <li>Build Save/Unsave API endpoints (5 pts)</li>
+                <li>Design and build heart icon component (3 pts)</li>
+                <li>Build Saved Items list page (5 pts)</li>
+                <li>Implement "Move to Cart" flow (5 pts)</li>
+                <li>Write unit and integration tests (3 pts)</li>
+              </ul>
+              <p><strong>Total: 24 story points</strong> (team velocity: 25 pts)</p>
+            </div>
+            <div class="tab-panel" data-tab-panel="sprint2">
+              <h4>Sprint 2 — Enhancements &amp; Polish</h4>
+              <ul>
+                <li>Build sale notification service (5 pts)</li>
+                <li>Out-of-stock visual indicator (3 pts)</li>
+                <li>Empty state design and "similar items" logic (5 pts)</li>
+                <li>Search within saved items (3 pts)</li>
+                <li>Performance optimization and caching (3 pts)</li>
+                <li>End-to-end testing and QA (5 pts)</li>
+              </ul>
+              <p><strong>Total: 24 story points</strong></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>🧪 Stage 7: Testing</h3>
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>Test Case</th><th>Expected Result</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>Tap heart icon on product card</td><td>Heart fills, item appears in Saved list</td><td><span class="badge badge-success">✅ Pass</span></td></tr>
+                <tr><td>Tap filled heart to unsave</td><td>Heart empties, item removed from list</td><td><span class="badge badge-success">✅ Pass</span></td></tr>
+                <tr><td>Tap "Move to Cart" on saved item</td><td>Item moves to cart, removed from saved list</td><td><span class="badge badge-success">✅ Pass</span></td></tr>
+                <tr><td>Save 100 items and scroll</td><td>List loads smoothly, pagination works</td><td><span class="badge badge-success">✅ Pass</span></td></tr>
+                <tr><td>Save an item that goes out of stock</td><td>Shows "Out of Stock" badge, disable "Move to Cart"</td><td><span class="badge badge-success">✅ Pass</span></td></tr>
+                <tr><td>Save item, log out, log back in</td><td>Saved items persist (server-side storage)</td><td><span class="badge badge-success">✅ Pass</span></td></tr>
+                <tr><td>Save item without internet connection</td><td>Queues action, syncs when back online</td><td><span class="badge badge-error">❌ Fail</span></td></tr>
+                <tr><td>Saved item gets a 30% price drop</td><td>User receives push notification</td><td><span class="badge badge-success">✅ Pass</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout callout-warning">
+            <span class="callout-icon">🐛</span>
+            <div class="callout-content">
+              <p class="callout-title">Bug Found!</p>
+              <p>Offline save doesn't sync when back online. Logged as bug, fixed in sprint 2, re-tested and passed.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>🚀 Stage 8: Deployment — Canary Release</h3>
+          <div class="flow-diagram">
+            <div class="flow-node">5% Users</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node">25% Users</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node">50% Users</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node accent">100% Users 🎉</div>
+          </div>
+          <p>At each stage, the team monitors crash rates, error logs, API latency, and user engagement. If any metric degrades, they can roll back instantly.</p>
+        </div>
+
+        <div class="subsection">
+          <h3>📊 Stage 9: Measure &amp; Iterate</h3>
+          <p>After full rollout, the PM tracks key metrics:</p>
+          <div class="card-grid">
+            <div class="metric-card">
+              <div class="metric-value">45%</div>
+              <div class="metric-label">Adoption Rate (users who used Save)</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-value">+18%</div>
+              <div class="metric-label">Conversion Rate Increase</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-value">-35%</div>
+              <div class="metric-label">Support Tickets Reduced</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-value">3.2</div>
+              <div class="metric-label">Avg Saved Items per User</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════ CHAPTER 6 ═══════════ -->
+      <section id="ch6" class="chapter" data-title="Chapter 6 — Product Management Deep Dive">
+        <div class="chapter-header">
+          <div class="chapter-label">Chapter 6 <span class="reading-time">· 10 min read</span></div>
+          <h2 class="chapter-title gradient-text">Product Management Deep Dive</h2>
+          <p class="chapter-subtitle">Think of a PM as a movie director — you don't write the script, operate the camera, or act, but you make sure everything comes together into a great film.</p>
+        </div>
+
+        <div class="subsection">
+          <h3>🎯 The Three Circles of Product</h3>
+          <p>Every successful product sits at the intersection of three circles:</p>
+          <div class="card-grid">
+            <div class="card">
+              <div class="card-header"><div class="card-icon">💰</div><h4>Business Viability</h4></div>
+              <p>Will this make money? Is there a sustainable business model? Can we afford to build and maintain it? What's the ROI?</p>
+            </div>
+            <div class="card">
+              <div class="card-header"><div class="card-icon">⚙️</div><h4>Technical Feasibility</h4></div>
+              <p>Can we actually build this with our tech stack and team? Are there technical risks? How long will it take? Can it scale?</p>
+            </div>
+            <div class="card">
+              <div class="card-header"><div class="card-icon">❤️</div><h4>User Desirability</h4></div>
+              <p>Do people actually want this? Does it solve a real problem? Will they use it repeatedly? Is it better than alternatives?</p>
+            </div>
+          </div>
+          <div class="callout callout-important">
+            <span class="callout-icon">⭐</span>
+            <div class="callout-content">
+              <p class="callout-title">The Sweet Spot</p>
+              <p>A product that's desirable but not feasible is a dream. A product that's feasible but not viable is a hobby project. A product that's viable but not desirable is something nobody uses. The PM's job is to find the sweet spot where all three overlap.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>🗺️ Product Roadmap</h3>
+          <p>A roadmap is the strategic plan showing what you're building and when. It communicates priorities across the company.</p>
+          <div class="roadmap">
+            <div class="roadmap-quarter">
+              <div class="roadmap-quarter-label">Q1 — Foundation</div>
+              <div class="roadmap-item">🔐 User authentication &amp; profiles</div>
+              <div class="roadmap-item">🔍 Basic search functionality</div>
+              <div class="roadmap-item">🛒 Core purchase flow</div>
+              <div class="roadmap-item">📊 Analytics integration</div>
+            </div>
+            <div class="roadmap-quarter">
+              <div class="roadmap-quarter-label">Q2 — Growth</div>
+              <div class="roadmap-item">💝 Save for Later / Wishlist</div>
+              <div class="roadmap-item">⭐ Ratings &amp; Reviews</div>
+              <div class="roadmap-item">🔔 Push notifications</div>
+              <div class="roadmap-item">📱 Mobile app v1</div>
+            </div>
+            <div class="roadmap-quarter">
+              <div class="roadmap-quarter-label">Q3 — Engagement</div>
+              <div class="roadmap-item">🤖 Personalized recommendations</div>
+              <div class="roadmap-item">💬 In-app chat support</div>
+              <div class="roadmap-item">🎁 Loyalty program</div>
+              <div class="roadmap-item">📈 A/B testing infrastructure</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>📄 PRD Template (Product Requirements Document)</h3>
+          <div class="code-block">
+            <span class="code-label">PRD Template</span>
+<span class="code-field">1. Overview</span>
+   <span class="code-comment">What is this feature? Why are we building it?</span>
+
+<span class="code-field">2. Problem Statement</span>
+   <span class="code-comment">What user/business problem does this solve?</span>
+
+<span class="code-field">3. Goals &amp; Success Metrics</span>
+   <span class="code-comment">What does success look like? KPIs to track.</span>
+
+<span class="code-field">4. User Stories</span>
+   <span class="code-comment">As a [user], I want [action], so that [benefit]</span>
+
+<span class="code-field">5. Requirements</span>
+   <span class="code-comment">Functional and non-functional requirements</span>
+
+<span class="code-field">6. Design</span>
+   <span class="code-comment">Links to wireframes, mockups, prototypes</span>
+
+<span class="code-field">7. Technical Considerations</span>
+   <span class="code-comment">Architecture, APIs, dependencies, risks</span>
+
+<span class="code-field">8. Timeline</span>
+   <span class="code-comment">Sprint breakdown, milestones, launch date</span>
+
+<span class="code-field">9. Open Questions</span>
+   <span class="code-comment">Unresolved decisions or risks to discuss</span>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>🔍 Market Research</h3>
+          <h4>Competitive Analysis</h4>
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>Feature</th><th>Our App</th><th>Competitor A</th><th>Competitor B</th></tr></thead>
+              <tbody>
+                <tr><td>Wishlist</td><td><span class="badge badge-warning">Planned</span></td><td><span class="badge badge-success">Yes</span></td><td><span class="badge badge-success">Yes</span></td></tr>
+                <tr><td>Price Alerts</td><td><span class="badge badge-error">No</span></td><td><span class="badge badge-success">Yes</span></td><td><span class="badge badge-error">No</span></td></tr>
+                <tr><td>Social Sharing</td><td><span class="badge badge-error">No</span></td><td><span class="badge badge-error">No</span></td><td><span class="badge badge-success">Yes</span></td></tr>
+                <tr><td>AI Recommendations</td><td><span class="badge badge-success">Yes</span></td><td><span class="badge badge-success">Yes</span></td><td><span class="badge badge-error">No</span></td></tr>
+                <tr><td>1-Click Buy</td><td><span class="badge badge-error">No</span></td><td><span class="badge badge-success">Yes</span></td><td><span class="badge badge-error">No</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h4>User Persona Example</h4>
+          <div class="card">
+            <div class="card-header">
+              <div class="card-icon">👩‍💻</div>
+              <h4>Priya — The Thoughtful Shopper</h4>
+            </div>
+            <p><strong>Age:</strong> 24 | <strong>Location:</strong> Bangalore | <strong>Occupation:</strong> Software Engineer</p>
+            <p><strong>Goals:</strong> Find good deals, compare products before buying, avoid impulse purchases.</p>
+            <p><strong>Frustrations:</strong> Can't save items across sessions, loses track of products she liked, gets overwhelmed by too many choices.</p>
+            <p><strong>Behavior:</strong> Browses during lunch breaks on mobile. Adds 5-10 items per session but only buys 1-2. Comes back 2-3 times before purchasing.</p>
+            <p><strong>Quote:</strong> <em>"I wish I could just save things and come back to them without having to search all over again."</em></p>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>📊 KPIs — Pirate Metrics (AARRR)</h3>
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>Metric</th><th>Question</th><th>Example KPI</th></tr></thead>
+              <tbody>
+                <tr><td><strong>🏴‍☠️ Acquisition</strong></td><td>How do users find you?</td><td>Website visits, app downloads, signup rate</td></tr>
+                <tr><td><strong>⚡ Activation</strong></td><td>Do they have a great first experience?</td><td>Completed onboarding, first purchase, profile setup</td></tr>
+                <tr><td><strong>🔄 Retention</strong></td><td>Do they come back?</td><td>Day-7 retention, monthly active users, session frequency</td></tr>
+                <tr><td><strong>💰 Revenue</strong></td><td>Do they pay you?</td><td>ARPU, LTV, conversion rate, MRR</td></tr>
+                <tr><td><strong>📢 Referral</strong></td><td>Do they tell friends?</td><td>Referral rate, NPS score, social shares</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h4>Other Critical Metrics</h4>
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>Metric</th><th>Formula</th><th>What It Tells You</th></tr></thead>
+              <tbody>
+                <tr><td><strong>DAU/MAU</strong></td><td>Daily Active / Monthly Active</td><td>User engagement stickiness (>20% is good)</td></tr>
+                <tr><td><strong>Churn Rate</strong></td><td>Lost customers / Total customers × 100</td><td>How fast you're losing users</td></tr>
+                <tr><td><strong>LTV</strong></td><td>ARPU × Avg. Lifetime</td><td>Total value of a customer over their lifetime</td></tr>
+                <tr><td><strong>CAC</strong></td><td>Total Acquisition Cost / New Customers</td><td>Cost to acquire one customer (LTV should be 3× CAC)</td></tr>
+                <tr><td><strong>NPS</strong></td><td>% Promoters − % Detractors</td><td>Would users recommend you? (>50 is excellent)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════ CHAPTER 7 ═══════════ -->
+      <section id="ch7" class="chapter" data-title="Chapter 7 — Requirements & User Stories">
+        <div class="chapter-header">
+          <div class="chapter-label">Chapter 7 <span class="reading-time">· 8 min read</span></div>
+          <h2 class="chapter-title gradient-text">Requirements, User Stories &amp; Acceptance Criteria</h2>
+          <p class="chapter-subtitle">Clear requirements are the difference between building the right thing and building the wrong thing beautifully.</p>
+        </div>
+
+        <div class="subsection">
+          <h3>📋 Functional vs. Non-Functional Requirements</h3>
+          <div class="tabs" data-tabs>
+            <div class="tab-list" role="tablist">
+              <button class="tab-btn active" role="tab" data-tab="functional">Functional</button>
+              <button class="tab-btn" role="tab" data-tab="nonfunctional">Non-Functional</button>
+            </div>
+            <div class="tab-panel active" data-tab-panel="functional">
+              <p><strong>Functional requirements</strong> describe <em>what</em> the system should do — the specific behaviors and features.</p>
+              <ul>
+                <li>Users must be able to register with email and password</li>
+                <li>The system must send a password reset email within 30 seconds</li>
+                <li>Users can filter search results by price, rating, and category</li>
+                <li>The checkout flow must support credit card, debit card, and UPI</li>
+                <li>Admin users can ban accounts from the admin panel</li>
+              </ul>
+            </div>
+            <div class="tab-panel" data-tab-panel="nonfunctional">
+              <p><strong>Non-functional requirements</strong> describe <em>how well</em> the system should perform — the quality attributes.</p>
+              <ul>
+                <li><strong>Performance:</strong> Page load time under 2 seconds at the 95th percentile</li>
+                <li><strong>Scalability:</strong> Support 100K concurrent users without degradation</li>
+                <li><strong>Security:</strong> All data encrypted in transit (TLS 1.3) and at rest (AES-256)</li>
+                <li><strong>Availability:</strong> 99.9% uptime SLA</li>
+                <li><strong>Accessibility:</strong> WCAG 2.1 AA compliance</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>✍️ User Story Formula</h3>
+          <div class="code-block">
+            <span class="code-label">Formula</span>
+<span class="code-keyword">As a</span> <span class="code-value">[type of user]</span>,
+<span class="code-keyword">I want</span> <span class="code-value">[action/feature]</span>,
+<span class="code-keyword">So that</span> <span class="code-value">[benefit/value]</span>.
+          </div>
+
+          <h4>Good vs. Bad User Stories</h4>
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>❌ Bad Story</th><th>✅ Good Story</th><th>Why It's Better</th></tr></thead>
+              <tbody>
+                <tr><td>Add login page</td><td>As a returning user, I want to log in with my email, so that I can access my account and order history.</td><td>Specifies the user, their goal, and the value.</td></tr>
+                <tr><td>Make search work</td><td>As a shopper, I want to search products by name and category, so that I can quickly find what I'm looking for.</td><td>Defines specific search behavior and user benefit.</td></tr>
+                <tr><td>Fix checkout</td><td>As a customer, I want to see a clear order summary before payment, so that I can verify my items and total before paying.</td><td>Describes the exact need and reason, not just "fix."</td></tr>
+                <tr><td>Add notifications</td><td>As a buyer, I want to receive push notifications when my order status changes, so that I don't have to keep checking the app.</td><td>Specific notification type and clear user benefit.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>✅ Acceptance Criteria — Given-When-Then</h3>
+          <p>Acceptance criteria define exactly when a story is "done." Use the Given-When-Then format for clarity:</p>
+          <div class="code-block">
+            <span class="code-label">Login Feature — Acceptance Criteria</span>
+<span class="code-field">Criterion 1: Successful Login</span>
+<span class="code-keyword">Given</span> a registered user is on the login page
+<span class="code-keyword">When</span> they enter valid email and password and click "Log In"
+<span class="code-keyword">Then</span> they are redirected to the homepage with a welcome message
+
+<span class="code-field">Criterion 2: Invalid Password</span>
+<span class="code-keyword">Given</span> a registered user is on the login page
+<span class="code-keyword">When</span> they enter correct email but wrong password
+<span class="code-keyword">Then</span> an error message "Invalid credentials" is displayed
+
+<span class="code-field">Criterion 3: Account Lockout</span>
+<span class="code-keyword">Given</span> a user has failed to log in 5 times consecutively
+<span class="code-keyword">When</span> they attempt a 6th login
+<span class="code-keyword">Then</span> the account is locked for 30 minutes and a lockout email is sent
+
+<span class="code-field">Criterion 4: Remember Me</span>
+<span class="code-keyword">Given</span> a user checks "Remember Me" and logs in
+<span class="code-keyword">When</span> they close and reopen the browser within 30 days
+<span class="code-keyword">Then</span> they are automatically logged in
+
+<span class="code-field">Criterion 5: Password Visibility</span>
+<span class="code-keyword">Given</span> a user is typing their password
+<span class="code-keyword">When</span> they click the eye icon
+<span class="code-keyword">Then</span> the password text becomes visible (toggleable)
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>🏗️ Hierarchy: Epic → Story → Task</h3>
+          <div class="flow-diagram">
+            <div class="flow-node accent">Epic</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node">User Story</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node">Task</div>
+          </div>
+          <p><strong>Example — "Authentication System" Epic:</strong></p>
+          <div class="card">
+            <h4>🏔️ Epic: User Authentication System</h4>
+            <p class="mb-2"><strong>Story 1:</strong> As a new user, I want to register with email, so I can create an account.</p>
+            <ul>
+              <li>Task: Design registration form UI</li>
+              <li>Task: Build registration API endpoint</li>
+              <li>Task: Add email verification flow</li>
+              <li>Task: Write unit tests for registration</li>
+            </ul>
+            <p class="mb-2"><strong>Story 2:</strong> As a returning user, I want to log in with email/password, so I can access my data.</p>
+            <ul>
+              <li>Task: Build login page and form validation</li>
+              <li>Task: Implement JWT token authentication</li>
+              <li>Task: Add "Remember Me" functionality</li>
+              <li>Task: Implement account lockout after 5 failed attempts</li>
+            </ul>
+            <p class="mb-2"><strong>Story 3:</strong> As a user who forgot their password, I want to reset it via email.</p>
+            <ul>
+              <li>Task: Build "Forgot Password" page</li>
+              <li>Task: Create password reset email template</li>
+              <li>Task: Build reset token validation and new password form</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>📄 Use Cases vs. User Stories</h3>
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>Aspect</th><th>User Story</th><th>Use Case</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Format</strong></td><td>One sentence (As a… I want… So that…)</td><td>Detailed step-by-step document</td></tr>
+                <tr><td><strong>Detail Level</strong></td><td>High-level, conversational</td><td>Granular, technical</td></tr>
+                <tr><td><strong>Focus</strong></td><td>User value and benefit</td><td>System behavior and interactions</td></tr>
+                <tr><td><strong>When Used</strong></td><td>Agile teams, sprint planning</td><td>Complex systems, formal documentation</td></tr>
+                <tr><td><strong>Audience</strong></td><td>Everyone — business + tech</td><td>Primarily developers and QA</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h4>Use Case Example: Online Payment</h4>
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>Field</th><th>Description</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Title</strong></td><td>Process Online Payment</td></tr>
+                <tr><td><strong>Actor</strong></td><td>Authenticated Customer</td></tr>
+                <tr><td><strong>Precondition</strong></td><td>Customer has items in cart and is on the checkout page</td></tr>
+                <tr><td><strong>Main Flow</strong></td><td>1. Customer selects payment method → 2. Enters payment details → 3. System validates → 4. System processes payment → 5. System displays confirmation</td></tr>
+                <tr><td><strong>Alt Flow</strong></td><td>If validation fails, display error and allow retry</td></tr>
+                <tr><td><strong>Postcondition</strong></td><td>Order is created, payment is captured, confirmation email is sent</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════ CHAPTER 8 ═══════════ -->
+      <section id="ch8" class="chapter" data-title="Chapter 8 — Bugs">
+        <div class="chapter-header">
+          <div class="chapter-label">Chapter 8 <span class="reading-time">· 7 min read</span></div>
+          <h2 class="chapter-title gradient-text">Bugs — When Things Go Wrong</h2>
+          <p class="chapter-subtitle">Fun fact: The first computer bug was an actual moth found inside a computer in 1947 by Grace Hopper's team at Harvard. They literally "debugged" the machine!</p>
+        </div>
+
+        <div class="subsection">
+          <h3>🐛 Types of Bugs</h3>
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>Type</th><th>What It Is</th><th>Example</th><th>Severity</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Functional</strong></td><td>Feature doesn't work as intended</td><td>"Add to Cart" button doesn't add the item</td><td><span class="badge badge-error">Critical</span></td></tr>
+                <tr><td><strong>UI/Visual</strong></td><td>Layout or design is broken</td><td>Text overlaps images on small screens</td><td><span class="badge badge-warning">Medium</span></td></tr>
+                <tr><td><strong>Performance</strong></td><td>App is too slow</td><td>Product page takes 8 seconds to load</td><td><span class="badge badge-warning">High</span></td></tr>
+                <tr><td><strong>Security</strong></td><td>Vulnerability that can be exploited</td><td>User can access other users' data via URL manipulation</td><td><span class="badge badge-error">Critical</span></td></tr>
+                <tr><td><strong>Compatibility</strong></td><td>Works on some devices, not others</td><td>Checkout flow crashes on iOS 15 Safari</td><td><span class="badge badge-warning">High</span></td></tr>
+                <tr><td><strong>Data</strong></td><td>Wrong data shown or stored</td><td>Order total shows ₹0 when coupon applied</td><td><span class="badge badge-error">Critical</span></td></tr>
+                <tr><td><strong>Integration</strong></td><td>Third-party service fails</td><td>Payment gateway timeout during checkout</td><td><span class="badge badge-warning">High</span></td></tr>
+                <tr><td><strong>Edge Case</strong></td><td>Fails in unusual scenarios</td><td>App crashes when user types emoji in search bar</td><td><span class="badge badge-info">Low</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>📊 Severity vs. Priority Matrix</h3>
+          <div class="matrix-grid">
+            <div class="matrix-label"></div>
+            <div class="matrix-label">High Priority</div>
+            <div class="matrix-label">Low Priority</div>
+            <div class="matrix-label" style="writing-mode: vertical-lr; transform: rotate(180deg);">High Severity</div>
+            <div class="matrix-cell" style="background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3);">
+              <h5 class="text-error">🔴 Fix Immediately</h5>
+              <p>Payment failure on checkout. Users can't complete purchases. Revenue impact.</p>
+            </div>
+            <div class="matrix-cell" style="background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.3);">
+              <h5 class="text-warning">🟡 Schedule Soon</h5>
+              <p>App crashes when switching languages. Bad experience but workaround exists.</p>
+            </div>
+            <div class="matrix-label" style="writing-mode: vertical-lr; transform: rotate(180deg);">Low Severity</div>
+            <div class="matrix-cell" style="background: rgba(59, 130, 246, 0.1); border-color: rgba(59, 130, 246, 0.3);">
+              <h5 class="text-info">🔵 Fix in Next Sprint</h5>
+              <p>Company logo slightly misaligned on homepage. CEO noticed it.</p>
+            </div>
+            <div class="matrix-cell" style="background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.3);">
+              <h5 class="text-success">🟢 Backlog</h5>
+              <p>Tooltip text has a typo. Minor visual issue, no impact on functionality.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>📝 Bug Report Template</h3>
+          <div class="code-block">
+            <span class="code-label">Bug Report</span>
+<span class="code-field">Title:</span>       <span class="code-string">Order total shows ₹0 when expired coupon applied</span>
+<span class="code-field">ID:</span>          <span class="code-value">BUG-2024-1847</span>
+<span class="code-field">Severity:</span>    <span class="code-keyword">Critical</span>
+<span class="code-field">Priority:</span>    <span class="code-keyword">P0 — Fix immediately</span>
+<span class="code-field">Reporter:</span>    <span class="code-value">QA Team — Ankit Sharma</span>
+<span class="code-field">Assignee:</span>    <span class="code-value">Backend Team — Ravi Kumar</span>
+<span class="code-field">Environment:</span> <span class="code-value">Production, iOS 17.2, Chrome 120</span>
+<span class="code-field">Component:</span>   <span class="code-value">Checkout → Coupon Module</span>
+
+<span class="code-field">Steps to Reproduce:</span>
+  <span class="code-comment">1. Add any item to cart (tested with SKU-4829)</span>
+  <span class="code-comment">2. Go to checkout page</span>
+  <span class="code-comment">3. Apply coupon code "EXPIRED50"</span>
+  <span class="code-comment">4. Observe the order total</span>
+
+<span class="code-field">Expected Result:</span>
+  <span class="code-string">Error message: "This coupon has expired"</span>
+  <span class="code-string">Order total remains unchanged</span>
+
+<span class="code-field">Actual Result:</span>
+  <span class="code-keyword">Coupon is applied successfully</span>
+  <span class="code-keyword">Order total becomes ₹0</span>
+  <span class="code-keyword">User can complete purchase for free</span>
+
+<span class="code-field">Impact:</span>
+  <span class="code-comment">Direct revenue loss. 23 orders placed at ₹0 in past 2 hours.</span>
+  <span class="code-comment">Estimated loss: ₹47,000</span>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>🔄 Bug Lifecycle</h3>
+          <div class="flow-diagram">
+            <div class="flow-node accent">New</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node">Assigned</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node">In Progress</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node">Fixed</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node">In QA</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node">Verified</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-node accent">Closed ✓</div>
+          </div>
+          <p>If QA verification fails, the bug gets <strong>Reopened</strong> and goes back to "In Progress." This cycle continues until the fix passes all test cases.</p>
+        </div>
+
+        <div class="subsection">
+          <h3>🔧 Interactive: Bug Report Builder</h3>
+          <p>Practice writing a bug report! Fill in the fields below and see the formatted report:</p>
+          <div class="bug-form" id="bug-form">
+            <div class="form-group">
+              <label for="bug-title">Bug Title</label>
+              <input type="text" id="bug-title" placeholder="e.g., Login button unresponsive on mobile">
+            </div>
+            <div class="grid-2">
+              <div class="form-group">
+                <label for="bug-severity">Severity</label>
+                <select id="bug-severity">
+                  <option value="Critical">Critical</option>
+                  <option value="High">High</option>
+                  <option value="Medium" selected>Medium</option>
+                  <option value="Low">Low</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="bug-priority">Priority</label>
+                <select id="bug-priority">
+                  <option value="P0 — Fix Immediately">P0 — Fix Immediately</option>
+                  <option value="P1 — Fix This Sprint" selected>P1 — Fix This Sprint</option>
+                  <option value="P2 — Fix Next Sprint">P2 — Fix Next Sprint</option>
+                  <option value="P3 — Backlog">P3 — Backlog</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="bug-steps">Steps to Reproduce</label>
+              <textarea id="bug-steps" placeholder="1. Go to login page&#10;2. Enter valid email&#10;3. Click 'Log In' button&#10;4. Observe the result"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="bug-expected">Expected Result</label>
+              <input type="text" id="bug-expected" placeholder="e.g., User is logged in and redirected to dashboard">
+            </div>
+            <div class="form-group">
+              <label for="bug-actual">Actual Result</label>
+              <input type="text" id="bug-actual" placeholder="e.g., Nothing happens, button appears unresponsive">
+            </div>
+            <button class="quiz-btn" id="bug-generate">Generate Bug Report</button>
+            <div class="bug-preview" id="bug-preview" style="display:none;"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════ CHAPTER 9 ═══════════ -->
+      <section id="ch9" class="chapter" data-title="Chapter 9 — Product Analytics">
+        <div class="chapter-header">
+          <div class="chapter-label">Chapter 9 <span class="reading-time">· 9 min read</span></div>
+          <h2 class="chapter-title gradient-text">Product Analytics &amp; User Behavior</h2>
+          <p class="chapter-subtitle">Imagine if a physical store owner could see exactly where every customer walked, what they picked up, and why they left without buying. That's product analytics for software.</p>
+        </div>
+
+        <div class="subsection">
+          <h3>🎥 Session Recordings</h3>
+          <p>Session recordings let you watch real user sessions — every click, scroll, hesitation, and rage-click. It's like looking over a user's shoulder (anonymously and ethically).</p>
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>Signal</th><th>What It Means</th><th>Action to Take</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Rage Clicks</strong></td><td>User clicking rapidly on same element</td><td>Element might look clickable but isn't — fix UI or add functionality</td></tr>
+                <tr><td><strong>Dead Clicks</strong></td><td>Clicking where nothing happens</td><td>Misleading visual design — remove clickable appearance or add action</td></tr>
+                <tr><td><strong>Mouse Thrashing</strong></td><td>Rapid, erratic mouse movement</td><td>User is frustrated or confused — simplify the page layout</td></tr>
+                <tr><td><strong>Excessive Scrolling</strong></td><td>Scrolling up and down repeatedly</td><td>User can't find what they need — improve information architecture</td></tr>
+                <tr><td><strong>Quick Backs</strong></td><td>Landing on page and immediately going back</td><td>Page doesn't match user expectations — fix navigation or content</td></tr>
+                <tr><td><strong>Form Abandonment</strong></td><td>Starting a form but not completing it</td><td>Form is too long, confusing, or asks for unnecessary info</td></tr>
+                <tr><td><strong>Long Pauses</strong></td><td>Cursor stops for 10+ seconds</td><td>User is reading, thinking, or confused — check if content is clear</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>🗺️ Heatmaps</h3>
+          <p>Heatmaps aggregate thousands of user sessions into visual "heat" patterns, showing where attention concentrates:</p>
+          <div class="card-grid">
+            <div class="card"><h4>🖱️ Click Heatmap</h4><p>Shows where users click most. Reveals if CTAs are being noticed, if users click non-interactive elements, and which nav items are popular.</p></div>
+            <div class="card"><h4>📜 Scroll Heatmap</h4><p>Shows how far down users scroll. Critical for knowing if your key content is "below the fold" where most users never see it.</p></div>
+            <div class="card"><h4>🎯 Move Heatmap</h4><p>Tracks mouse cursor movement (correlates with eye tracking ~80%). Shows what users are looking at even if they don't click.</p></div>
+            <div class="card"><h4>⏰ Attention Heatmap</h4><p>Combines time + position to show where users spend the most time. Bright areas = high engagement, dark areas = ignored content.</p></div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>🔽 Funnel Analysis</h3>
+          <p>A funnel tracks users through a sequence of steps. At each step, some users "drop off." The goal is to minimize drop-off at each stage.</p>
+          <h4>E-Commerce Purchase Funnel</h4>
+          <div class="funnel">
+            <div class="funnel-step" style="width: 100%; background: linear-gradient(135deg, #6366f1, #818cf8);">Homepage Visit — 100,000 users (100%)</div>
+            <div class="funnel-drop">↓ 40% drop-off</div>
+            <div class="funnel-step" style="width: 85%; background: linear-gradient(135deg, #6366f1, #06b6d4);">Product Page View — 60,000 users (60%)</div>
+            <div class="funnel-drop">↓ 33% drop-off</div>
+            <div class="funnel-step" style="width: 70%; background: linear-gradient(135deg, #06b6d4, #14b8a6);">Add to Cart — 40,000 users (40%)</div>
+            <div class="funnel-drop">↓ 50% drop-off</div>
+            <div class="funnel-step" style="width: 55%; background: linear-gradient(135deg, #14b8a6, #10b981);">Begin Checkout — 20,000 users (20%)</div>
+            <div class="funnel-drop">↓ 25% drop-off</div>
+            <div class="funnel-step" style="width: 40%; background: linear-gradient(135deg, #10b981, #059669);">Enter Payment — 15,000 users (15%)</div>
+            <div class="funnel-drop">↓ 20% drop-off</div>
+            <div class="funnel-step" style="width: 30%; background: linear-gradient(135deg, #059669, #047857);">Purchase Complete — 12,000 users (12%)</div>
+          </div>
+          <div class="callout callout-note">
+            <span class="callout-icon">📊</span>
+            <div class="callout-content">
+              <p class="callout-title">Key Insight</p>
+              <p>The biggest drop-off is between "Add to Cart" and "Begin Checkout" (50%). This is where to focus optimization efforts — perhaps the checkout process is too complex, requires account creation, or has surprise shipping costs.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>🔬 Microsoft Clarity — Deep Dive</h3>
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>Feature</th><th>What It Does</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Session Recordings</strong></td><td>Replay individual user sessions</td><td>See exactly what users experience</td></tr>
+                <tr><td><strong>Heatmaps</strong></td><td>Click, scroll, and area heatmaps</td><td>Understand aggregate behavior patterns</td></tr>
+                <tr><td><strong>Rage Click Detection</strong></td><td>Auto-identifies frustrated users</td><td>Find and fix UX pain points fast</td></tr>
+                <tr><td><strong>Dead Click Detection</strong></td><td>Finds clicks on non-interactive elements</td><td>Identify misleading UI elements</td></tr>
+                <tr><td><strong>Smart Events</strong></td><td>Auto-tracks key interactions</td><td>No manual event setup needed</td></tr>
+                <tr><td><strong>Insights Dashboard</strong></td><td>AI-powered pattern detection</td><td>Surfaces issues you didn't know existed</td></tr>
+                <tr><td><strong>Copilot Integration</strong></td><td>Ask questions in natural language</td><td>"Why are users abandoning the cart page?"</td></tr>
+                <tr><td><strong>Google Analytics Link</strong></td><td>Connect with GA4 for deeper analysis</td><td>Combine quantitative + qualitative data</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h4>How to Use Clarity Effectively</h4>
+          <ol>
+            <li><strong>Start with the dashboard</strong> — Look at rage clicks, dead clicks, and excessive scrolling metrics</li>
+            <li><strong>Filter by frustration signals</strong> — Watch sessions where users showed frustration</li>
+            <li><strong>Analyze specific pages</strong> — Focus on high-traffic pages with high bounce rates</li>
+            <li><strong>Cross-reference with heatmaps</strong> — Validate session findings with aggregate data</li>
+            <li><strong>Create actionable tickets</strong> — Turn insights into Jira tickets with evidence</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ═══════════ CHAPTER 10 ═══════════ -->
+      <section id="ch10" class="chapter" data-title="Chapter 10 — Tools of the Trade">
+        <div class="chapter-header">
+          <div class="chapter-label">Chapter 10 <span class="reading-time">· 6 min read</span></div>
+          <h2 class="chapter-title gradient-text">Tools of the Trade</h2>
+          <p class="chapter-subtitle">Every craftsperson needs their toolkit. Here's what modern product teams use daily.</p>
+        </div>
+
+        <div class="subsection">
+          <h3>📋 Task Management</h3>
+          <div class="accordion" data-accordion>
+            <div class="accordion-header"><h4>🔵 Jira — Industry Standard</h4><span class="accordion-icon">▼</span></div>
+            <div class="accordion-body"><div class="accordion-body-inner">
+              <div class="table-wrapper"><table>
+                <thead><tr><th>Concept</th><th>Description</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Project</strong></td><td>Container for all work items (e.g., "Mobile App")</td></tr>
+                  <tr><td><strong>Epic</strong></td><td>Large body of work spanning sprints (e.g., "User Auth")</td></tr>
+                  <tr><td><strong>Story</strong></td><td>Single feature from user perspective</td></tr>
+                  <tr><td><strong>Task</strong></td><td>Technical work item (e.g., "Set up CI/CD")</td></tr>
+                  <tr><td><strong>Bug</strong></td><td>A defect to be fixed</td></tr>
+                  <tr><td><strong>Sprint Board</strong></td><td>Visual board showing To Do / In Progress / Done</td></tr>
+                  <tr><td><strong>Backlog</strong></td><td>Prioritized list of all upcoming work</td></tr>
+                </tbody>
+              </table></div>
+            </div></div>
+          </div>
+          <div class="card-grid">
+            <div class="card"><h4>⚡ Linear</h4><p>Modern, fast, keyboard-driven. Loved by startups. Beautiful UI, opinionated workflows, built-in cycles (sprints), and GitHub integration.</p></div>
+            <div class="card"><h4>🟢 ClickUp</h4><p>All-in-one: tasks, docs, whiteboards, time tracking. Highly customizable but can be overwhelming. Great for teams that want everything in one tool.</p></div>
+            <div class="card"><h4>🟠 Monday.com</h4><p>Visual, colorful, great for non-technical teams. Boards, timelines, and dashboards. Popular with marketing and ops teams.</p></div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>🎨 Design Tools</h3>
+          <div class="card-grid">
+            <div class="card"><h4>🟣 Figma</h4><p>The industry standard. Real-time collaboration, components, auto-layout, prototyping, and Dev Mode for developer handoff. Free for students!</p></div>
+            <div class="card"><h4>🔴 Adobe XD</h4><p>Adobe's answer to Figma. Integrates with Creative Cloud. Good prototyping and animation tools. Declining in popularity.</p></div>
+            <div class="card"><h4>💎 Sketch</h4><p>Mac-only. Pioneer of modern UI design tools. Still used by some teams, but Figma has largely taken over.</p></div>
+            <div class="card"><h4>🟡 Miro / FigJam</h4><p>Digital whiteboards for brainstorming, user journey mapping, affinity diagrams, and workshop facilitation.</p></div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>📊 Analytics Tools</h3>
+          <div class="card-grid">
+            <div class="card"><h4>🔍 MS Clarity</h4><p>Free! Session recordings, heatmaps, rage click detection. Best free qualitative analytics tool available.</p></div>
+            <div class="card"><h4>📈 Google Analytics (GA4)</h4><p>The gold standard for web analytics. Traffic sources, user demographics, conversion tracking, and event-based measurement.</p></div>
+            <div class="card"><h4>🟣 Mixpanel</h4><p>Product analytics for tracking user actions. Funnels, retention analysis, A/B testing, and user segmentation. Event-based model.</p></div>
+            <div class="card"><h4>🔵 Amplitude</h4><p>Similar to Mixpanel. Behavioral analytics, cohort analysis, and powerful segmentation. Popular with growth teams.</p></div>
+            <div class="card"><h4>🟢 Hotjar</h4><p>Heatmaps, session recordings, surveys, and feedback widgets. Great for understanding the "why" behind user behavior.</p></div>
+            <div class="card"><h4>🟠 FullStory</h4><p>Enterprise-grade session replay and digital experience analytics. DX data model for advanced search and analysis.</p></div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>💬 Communication &amp; Documentation</h3>
+          <div class="card-grid">
+            <div class="card"><h4>💬 Slack</h4><p>Real-time messaging with channels, threads, integrations (Jira, GitHub, Figma), and Huddles for quick calls.</p></div>
+            <div class="card"><h4>👥 Microsoft Teams</h4><p>Chat, video calls, file sharing. Deep integration with Office 365. Common in enterprise environments.</p></div>
+            <div class="card"><h4>📝 Notion</h4><p>All-in-one workspace for docs, wikis, databases, and project tracking. Flexible blocks system. Great for product specs.</p></div>
+            <div class="card"><h4>📖 Confluence</h4><p>Atlassian's wiki/documentation tool. Integrates with Jira. Common in large engineering organizations.</p></div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>💻 Development Tools</h3>
+          <div class="card-grid">
+            <div class="card"><h4>🐙 GitHub</h4><p>Source code hosting, version control, pull requests, code reviews, CI/CD with GitHub Actions, and project management.</p></div>
+            <div class="card"><h4>📘 VS Code</h4><p>The most popular code editor. Extensible with thousands of plugins. Built-in terminal, debugger, and Git integration.</p></div>
+            <div class="card"><h4>🐳 Docker</h4><p>Containerization platform. Package your app with all dependencies so it runs identically everywhere.</p></div>
+            <div class="card"><h4>📮 Postman</h4><p>API development and testing tool. Send requests, validate responses, automate API testing, and generate documentation.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════ CHAPTER 11 ═══════════ -->
+      <section id="ch11" class="chapter" data-title="Chapter 11 — Retention & Growth">
+        <div class="chapter-header">
+          <div class="chapter-label">Chapter 11 <span class="reading-time">· 9 min read</span></div>
+          <h2 class="chapter-title gradient-text">Product Retention &amp; Growth</h2>
+          <p class="chapter-subtitle">Imagine filling a bucket with water, but the bucket has holes. Acquisition fills the bucket; retention plugs the holes. Smart companies focus on the holes first.</p>
+        </div>
+
+        <div class="subsection">
+          <h3>📅 Day-N Retention</h3>
+          <p>Day-N retention measures what percentage of users come back N days after first use. Industry benchmarks:</p>
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>Category</th><th>Day 1</th><th>Day 7</th><th>Day 30</th><th>Good Benchmark</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Social Media</strong></td><td>40-50%</td><td>25-35%</td><td>15-25%</td><td>D30 > 20%</td></tr>
+                <tr><td><strong>E-Commerce</strong></td><td>25-35%</td><td>10-20%</td><td>5-15%</td><td>D30 > 10%</td></tr>
+                <tr><td><strong>SaaS</strong></td><td>45-55%</td><td>30-40%</td><td>20-30%</td><td>D30 > 25%</td></tr>
+                <tr><td><strong>Gaming</strong></td><td>35-45%</td><td>15-25%</td><td>5-10%</td><td>D30 > 8%</td></tr>
+                <tr><td><strong>Fintech</strong></td><td>30-40%</td><td>20-30%</td><td>15-25%</td><td>D30 > 20%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>📊 Cohort Analysis</h3>
+          <p>A cohort is a group of users who share a characteristic (e.g., signup week). Cohort analysis tracks how different groups behave over time:</p>
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>Cohort</th><th>Week 0</th><th>Week 1</th><th>Week 2</th><th>Week 3</th><th>Week 4</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Jan 1-7</strong></td><td>1,000</td><td>400 (40%)</td><td>280 (28%)</td><td>220 (22%)</td><td>190 (19%)</td></tr>
+                <tr><td><strong>Jan 8-14</strong></td><td>1,200</td><td>540 (45%)</td><td>372 (31%)</td><td>300 (25%)</td><td>252 (21%)</td></tr>
+                <tr><td><strong>Jan 15-21</strong></td><td>1,100</td><td>550 (50%)</td><td>396 (36%)</td><td>330 (30%)</td><td>—</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout callout-tip">
+            <span class="callout-icon">📈</span>
+            <div class="callout-content">
+              <p class="callout-title">Insight</p>
+              <p>The Jan 15-21 cohort has significantly better retention! What changed? Turns out, the onboarding flow was updated on Jan 14th. The new onboarding is working — time to invest more there.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>🚪 Common Churn Reasons</h3>
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>Reason</th><th>How to Identify</th><th>How to Fix</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Poor onboarding</strong></td><td>High Day-1 drop-off</td><td>Simplify onboarding, add progressive disclosure</td></tr>
+                <tr><td><strong>No "aha moment"</strong></td><td>Users leave before finding core value</td><td>Guide users to key action faster (e.g., Slack's 2000 messages)</td></tr>
+                <tr><td><strong>Performance issues</strong></td><td>Session recordings show loading frustration</td><td>Optimize load times, reduce API calls</td></tr>
+                <tr><td><strong>Better alternative</strong></td><td>Churn surveys mention competitors</td><td>Competitive analysis, feature parity, differentiation</td></tr>
+                <tr><td><strong>Price sensitivity</strong></td><td>Churn spikes after price changes</td><td>Flexible pricing tiers, grandfather existing users</td></tr>
+                <tr><td><strong>Feature gaps</strong></td><td>Support tickets requesting missing features</td><td>Prioritize most-requested features in roadmap</td></tr>
+                <tr><td><strong>Bugs/reliability</strong></td><td>Error rate correlation with churn</td><td>Improve QA, increase test coverage, monitoring</td></tr>
+                <tr><td><strong>Seasonal usage</strong></td><td>Predictable retention curves</td><td>Re-engagement campaigns, off-season features</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>🧲 Retention Strategies</h3>
+          <div class="accordion" data-accordion>
+            <div class="accordion-header"><h4>🎓 1. Onboarding Optimization</h4><span class="accordion-icon">▼</span></div>
+            <div class="accordion-body"><div class="accordion-body-inner">
+              <p>Get users to their "aha moment" as fast as possible. The aha moment is when users first experience the core value of your product.</p>
+              <ul>
+                <li>Progressive disclosure — don't show everything at once</li>
+                <li>Interactive walkthroughs, not just tooltips</li>
+                <li>Pre-fill data to reduce friction (import contacts, use defaults)</li>
+                <li>Celebrate small wins (animations, confetti, progress bars)</li>
+              </ul>
+            </div></div>
+          </div>
+          <div class="accordion" data-accordion>
+            <div class="accordion-header"><h4>🔄 2. Habit Loops</h4><span class="accordion-icon">▼</span></div>
+            <div class="accordion-body"><div class="accordion-body-inner">
+              <p>The habit loop is the core behavioral model that keeps users coming back:</p>
+              <div class="flow-diagram">
+                <div class="flow-node">Cue (Trigger)</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-node">Action (Routine)</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-node accent">Reward</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-node">Investment</div>
+              </div>
+              <p><strong>Instagram Example:</strong></p>
+              <ul>
+                <li><strong>Cue:</strong> Push notification "3 people liked your photo"</li>
+                <li><strong>Action:</strong> Open the app to check</li>
+                <li><strong>Reward:</strong> See likes, comments, social validation (variable reward)</li>
+                <li><strong>Investment:</strong> Post a new story, follow more people (makes leaving harder)</li>
+              </ul>
+            </div></div>
+          </div>
+          <div class="accordion" data-accordion>
+            <div class="accordion-header"><h4>📧 3. Re-engagement Campaigns</h4><span class="accordion-icon">▼</span></div>
+            <div class="accordion-body"><div class="accordion-body-inner">
+              <ul>
+                <li>Day 3: "You haven't finished setting up your profile"</li>
+                <li>Day 7: "Here's what you missed this week" (personalized digest)</li>
+                <li>Day 14: "We've added [feature] since you left"</li>
+                <li>Day 30: "We miss you! Here's 20% off your next purchase"</li>
+              </ul>
+            </div></div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>🧱 Product Friction</h3>
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>Type</th><th>Description</th><th>Example</th><th>Fix</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Interaction Friction</strong></td><td>Too many steps to complete a task</td><td>5-page checkout for buying one item</td><td>Reduce to 1-page checkout</td></tr>
+                <tr><td><strong>Cognitive Friction</strong></td><td>User has to think too hard</td><td>Confusing pricing page with 8 tiers</td><td>Simplify to 3 clear tiers</td></tr>
+                <tr><td><strong>Emotional Friction</strong></td><td>User feels anxious or unsure</td><td>No refund policy displayed at checkout</td><td>Add trust badges and clear policies</td></tr>
+                <tr><td><strong>Data Friction</strong></td><td>Asking for too much information</td><td>Requiring phone number to create account</td><td>Only ask for essentials, add optional later</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════ CHAPTER 12 ═══════════ -->
+      <section id="ch12" class="chapter" data-title="Chapter 12 — Case Studies">
+        <div class="chapter-header">
+          <div class="chapter-label">Chapter 12 <span class="reading-time">· 8 min read</span></div>
+          <h2 class="chapter-title gradient-text">Case Studies — Learning From the Best</h2>
+          <p class="chapter-subtitle">Real-world examples of product thinking that drove massive results.</p>
+        </div>
+
+        <div class="subsection">
+          <h3>🎵 Case Study 1: Spotify — Discover Weekly</h3>
+          <div class="card">
+            <p><strong>Challenge:</strong> How do you keep 400M+ users engaged when they might run out of music to listen to?</p>
+            <p><strong>Solution:</strong> Discover Weekly — a personalized playlist of 30 songs, refreshed every Monday. Uses collaborative filtering ("users who liked X also liked Y") and audio analysis to find songs you'll love but haven't heard.</p>
+            <p><strong>Impact:</strong></p>
+            <ul>
+              <li>2.3 billion streams in the first year</li>
+              <li>30% increase in time spent on the platform</li>
+              <li>Significantly reduced churn among free-tier users</li>
+              <li>Became Spotify's most-loved feature</li>
+            </ul>
+            <p><strong>Key Lessons:</strong></p>
+            <ol>
+              <li><strong>Personalization drives retention</strong> — one-size-fits-all content doesn't cut it</li>
+              <li><strong>Habits need triggers</strong> — releasing every Monday created a weekly ritual</li>
+              <li><strong>Data is a competitive advantage</strong> — Spotify's listening data is impossible to replicate</li>
+              <li><strong>Surprise and delight</strong> — discovering a song you love feels magical</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>🍕 Case Study 2: Swiggy — Checkout Flow Optimization</h3>
+          <div class="card">
+            <p><strong>Challenge:</strong> 45% of users who added food to cart never completed the order. Revenue was leaking.</p>
+            <p><strong>Analysis Revealed 3 Friction Points:</strong></p>
+            <ol>
+              <li><strong>Forced login before checkout</strong> — users couldn't see the total before creating an account</li>
+              <li><strong>Surprise delivery fees</strong> — shown only at the final step, causing sticker shock</li>
+              <li><strong>Complex address entry</strong> — manual form with 6 fields, no auto-detect</li>
+            </ol>
+            <p><strong>Solutions:</strong></p>
+            <ol>
+              <li><strong>Guest checkout + lazy login</strong> — let users see total first, create account after ordering</li>
+              <li><strong>Transparent pricing</strong> — show delivery fee on the restaurant page itself</li>
+              <li><strong>GPS auto-detect + saved addresses</strong> — one-tap address selection</li>
+            </ol>
+            <p><strong>Results:</strong></p>
+            <div class="card-grid">
+              <div class="metric-card"><div class="metric-value">+18%</div><div class="metric-label">Conversion Rate</div></div>
+              <div class="metric-card"><div class="metric-value">-40%</div><div class="metric-label">Cart Abandonment</div></div>
+              <div class="metric-card"><div class="metric-value">+25%</div><div class="metric-label">Revenue per User</div></div>
+            </div>
+            <p class="mt-2"><strong>Lessons:</strong> 1) Small friction = big revenue loss. 2) Show costs early. 3) Reduce required inputs. 4) Always measure the funnel.</p>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>💬 Case Study 3: Slack — The 2,000 Messages Magic Number</h3>
+          <div class="card">
+            <p><strong>Challenge:</strong> Slack noticed that some teams adopted it permanently while others abandoned it after the trial. What was the difference?</p>
+            <p><strong>Discovery:</strong> After analyzing thousands of teams, they found a magic number: teams that exchanged <strong>2,000 messages</strong> had a <strong>93% retention rate</strong>. Below 2,000 messages, teams almost always churned.</p>
+            <p><strong>Strategy:</strong> Focus everything on getting teams to 2,000 messages as fast as possible:</p>
+            <ol>
+              <li><strong>Onboarding:</strong> Pre-create channels (#general, #random) so teams start chatting immediately</li>
+              <li><strong>Slackbot:</strong> Welcomes users, teaches features interactively</li>
+              <li><strong>Integrations:</strong> Connect GitHub, Jira, Google Calendar — brings notifications into Slack (more messages)</li>
+              <li><strong>Email bridge:</strong> Send Slack messages via email to inactive members</li>
+              <li><strong>Rich media:</strong> GIFs, emoji reactions, threads — make messaging fun</li>
+            </ol>
+            <p><strong>Lessons:</strong></p>
+            <ol>
+              <li><strong>Find your activation metric</strong> — the specific action that predicts retention</li>
+              <li><strong>Design for the team, not the individual</strong> — Slack's value is collaborative</li>
+              <li><strong>Remove friction to the magic number</strong> — every feature should drive toward it</li>
+              <li><strong>Data reveals what surveys can't</strong> — users didn't know about 2,000 messages</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>💰 Case Study 4: SaaS Company — How a Product Analyst Saved $2M/Year</h3>
+          <div class="card">
+            <p><strong>Situation:</strong> A B2B SaaS company noticed churn increasing from 5% to 8% over 3 months. Leadership was alarmed — that's $2M ARR at risk.</p>
+            <p><strong>Week 1 — Data Collection:</strong> Analyst pulled data on all churned accounts: last login, feature usage, support tickets, NPS scores, contract size.</p>
+            <p><strong>Week 2 — Pattern Discovery:</strong> 73% of churned accounts had one thing in common — they never used the reporting feature. Active accounts used reporting 4x/week on average.</p>
+            <p><strong>Week 3 — Root Cause:</strong> The reporting feature was buried under 3 navigation levels. New users literally didn't know it existed. Session recordings confirmed it.</p>
+            <p><strong>Week 4 — Recommendations:</strong></p>
+            <ol>
+              <li><strong>Move reporting to main navigation</strong> — one click instead of three</li>
+              <li><strong>Add reporting to onboarding flow</strong> — show it during account setup</li>
+              <li><strong>Weekly email digest</strong> — automatically send report highlights</li>
+              <li><strong>In-app prompts</strong> — "Did you know you can see weekly trends?"</li>
+            </ol>
+            <p><strong>Results after 3 months:</strong> Churn dropped back to 4.5%. Reporting adoption went from 27% to 68%. Estimated $2.1M ARR saved.</p>
+            <p><strong>Lessons:</strong> 1) Churn is a symptom, not a cause. 2) Feature discoverability is critical. 3) Data-driven recommendations get funded. 4) Product analysts are strategic assets.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════ CHAPTER 13 ═══════════ -->
+      <section id="ch13" class="chapter" data-title="Chapter 13 — Job Preparation">
+        <div class="chapter-header">
+          <div class="chapter-label">Chapter 13 <span class="reading-time">· 10 min read</span></div>
+          <h2 class="chapter-title gradient-text">Preparing for the Role — Your Launchpad</h2>
+          <p class="chapter-subtitle">Everything you need to know to land and excel in a Product Analyst / Associate PM internship.</p>
+        </div>
+
+        <div class="subsection">
+          <h3>📋 Job Description Decoded</h3>
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>What JD Says</th><th>What It Really Means</th><th>How to Prepare</th></tr></thead>
+              <tbody>
+                <tr><td>"Analyze user behavior data"</td><td>Use SQL to pull data, find patterns in how users interact with the product</td><td>Practice SQL on Mode Analytics, learn funnel analysis</td></tr>
+                <tr><td>"Work cross-functionally"</td><td>Communicate with engineers, designers, and PMs daily</td><td>Practice explaining technical concepts simply</td></tr>
+                <tr><td>"Define and track KPIs"</td><td>Choose the right metrics and build dashboards</td><td>Learn AARRR metrics, practice building charts</td></tr>
+                <tr><td>"Product sense"</td><td>Can you think about WHY users behave a certain way?</td><td>Practice product teardowns of apps you use daily</td></tr>
+                <tr><td>"SQL and Excel proficiency"</td><td>You'll write queries and build pivot tables every day</td><td>LeetCode SQL, DataLemur, Excel shortcuts</td></tr>
+                <tr><td>"A/B testing experience"</td><td>Understand experiment design and statistical significance</td><td>Learn hypothesis → test → analyze → decide framework</td></tr>
+                <tr><td>"Strong communication skills"</td><td>Write clear docs, present findings to stakeholders</td><td>Practice writing concise memos and presenting with data</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>🗺️ Skills Map — What to Learn</h3>
+          <div class="skill-checklist" id="skill-checklist">
+            <div class="skill-category">
+              <div class="skill-category-title must-know">🟢 Must Know (Start Here)</div>
+              <div class="skill-item" data-skill="sql-basics"><div class="skill-checkbox">✓</div><div class="skill-label">SQL — SELECT, WHERE, JOIN, GROUP BY, aggregations</div></div>
+              <div class="skill-item" data-skill="aarrr"><div class="skill-checkbox">✓</div><div class="skill-label">AARRR Pirate Metrics</div></div>
+              <div class="skill-item" data-skill="user-stories"><div class="skill-checkbox">✓</div><div class="skill-label">User Stories & Acceptance Criteria</div></div>
+              <div class="skill-item" data-skill="agile-scrum"><div class="skill-checkbox">✓</div><div class="skill-label">Agile & Scrum Fundamentals</div></div>
+              <div class="skill-item" data-skill="funnel"><div class="skill-checkbox">✓</div><div class="skill-label">Funnel Analysis</div></div>
+              <div class="skill-item" data-skill="excel"><div class="skill-checkbox">✓</div><div class="skill-label">Excel — Pivot Tables, VLOOKUP, Charts</div></div>
+              <div class="skill-item" data-skill="product-sense"><div class="skill-checkbox">✓</div><div class="skill-label">Product Sense & Teardowns</div></div>
+              <div class="skill-item" data-skill="prd"><div class="skill-checkbox">✓</div><div class="skill-label">PRD Writing</div></div>
+              <div class="skill-item" data-skill="bug-reports"><div class="skill-checkbox">✓</div><div class="skill-label">Bug Reports & QA Basics</div></div>
+              <div class="skill-item" data-skill="communication"><div class="skill-checkbox">✓</div><div class="skill-label">Clear Written & Verbal Communication</div></div>
+            </div>
+            <div class="skill-category">
+              <div class="skill-category-title should-know">🟡 Should Know (Level Up)</div>
+              <div class="skill-item" data-skill="ab-testing"><div class="skill-checkbox">✓</div><div class="skill-label">A/B Testing & Experiment Design</div></div>
+              <div class="skill-item" data-skill="retention"><div class="skill-checkbox">✓</div><div class="skill-label">Retention & Cohort Analysis</div></div>
+              <div class="skill-item" data-skill="jira"><div class="skill-checkbox">✓</div><div class="skill-label">Jira or Linear — Hands-on Experience</div></div>
+              <div class="skill-item" data-skill="figma"><div class="skill-checkbox">✓</div><div class="skill-label">Basic Figma (read design specs, comment)</div></div>
+              <div class="skill-item" data-skill="ga"><div class="skill-checkbox">✓</div><div class="skill-label">Google Analytics (GA4)</div></div>
+              <div class="skill-item" data-skill="prioritization"><div class="skill-checkbox">✓</div><div class="skill-label">Prioritization Frameworks (RICE, MoSCoW)</div></div>
+              <div class="skill-item" data-skill="competitive"><div class="skill-checkbox">✓</div><div class="skill-label">Competitive Analysis</div></div>
+              <div class="skill-item" data-skill="personas"><div class="skill-checkbox">✓</div><div class="skill-label">User Personas</div></div>
+              <div class="skill-item" data-skill="roadmapping"><div class="skill-checkbox">✓</div><div class="skill-label">Product Roadmapping</div></div>
+            </div>
+            <div class="skill-category">
+              <div class="skill-category-title good-to-know">🔵 Good to Know (Bonus Points)</div>
+              <div class="skill-item" data-skill="python"><div class="skill-checkbox">✓</div><div class="skill-label">Python / R for Data Analysis</div></div>
+              <div class="skill-item" data-skill="tableau"><div class="skill-checkbox">✓</div><div class="skill-label">Tableau / Looker Dashboards</div></div>
+              <div class="skill-item" data-skill="api-basics"><div class="skill-checkbox">✓</div><div class="skill-label">API Basics (REST, endpoints, status codes)</div></div>
+              <div class="skill-item" data-skill="clarity"><div class="skill-checkbox">✓</div><div class="skill-label">MS Clarity Session Analysis</div></div>
+              <div class="skill-item" data-skill="sql-advanced"><div class="skill-checkbox">✓</div><div class="skill-label">Advanced SQL (CTEs, Window Functions)</div></div>
+              <div class="skill-item" data-skill="statistics"><div class="skill-checkbox">✓</div><div class="skill-label">Basic Statistics (p-values, confidence intervals)</div></div>
+              <div class="skill-item" data-skill="system-design"><div class="skill-checkbox">✓</div><div class="skill-label">System Design Basics</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>📐 Prioritization Frameworks</h3>
+          <div class="accordion" data-accordion>
+            <div class="accordion-header"><h4>🔢 RICE Scoring</h4><span class="accordion-icon">▼</span></div>
+            <div class="accordion-body"><div class="accordion-body-inner">
+              <div class="code-block">
+                <span class="code-label">Formula</span>
+RICE Score = (<span class="code-keyword">Reach</span> × <span class="code-keyword">Impact</span> × <span class="code-keyword">Confidence</span>) / <span class="code-keyword">Effort</span>
+
+<span class="code-field">Reach:</span>     <span class="code-comment">How many users will this affect per quarter?</span>
+<span class="code-field">Impact:</span>    <span class="code-comment">How much will it affect each user? (0.25, 0.5, 1, 2, 3)</span>
+<span class="code-field">Confidence:</span> <span class="code-comment">How sure are we? (100%, 80%, 50%)</span>
+<span class="code-field">Effort:</span>    <span class="code-comment">Person-months to implement</span>
+              </div>
+              <div class="table-wrapper"><table>
+                <thead><tr><th>Feature</th><th>Reach</th><th>Impact</th><th>Confidence</th><th>Effort</th><th>RICE Score</th></tr></thead>
+                <tbody>
+                  <tr><td>Saved Items</td><td>10,000</td><td>2</td><td>80%</td><td>2</td><td><strong>8,000</strong></td></tr>
+                  <tr><td>Social Login</td><td>15,000</td><td>1</td><td>90%</td><td>1</td><td><strong>13,500</strong></td></tr>
+                  <tr><td>AI Recommendations</td><td>20,000</td><td>3</td><td>50%</td><td>6</td><td><strong>5,000</strong></td></tr>
+                </tbody>
+              </table></div>
+              <p><strong>Winner:</strong> Social Login has the highest RICE score — high reach, low effort, high confidence. Build it first!</p>
+            </div></div>
+          </div>
+          <div class="accordion" data-accordion>
+            <div class="accordion-header"><h4>📊 MoSCoW Method</h4><span class="accordion-icon">▼</span></div>
+            <div class="accordion-body"><div class="accordion-body-inner">
+              <ul>
+                <li><strong>Must Have:</strong> Without this, the product doesn't work (e.g., login, checkout)</li>
+                <li><strong>Should Have:</strong> Important but product works without it (e.g., order tracking)</li>
+                <li><strong>Could Have:</strong> Nice to have, adds value (e.g., social sharing)</li>
+                <li><strong>Won't Have (this time):</strong> Explicitly deprioritized (e.g., multi-language support)</li>
+              </ul>
+            </div></div>
+          </div>
+          <div class="accordion" data-accordion>
+            <div class="accordion-header"><h4>📈 Impact-Effort Matrix</h4><span class="accordion-icon">▼</span></div>
+            <div class="accordion-body"><div class="accordion-body-inner">
+              <div class="matrix-grid">
+                <div class="matrix-label"></div>
+                <div class="matrix-label">Low Effort</div>
+                <div class="matrix-label">High Effort</div>
+                <div class="matrix-label" style="writing-mode: vertical-lr; transform: rotate(180deg);">High Impact</div>
+                <div class="matrix-cell" style="background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.3);">
+                  <h5 class="text-success">✅ Quick Wins — Do First</h5>
+                  <p>High value, easy to build. Grab these!</p>
+                </div>
+                <div class="matrix-cell" style="background: rgba(59, 130, 246, 0.1); border-color: rgba(59, 130, 246, 0.3);">
+                  <h5 class="text-info">🗓️ Major Projects — Plan Carefully</h5>
+                  <p>High value but complex. Requires planning.</p>
+                </div>
+                <div class="matrix-label" style="writing-mode: vertical-lr; transform: rotate(180deg);">Low Impact</div>
+                <div class="matrix-cell" style="background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.3);">
+                  <h5 class="text-warning">📋 Fill-ins — Maybe Later</h5>
+                  <p>Easy but low value. Do if you have spare time.</p>
+                </div>
+                <div class="matrix-cell" style="background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3);">
+                  <h5 class="text-error">🗑️ Avoid — Don't Bother</h5>
+                  <p>Hard to build, low value. Skip these.</p>
+                </div>
+              </div>
+            </div></div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>📅 A Typical Day as a Product Analyst Intern</h3>
+          <div class="table-wrapper">
+            <table>
+              <thead><tr><th>Time</th><th>Activity</th></tr></thead>
+              <tbody>
+                <tr><td>9:00 AM</td><td>Check dashboards — any metrics looking unusual?</td></tr>
+                <tr><td>9:30 AM</td><td>Daily standup — share yesterday's findings, today's plan</td></tr>
+                <tr><td>10:00 AM</td><td>Deep work — SQL queries, data analysis for current project</td></tr>
+                <tr><td>12:00 PM</td><td>Lunch + read product blogs (Lenny's Newsletter, etc.)</td></tr>
+                <tr><td>1:00 PM</td><td>Review session recordings in MS Clarity</td></tr>
+                <tr><td>2:00 PM</td><td>Meeting with PM — present findings on checkout funnel</td></tr>
+                <tr><td>3:00 PM</td><td>Build dashboard for the A/B test running this sprint</td></tr>
+                <tr><td>4:00 PM</td><td>Write up findings and recommendations in Notion</td></tr>
+                <tr><td>5:00 PM</td><td>Review tomorrow's priorities, update Jira tasks</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>💬 Interview Prep — Q&amp;A</h3>
+          <div class="accordion" data-accordion>
+            <div class="accordion-header"><h4>Q: What metrics would you track for a food delivery app?</h4><span class="accordion-icon">▼</span></div>
+            <div class="accordion-body"><div class="accordion-body-inner">
+              <p><strong>Model Answer:</strong> I'd use the AARRR framework. <strong>Acquisition:</strong> App downloads, signup rate by channel. <strong>Activation:</strong> First order placed within 7 days. <strong>Retention:</strong> Orders per month, Day-7 and Day-30 retention. <strong>Revenue:</strong> Average order value, revenue per user, gross margin. <strong>Referral:</strong> Referral code usage, NPS score. I'd also track operational metrics like average delivery time, driver utilization, and restaurant partner satisfaction.</p>
+            </div></div>
+          </div>
+          <div class="accordion" data-accordion>
+            <div class="accordion-header"><h4>Q: How would you improve Instagram's Stories feature?</h4><span class="accordion-icon">▼</span></div>
+            <div class="accordion-body"><div class="accordion-body-inner">
+              <p><strong>Model Answer:</strong> First, I'd look at the data — what's the current engagement rate? Where do users drop off? Then I'd look at qualitative feedback. One hypothesis: Stories creation is intimidating for casual users. I'd propose a "Quick Story" mode — one tap to share a photo with auto-generated aesthetic filters and music. Success metrics: increase in Stories posted per user (especially from users who've never posted), Day-7 retention for new Story creators.</p>
+            </div></div>
+          </div>
+          <div class="accordion" data-accordion>
+            <div class="accordion-header"><h4>Q: You notice a 15% drop in signups this week. What do you do?</h4><span class="accordion-icon">▼</span></div>
+            <div class="accordion-body"><div class="accordion-body-inner">
+              <p><strong>Model Answer:</strong> Step 1: <strong>Validate</strong> — Is it real or a data issue? Check data pipeline, compare week-over-week. Step 2: <strong>Segment</strong> — Is it all platforms or specific? (iOS vs Android, mobile vs web). Step 3: <strong>Identify</strong> — What changed? New deployment? Marketing campaign ended? Step 4: <strong>Investigate</strong> — Check the signup funnel stage by stage. Is it traffic drop or conversion drop? Step 5: <strong>Act</strong> — If it's a bug, escalate immediately. If it's marketing, coordinate with the growth team. Step 6: <strong>Monitor</strong> — Set up alerts for further drops.</p>
+            </div></div>
+          </div>
+          <div class="accordion" data-accordion>
+            <div class="accordion-header"><h4>Q: Explain A/B testing to a non-technical person.</h4><span class="accordion-icon">▼</span></div>
+            <div class="accordion-body"><div class="accordion-body-inner">
+              <p><strong>Model Answer:</strong> Imagine you run a coffee shop and want to know if a green sign or blue sign attracts more customers. You can't show both at the same time to the same person. So you show the green sign on Monday and blue sign on Tuesday and compare. That's basically A/B testing — you show version A to half your users and version B to the other half, then measure which one performs better on a specific metric (like signups or purchases). The key is making sure both groups are large enough and random to get trustworthy results.</p>
+            </div></div>
+          </div>
+          <div class="accordion" data-accordion>
+            <div class="accordion-header"><h4>Q: What's the difference between a Product Manager and a Project Manager?</h4><span class="accordion-icon">▼</span></div>
+            <div class="accordion-body"><div class="accordion-body-inner">
+              <p><strong>Model Answer:</strong> A Product Manager owns the <strong>"What" and "Why"</strong> — what should we build and why is it valuable for users and the business? They define the vision, strategy, and roadmap. A Project Manager owns the <strong>"When" and "How much"</strong> — timelines, budgets, resource allocation. They ensure things ship on time. In some companies one person does both, but in larger orgs they're distinct roles. Think of it this way: the Product Manager is the architect who designs the building, and the Project Manager is the general contractor who makes sure it gets built on schedule and within budget.</p>
+            </div></div>
+          </div>
+          <div class="accordion" data-accordion>
+            <div class="accordion-header"><h4>Q: Tell me about a product you love and one thing you'd change.</h4><span class="accordion-icon">▼</span></div>
+            <div class="accordion-body"><div class="accordion-body-inner">
+              <p><strong>Model Answer:</strong> I love Notion because it replaced 5 different tools for me — notes, tasks, docs, databases, and bookmarks. The flexibility of its block-based system is brilliant. One thing I'd improve: <strong>offline support</strong>. Currently, Notion barely works without internet. For a productivity tool, that's a significant gap. My approach: I'd first validate demand (check support tickets, competitor comparison), then propose a "smart sync" feature that caches your most recent workspaces for offline access. Success metric: decrease in "offline error" reports and increase in mobile session duration.</p>
+            </div></div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>📅 7-Day Action Plan</h3>
+          <div class="action-plan">
+            <div class="action-day">
+              <div class="action-day-num">D1</div>
+              <div class="action-day-content"><h5>Foundation Day</h5><p>Read Chapters 1-3 of this guide. Understand software products, SDLC, Agile & Scrum. Write down 5 key terms you learned.</p></div>
+            </div>
+            <div class="action-day">
+              <div class="action-day-num">D2</div>
+              <div class="action-day-content"><h5>People & Process</h5><p>Read Chapters 4-5. Understand all team roles and the feature lifecycle. Pick an app you use daily and map out who likely built each feature.</p></div>
+            </div>
+            <div class="action-day">
+              <div class="action-day-num">D3</div>
+              <div class="action-day-content"><h5>Product Thinking</h5><p>Read Chapters 6-7. Practice writing 3 user stories for an app you use. Write a mini-PRD (1 page) for a feature you wish existed.</p></div>
+            </div>
+            <div class="action-day">
+              <div class="action-day-num">D4</div>
+              <div class="action-day-content"><h5>Quality & Data</h5><p>Read Chapters 8-9. Write a bug report for a real bug you've encountered. Sign up for MS Clarity (free) and explore the demo.</p></div>
+            </div>
+            <div class="action-day">
+              <div class="action-day-num">D5</div>
+              <div class="action-day-content"><h5>Tools & Growth</h5><p>Read Chapters 10-11. Sign up for free tools: Figma, Notion, Google Analytics. Do a product teardown of your favorite app's retention strategy.</p></div>
+            </div>
+            <div class="action-day">
+              <div class="action-day-num">D6</div>
+              <div class="action-day-content"><h5>Case Studies & SQL</h5><p>Read Chapter 12. Practice 10 basic SQL problems on DataLemur or HackerRank. Start building a portfolio document with your analyses.</p></div>
+            </div>
+            <div class="action-day">
+              <div class="action-day-num">D7</div>
+              <div class="action-day-content"><h5>Interview Prep</h5><p>Read Chapter 13 + Glossary. Practice answering all 6 interview questions aloud. Complete the skills checklist — identify your gaps and make a learning plan.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Final Quiz -->
+        <div class="quiz" data-quiz="ch13">
+          <div class="quiz-header">
+            <span class="emoji-icon">🎓</span>
+            <h4>Final Knowledge Check</h4>
+          </div>
+          <div class="quiz-question" data-correct="2">
+            <p class="question-text">1. In the RICE framework, what does the "C" stand for?</p>
+            <div class="quiz-options">
+              <div class="quiz-option" data-value="0"><span class="option-radio"></span>Cost</div>
+              <div class="quiz-option" data-value="1"><span class="option-radio"></span>Complexity</div>
+              <div class="quiz-option" data-value="2"><span class="option-radio"></span>Confidence</div>
+              <div class="quiz-option" data-value="3"><span class="option-radio"></span>Conversion</div>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <div class="quiz-question" data-correct="1">
+            <p class="question-text">2. What is Slack's "magic number" for retention?</p>
+            <div class="quiz-options">
+              <div class="quiz-option" data-value="0"><span class="option-radio"></span>500 messages</div>
+              <div class="quiz-option" data-value="1"><span class="option-radio"></span>2,000 messages</div>
+              <div class="quiz-option" data-value="2"><span class="option-radio"></span>5,000 messages</div>
+              <div class="quiz-option" data-value="3"><span class="option-radio"></span>10,000 messages</div>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+          <div class="quiz-question" data-correct="0">
+            <p class="question-text">3. Which AARRR metric measures "Do users come back?"</p>
+            <div class="quiz-options">
+              <div class="quiz-option" data-value="0"><span class="option-radio"></span>Retention</div>
+              <div class="quiz-option" data-value="1"><span class="option-radio"></span>Activation</div>
+              <div class="quiz-option" data-value="2"><span class="option-radio"></span>Acquisition</div>
+              <div class="quiz-option" data-value="3"><span class="option-radio"></span>Revenue</div>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════ GLOSSARY ═══════════ -->
+      <section id="glossary" class="chapter" data-title="Glossary">
+        <div class="chapter-header">
+          <div class="chapter-label">Reference <span class="reading-time">· 4 min read</span></div>
+          <h2 class="chapter-title gradient-text">Glossary — 50+ Key Terms</h2>
+          <p class="chapter-subtitle">Quick-reference definitions for every important term in this guide.</p>
+        </div>
+
+        <div class="glossary-filter">
+          <input type="text" id="glossary-search" placeholder="Filter terms… (e.g., Agile, API, Sprint)">
+        </div>
+
+        <div class="glossary-grid" id="glossary-grid">
+          <div class="glossary-item"><div class="glossary-term">A/B Testing</div><p class="glossary-def">Comparing two versions of a feature to see which performs better with real users.</p></div>
+          <div class="glossary-item"><div class="glossary-term">Acceptance Criteria</div><p class="glossary-def">Specific conditions that must be met for a user story to be considered complete.</p></div>
+          <div class="glossary-item"><div class="glossary-term">Agile</div><p class="glossary-def">An iterative approach to software development that delivers work in small, frequent increments.</p></div>
+          <div class="glossary-item"><div class="glossary-term">API (Application Programming Interface)</div><p class="glossary-def">A set of rules that allows different software systems to communicate with each other.</p></div>
+          <div class="glossary-item"><div class="glossary-term">ARPU (Average Revenue Per User)</div><p class="glossary-def">Total revenue divided by total number of users over a time period.</p></div>
+          <div class="glossary-item"><div class="glossary-term">Backlog</div><p class="glossary-def">A prioritized list of features, bugs, and tasks that the team plans to work on.</p></div>
+          <div class="glossary-item"><div class="glossary-term">B2B (Business-to-Business)</div><p class="glossary-def">Companies that sell products or services to other businesses (e.g., Salesforce, Slack).</p></div>
+          <div class="glossary-item"><div class="glossary-term">B2C (Business-to-Consumer)</div><p class="glossary-def">Companies that sell directly to individual consumers (e.g., Netflix, Spotify).</p></div>
+          <div class="glossary-item"><div class="glossary-term">Burndown Chart</div><p class="glossary-def">A graph showing remaining work versus time in a sprint.</p></div>
+          <div class="glossary-item"><div class="glossary-term">CAC (Customer Acquisition Cost)</div><p class="glossary-def">Total cost to acquire one new customer, including marketing and sales expenses.</p></div>
+          <div class="glossary-item"><div class="glossary-term">Canary Release</div><p class="glossary-def">Rolling out a new feature to a small percentage of users first to test for issues.</p></div>
+          <div class="glossary-item"><div class="glossary-term">Churn Rate</div><p class="glossary-def">The percentage of users who stop using a product over a given time period.</p></div>
+          <div class="glossary-item"><div class="glossary-term">CI/CD</div><p class="glossary-def">Continuous Integration / Continuous Deployment — automated pipeline for building, testing, and deploying code.</p></div>
+          <div class="glossary-item"><div class="glossary-term">Cohort Analysis</div><p class="glossary-def">Studying the behavior of a group of users who share a common characteristic over time.</p></div>
+          <div class="glossary-item"><div class="glossary-term">Conversion Rate</div><p class="glossary-def">Percentage of users who complete a desired action (e.g., signup, purchase).</p></div>
+          <div class="glossary-item"><div class="glossary-term">DAU / MAU</div><p class="glossary-def">Daily Active Users / Monthly Active Users. Measures how many unique users engage with your product.</p></div>
+          <div class="glossary-item"><div class="glossary-term">Definition of Done</div><p class="glossary-def">The agreed-upon criteria that a work item must meet to be considered complete.</p></div>
+          <div class="glossary-item"><div class="glossary-term">DevOps</div><p class="glossary-def">Practices that combine development and operations to shorten the delivery cycle and improve reliability.</p></div>
+          <div class="glossary-item"><div class="glossary-term">Epic</div><p class="glossary-def">A large body of work that can be broken down into multiple user stories and spans several sprints.</p></div>
+          <div class="glossary-item"><div class="glossary-term">Feature Flag</div><p class="glossary-def">A toggle that enables or disables a feature without deploying new code.</p></div>
+          <div class="glossary-item"><div class="glossary-term">Funnel</div><p class="glossary-def">A series of steps users take toward a goal, with drop-off measured at each step.</p></div>
+          <div class="glossary-item"><div class="glossary-term">Heatmap</div><p class="glossary-def">A visual overlay showing where users click, scroll, or spend time on a page.</p></div>
+          <div class="glossary-item"><div class="glossary-term">KPI (Key Performance Indicator)</div><p class="glossary-def">A measurable value that indicates how effectively a company is achieving business objectives.</p></div>
+          <div class="glossary-item"><div class="glossary-term">LTV (Lifetime Value)</div><p class="glossary-def">The total revenue a business can expect from a single customer throughout their relationship.</p></div>
+          <div class="glossary-item"><div class="glossary-term">MoSCoW</div><p class="glossary-def">Prioritization method: Must have, Should have, Could have, Won't have (this time).</p></div>
+          <div class="glossary-item"><div class="glossary-term">MVP (Minimum Viable Product)</div><p class="glossary-def">The simplest version of a product that can be released to test a hypothesis with real users.</p></div>
+          <div class="glossary-item"><div class="glossary-term">MRR (Monthly Recurring Revenue)</div><p class="glossary-def">Predictable revenue generated each month from subscriptions.</p></div>
+          <div class="glossary-item"><div class="glossary-term">NPS (Net Promoter Score)</div><p class="glossary-def">Survey measuring customer loyalty: "How likely are you to recommend us?" (0-10 scale).</p></div>
+          <div class="glossary-item"><div class="glossary-term">OKR (Objectives and Key Results)</div><p class="glossary-def">Goal-setting framework. Objective = what you want to achieve. Key Results = how you measure success.</p></div>
+          <div class="glossary-item"><div class="glossary-term">PRD (Product Requirements Document)</div><p class="glossary-def">A document that outlines the purpose, features, and requirements of a product or feature.</p></div>
+          <div class="glossary-item"><div class="glossary-term">Product-Market Fit</div><p class="glossary-def">When a product satisfies a strong market demand — users love it and retention is high.</p></div>
+          <div class="glossary-item"><div class="glossary-term">Rage Click</div><p class="glossary-def">When a user clicks rapidly and repeatedly on an element, indicating frustration.</p></div>
+          <div class="glossary-item"><div class="glossary-term">Regression Testing</div><p class="glossary-def">Testing to ensure that new code changes haven't broken existing functionality.</p></div>
+          <div class="glossary-item"><div class="glossary-term">REST API</div><p class="glossary-def">A standard architectural style for web APIs using HTTP methods (GET, POST, PUT, DELETE).</p></div>
+          <div class="glossary-item"><div class="glossary-term">Retention</div><p class="glossary-def">The ability of a product to keep users engaged and returning over time.</p></div>
+          <div class="glossary-item"><div class="glossary-term">RICE</div><p class="glossary-def">Prioritization framework: Reach × Impact × Confidence / Effort.</p></div>
+          <div class="glossary-item"><div class="glossary-term">Roadmap</div><p class="glossary-def">A strategic plan showing what features/improvements will be built and when.</p></div>
+          <div class="glossary-item"><div class="glossary-term">SaaS (Software as a Service)</div><p class="glossary-def">Software delivered over the internet via subscription (e.g., Notion, Figma, Slack).</p></div>
+          <div class="glossary-item"><div class="glossary-term">Scrum</div><p class="glossary-def">An Agile framework using sprints, standups, and ceremonies to deliver software iteratively.</p></div>
+          <div class="glossary-item"><div class="glossary-term">SDLC</div><p class="glossary-def">Software Development Life Cycle — the structured process for building software.</p></div>
+          <div class="glossary-item"><div class="glossary-term">Session Recording</div><p class="glossary-def">A replay of a user's session showing their clicks, scrolls, and navigation patterns.</p></div>
+          <div class="glossary-item"><div class="glossary-term">Sprint</div><p class="glossary-def">A fixed time period (usually 2 weeks) in which a team completes a set of work items.</p></div>
+          <div class="glossary-item"><div class="glossary-term">Sprint Retrospective</div><p class="glossary-def">A meeting after each sprint to reflect on what went well, what didn't, and how to improve.</p></div>
+          <div class="glossary-item"><div class="glossary-term">Story Points</div><p class="glossary-def">A relative unit of measure for estimating the effort required to complete a user story.</p></div>
+          <div class="glossary-item"><div class="glossary-term">SWOT Analysis</div><p class="glossary-def">Strategic planning: Strengths, Weaknesses, Opportunities, Threats.</p></div>
+          <div class="glossary-item"><div class="glossary-term">Technical Debt</div><p class="glossary-def">The cost of choosing a quick/easy solution now that will require rework later.</p></div>
+          <div class="glossary-item"><div class="glossary-term">UAT (User Acceptance Testing)</div><p class="glossary-def">Testing performed by end users to validate that the system meets their requirements.</p></div>
+          <div class="glossary-item"><div class="glossary-term">User Persona</div><p class="glossary-def">A fictional character representing a specific user type, based on real user research.</p></div>
+          <div class="glossary-item"><div class="glossary-term">User Story</div><p class="glossary-def">A brief description of a feature from the end user's perspective: As a [user], I want [action], so that [benefit].</p></div>
+          <div class="glossary-item"><div class="glossary-term">UX (User Experience)</div><p class="glossary-def">The overall experience a user has with a product — how easy, enjoyable, and valuable it is.</p></div>
+          <div class="glossary-item"><div class="glossary-term">Velocity</div><p class="glossary-def">The average number of story points a team completes per sprint.</p></div>
+          <div class="glossary-item"><div class="glossary-term">Wireframe</div><p class="glossary-def">A basic visual layout of a page/screen showing structure without detailed design.</p></div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer style="text-align: center; padding: 48px 0; border-top: 1px solid var(--border-color);">
+        <p style="color: var(--text-muted); font-size: 0.8125rem;">Built with ❤️ by <strong style="color: var(--text-secondary);">Halonic Learning</strong> · 2025 Edition</p>
+        <p style="color: var(--text-muted); font-size: 0.75rem; margin-top: 8px;">Designed for aspiring Product Managers and Analysts</p>
+      </footer>
+    </div>
+  </main>
+
+  <!-- Scroll to Top Button -->
+  <button id="scroll-top" aria-label="Scroll to top">↑</button>
+
+  <script src="app.js"></script>
+</body>
+</html>
