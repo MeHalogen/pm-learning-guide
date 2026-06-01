@@ -19,7 +19,7 @@
 
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
-  --text-muted: #64748b;
+  --text-muted: #808ea3;
 
   --border-color: rgba(255, 255, 255, 0.06);
   --border-color-hover: rgba(255, 255, 255, 0.12);
@@ -87,7 +87,7 @@
 
   --text-primary: #0f172a;
   --text-secondary: #475569;
-  --text-muted: #94a3b8;
+  --text-muted: #64748b;
 
   --border-color: rgba(0, 0, 0, 0.08);
   --border-color-hover: rgba(0, 0, 0, 0.15);
@@ -426,11 +426,12 @@ li::marker {
   flex-shrink: 0;
 }
 
-.sidebar-logo-text h3 {
+.sidebar-logo-text .sidebar-logo-title {
   font-family: var(--font-heading);
   font-size: 0.9375rem;
   margin-bottom: 0;
   color: var(--text-primary);
+  font-weight: 600;
 }
 .sidebar-logo-text span {
   font-size: 0.6875rem;

@@ -215,9 +215,10 @@
       color: #fff;
     }
 
-    .header-logo-text h3 {
+    .header-logo-text .header-logo-title {
       font-size: 1.1rem;
       margin-bottom: 0;
+      font-weight: 600;
     }
     .header-logo-text span {
       font-size: 0.75rem;
@@ -657,11 +658,12 @@
       gap: 20px;
     }
 
-    .sidebar-title h3 {
+    .sidebar-title .sidebar-title-text {
       font-size: 0.95rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       color: var(--text-muted);
+      font-weight: 600;
     }
 
     .bubbles-grid {
@@ -984,14 +986,14 @@
 <body>
 
   <!-- Progress Bar -->
-  <div id="progress-bar" role="progressbar"></div>
+  <div id="progress-bar" role="progressbar" aria-label="Exam progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 
   <!-- Header -->
   <header>
     <div class="header-logo" onclick="app.showDashboard()">
       <div class="header-logo-icon">📘</div>
       <div class="header-logo-text">
-        <h3>PM Guide Portal</h3>
+        <div class="header-logo-title">PM Guide Portal</div>
         <span>MeHalogen Test Client</span>
       </div>
     </div>
@@ -1115,7 +1117,7 @@
           <!-- Sidebar Navigator -->
           <aside class="exam-sidebar">
             <div class="sidebar-title">
-              <h3>Navigator</h3>
+              <div class="sidebar-title-text">Navigator</div>
             </div>
             <div class="bubbles-grid" id="bubbles-container">
               <!-- Grid of 1-30 bubbles rendered dynamically -->
@@ -2540,6 +2542,7 @@
         this.activeSetNum = null;
         this.updateDashboardStats();
         this.progressBar.style.width = '0%';
+        this.progressBar.setAttribute('aria-valuenow', '0');
         this.switchView('view-dashboard');
       }
 
@@ -2607,6 +2610,7 @@
         // Update progress bar
         const pct = ((idx + 1) / 30) * 100;
         this.progressBar.style.width = `${pct}%`;
+        this.progressBar.setAttribute('aria-valuenow', Math.round(pct));
 
         // Render meta & text
         document.getElementById('q-chapter').textContent = q.chapter;
@@ -2622,9 +2626,11 @@
         q.options.forEach((optText, optIdx) => {
           const btn = document.createElement('button');
           btn.className = 'option-btn';
-          if (this.userAnswers[idx] === optIdx) {
+          const isSelected = this.userAnswers[idx] === optIdx;
+          if (isSelected) {
             btn.classList.add('selected');
           }
+          btn.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
 
           btn.onclick = () => this.selectOption(optIdx);
 
@@ -2660,8 +2666,10 @@
         btns.forEach((btn, idx) => {
           if (idx === optIdx) {
             btn.classList.add('selected');
+            btn.setAttribute('aria-pressed', 'true');
           } else {
             btn.classList.remove('selected');
+            btn.setAttribute('aria-pressed', 'false');
           }
         });
 
@@ -2848,6 +2856,7 @@
         feedback.textContent = feedbackTxt;
 
         this.progressBar.style.width = '0%';
+        this.progressBar.setAttribute('aria-valuenow', '0');
         this.switchView('view-results');
       }
 

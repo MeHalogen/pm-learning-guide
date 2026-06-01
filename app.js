@@ -290,10 +290,30 @@
       quiz.querySelectorAll('.quiz-question').forEach(question => {
         const correctAnswer = question.getAttribute('data-correct');
         const options = question.querySelectorAll('.quiz-option');
+        const optionsContainer = question.querySelector('.quiz-options');
         const feedback = question.querySelector('.quiz-feedback');
         let answered = false;
 
+        // Set up radiogroup accessibility
+        if (optionsContainer) {
+          optionsContainer.setAttribute('role', 'radiogroup');
+          const questionText = question.querySelector('.question-text');
+          if (questionText) {
+            if (!questionText.id) {
+              questionText.id = 'q-text-' + Math.random().toString(36).substr(2, 9);
+            }
+            optionsContainer.setAttribute('aria-labelledby', questionText.id);
+          } else {
+            optionsContainer.setAttribute('aria-label', 'Answer options');
+          }
+        }
+
         options.forEach(option => {
+          // Initialize ARIA state
+          option.setAttribute('tabindex', '0');
+          option.setAttribute('role', 'radio');
+          option.setAttribute('aria-checked', 'false');
+
           option.addEventListener('click', () => {
             if (answered) return;
             answered = true;
@@ -301,7 +321,7 @@
             const value = option.getAttribute('data-value');
             const isCorrect = value === correctAnswer;
 
-            // Remove hover state from all options
+            // Remove hover state from all options and update ARIA states
             options.forEach(o => {
               o.style.cursor = 'default';
               if (o.getAttribute('data-value') === correctAnswer) {
@@ -309,6 +329,7 @@
               } else if (o === option && !isCorrect) {
                 o.classList.add('incorrect');
               }
+              o.setAttribute('aria-checked', o === option ? 'true' : 'false');
             });
 
             option.classList.add('selected');
@@ -326,8 +347,6 @@
           });
 
           // Keyboard
-          option.setAttribute('tabindex', '0');
-          option.setAttribute('role', 'radio');
           option.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
               e.preventDefault();
