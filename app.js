@@ -173,6 +173,7 @@
 
   // ---- Mobile Menu ----
   function initMobileMenu() {
+    mobileMenuBtn.setAttribute('aria-expanded', 'false');
     mobileMenuBtn.addEventListener('click', () => {
       const isOpen = sidebar.classList.contains('open');
       if (isOpen) {
@@ -182,6 +183,7 @@
         sidebarOverlay.classList.add('active');
         sidebarOverlay.style.display = 'block';
         mobileMenuBtn.textContent = '✕';
+        mobileMenuBtn.setAttribute('aria-expanded', 'true');
       }
     });
 
@@ -193,6 +195,7 @@
     sidebarOverlay.classList.remove('active');
     setTimeout(() => { sidebarOverlay.style.display = 'none'; }, 250);
     mobileMenuBtn.textContent = '☰';
+    mobileMenuBtn.setAttribute('aria-expanded', 'false');
   }
 
   // ---- Scroll to Top ----
@@ -218,9 +221,11 @@
         if (isOpen) {
           acc.classList.remove('open');
           body.style.maxHeight = '0';
+          header.setAttribute('aria-expanded', 'false');
         } else {
           acc.classList.add('open');
           body.style.maxHeight = body.scrollHeight + 'px';
+          header.setAttribute('aria-expanded', 'true');
         }
       });
 
@@ -244,14 +249,34 @@
       const btns = tabContainer.querySelectorAll('.tab-btn');
       const panels = tabContainer.querySelectorAll('.tab-panel');
 
+      // Set initial ARIA attributes for accessibility
+      btns.forEach((btn, idx) => {
+        const tabId = btn.getAttribute('data-tab');
+        const isActive = btn.classList.contains('active');
+        btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        btn.setAttribute('aria-controls', `tab-panel-${tabId}`);
+        btn.setAttribute('id', `tab-btn-${tabId}`);
+        
+        const panel = panels[idx];
+        if (panel) {
+          panel.setAttribute('id', `tab-panel-${tabId}`);
+          panel.setAttribute('aria-labelledby', `tab-btn-${tabId}`);
+          panel.setAttribute('role', 'tabpanel');
+        }
+      });
+
       btns.forEach(btn => {
         btn.addEventListener('click', () => {
           const tabId = btn.getAttribute('data-tab');
 
-          btns.forEach(b => b.classList.remove('active'));
+          btns.forEach(b => {
+            b.classList.remove('active');
+            b.setAttribute('aria-selected', 'false');
+          });
           panels.forEach(p => p.classList.remove('active'));
 
           btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
           const targetPanel = tabContainer.querySelector(`[data-tab-panel="${tabId}"]`);
           if (targetPanel) targetPanel.classList.add('active');
         });
